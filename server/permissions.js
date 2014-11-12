@@ -1,26 +1,26 @@
-// Security.defineMethod('ownsDocument', {
-// 	deny: function (type, arg, userId, doc, fieldNames, modifier) {
-// 		arg = arg || '_id';
-// 		return userId !== doc[arg];
-// 	}
-// });
+Security.defineMethod('ownsDocument', {
+	deny: function (type, arg, userId, doc, fieldNames, modifier) {
+		arg = arg || '_id';
+		return userId !== doc[arg];
+	}
+});
 
-// Security.defineMethod('ifHasGroupRole', {
-// 	deny: function (type, arg, userId) {
-// 		return !Roles.userIsInRole(userId, arg.role, arg.group);
-// 	}
-// });
+Security.defineMethod('ifHasGroupRole', {
+	deny: function (type, arg, userId) {
+		return !Roles.userIsInRole(userId, arg.role, arg.group);
+	}
+});
 
-// Security.defineMethod('admin', {
-// 	deny: function (type, arg, userId) {
-// 		return !Roles.userIsInRole(userId, 'admin');
-// 	}
-// });
+Security.defineMethod('admin', {
+	deny: function (type, arg, userId) {
+		return !Roles.userIsInRole(userId, 'admin');
+	}
+});
 
-// Meteor.users.permit('remove').never().apply();
-// Meteor.users.permit('insert').admin().apply();
-// Meteor.users.permit('update').admin().apply();
-// Meteor.users.permit('update').ifLoggedIn().ownsDocument() .apply();
+Meteor.users.permit('remove').never().apply();
+Meteor.users.permit('insert').admin().apply();
+Meteor.users.permit('update').admin().apply();
+Meteor.users.permit('update').ifLoggedIn().ownsDocument() .apply();
 
 Meteor.users.allow({
 	update: function (userId, doc, fields, modifier) {
