@@ -1,0 +1,2716 @@
+/* Stackicons-Social CSS Construction Kit v1.0 | MIT License | <http://stackicons.com> 
+   Copyright (c) 2014 by Parker Bennett @parkerbennett @stackicons */
+/* FONTS */
+/* Stackicons-Social (Standard) */
+@font-face {
+  font-family: 'Stackicons-Social';
+  src: url("/icon-fonts/Stackicons/Stackicons-Social.eot");
+  /* IE9 Compat Modes */
+  src: url("/icon-fonts/Stackicons/Stackicons-Social.eot?#iefix") format("embedded-opentype"), url("/icon-fonts/Stackicons/Stackicons-Social.woff") format("woff"), url("/icon-fonts/Stackicons/Stackicons-Social.ttf") format("truetype"), url("/icon-fonts/Stackicons/Stackicons-Social.svg#76cc4077294aa89eeb6c5fa684bb9048") format("svg");
+  /* Legacy iOS */
+  font-style: normal !important;
+  font-weight: 400 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  speak: none; }
+
+/* =============================================================================
+ *     STACKICONS-SOCIAL - BRAND COLOR VARIABLES (2014)  http://stackicons.com
+ *     v1.13 - February 3, 2014
+ * ============================================================================= 
+ */
+.st-embossed, .st-embossed-only .st-icon-email2:before,
+.st-embossed-only.st-icon-email2:before, .st-embossed-only .st-icon-facebook-alt:before,
+.st-embossed-only.st-icon-facebook-alt:before, .st-embossed-only .st-icon-flickr:before,
+.st-embossed-only.st-icon-flickr:before, .st-embossed-only .st-icon-googleplus:before,
+.st-embossed-only.st-icon-googleplus:before, .st-embossed-only .st-icon-instagram:before,
+.st-embossed-only.st-icon-instagram:before, .st-embossed-only .st-icon-kickstarter:before,
+.st-embossed-only.st-icon-kickstarter:before, .st-embossed-only .st-icon-pinterest:before,
+.st-embossed-only.st-icon-pinterest:before, .st-embossed-only .st-icon-reddit:before,
+.st-embossed-only.st-icon-reddit:before, .st-embossed-only .st-icon-soundcloud:before,
+.st-embossed-only.st-icon-soundcloud:before, .st-embossed-only .st-icon-stumbleupon:before,
+.st-embossed-only.st-icon-stumbleupon:before, .st-embossed-only .st-icon-tumblr:before,
+.st-embossed-only.st-icon-tumblr:before, .st-embossed-only .st-icon-twitter:before,
+.st-embossed-only.st-icon-twitter:before, .st-embossed-only .st-icon-vine:before,
+.st-embossed-only.st-icon-vine:before, .st-embossed-only .st-icon-youtube:before,
+.st-embossed-only.st-icon-youtube:before, .st-embossed-only .st-icon-youtube-alt:before,
+.st-embossed-only.st-icon-youtube-alt:before, .st-embossed-only .st-icon-youtube-alt-sm:before,
+.st-embossed-only.st-icon-youtube-alt-sm:before, .st-embossed-only .st-icon-search:before,
+.st-embossed-only.st-icon-search:before {
+  text-shadow: 0 -1px 0 #bbbbbb, 0 1px 0 white;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.263), 0 -1px 1px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.5); }
+
+.st-raised {
+  text-shadow: 0 1px 0 #bbbbbb, 0 -1px 0 white;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.263), 0 1px 1px rgba(0, 0, 0, 0.05), 0 -1px 0 rgba(255, 255, 255, 0.5); }
+
+.st-dropshadow {
+  text-shadow: 0 1px 1px #999999;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.395); }
+
+.st-glow {
+  text-shadow: 0 0 1px white;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.67); }
+
+.st-glowshadow {
+  text-shadow: 0 0 1px #777777;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.528); }
+
+/* =================================================================
+ *     STACKICONS-SOCIAL - UNICODE CHARACTER MAPPING  
+ *     http://stackicons.com/scss/_unicodes-stackicons-social.scss
+ * =================================================================
+ */
+.st-embossed, .st-embossed-only .st-icon-email2:before,
+.st-embossed-only.st-icon-email2:before, .st-embossed-only .st-icon-facebook-alt:before,
+.st-embossed-only.st-icon-facebook-alt:before, .st-embossed-only .st-icon-flickr:before,
+.st-embossed-only.st-icon-flickr:before, .st-embossed-only .st-icon-googleplus:before,
+.st-embossed-only.st-icon-googleplus:before, .st-embossed-only .st-icon-instagram:before,
+.st-embossed-only.st-icon-instagram:before, .st-embossed-only .st-icon-kickstarter:before,
+.st-embossed-only.st-icon-kickstarter:before, .st-embossed-only .st-icon-pinterest:before,
+.st-embossed-only.st-icon-pinterest:before, .st-embossed-only .st-icon-reddit:before,
+.st-embossed-only.st-icon-reddit:before, .st-embossed-only .st-icon-soundcloud:before,
+.st-embossed-only.st-icon-soundcloud:before, .st-embossed-only .st-icon-stumbleupon:before,
+.st-embossed-only.st-icon-stumbleupon:before, .st-embossed-only .st-icon-tumblr:before,
+.st-embossed-only.st-icon-tumblr:before, .st-embossed-only .st-icon-twitter:before,
+.st-embossed-only.st-icon-twitter:before, .st-embossed-only .st-icon-vine:before,
+.st-embossed-only.st-icon-vine:before, .st-embossed-only .st-icon-youtube:before,
+.st-embossed-only.st-icon-youtube:before, .st-embossed-only .st-icon-youtube-alt:before,
+.st-embossed-only.st-icon-youtube-alt:before, .st-embossed-only .st-icon-youtube-alt-sm:before,
+.st-embossed-only.st-icon-youtube-alt-sm:before, .st-embossed-only .st-icon-search:before,
+.st-embossed-only.st-icon-search:before {
+  text-shadow: 0 -1px 0 #bbbbbb, 0 1px 0 white;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.263), 0 -1px 1px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.5); }
+
+.st-raised {
+  text-shadow: 0 1px 0 #bbbbbb, 0 -1px 0 white;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.263), 0 1px 1px rgba(0, 0, 0, 0.05), 0 -1px 0 rgba(255, 255, 255, 0.5); }
+
+.st-dropshadow {
+  text-shadow: 0 1px 1px #999999;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.395); }
+
+.st-glow {
+  text-shadow: 0 0 1px white;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.67); }
+
+.st-glowshadow {
+  text-shadow: 0 0 1px #777777;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.528); }
+
+/* default is a horizontal button row, using 
+   inline-block vs float to make positioning 
+   to the right easier using text-align */
+.st-icon, [class^="st-icon-"] {
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  /* child elements absolute */
+  position: relative;
+  /* remove inline-block white-space */
+  margin: 0 -.16em 0 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* padding isn't used for icons since  
+     pseudo elements use position:absolute
+     and box-sizing:border-box collapses 
+     size, but we need it here for text */
+  padding: 0.3575em;
+  /* icons at 2400 but 2048 = 1em, so ratio = 1.171875 */
+  height: 1.88688em;
+  width: 1.88688em;
+  font-size: 1.92em;
+  /* btn or icon only - text hidden */
+  text-align: left;
+  text-indent: -9999px;
+  /* ie7 inline-block hack */
+  zoom: 1;
+  *display: inline; }
+
+/* for vertical lists with text */
+.nav-list {
+  font-size: 62.5%; }
+
+.nav-list .st-icon, .nav-list [class^="st-icon-"] {
+  display: block;
+  height: auto;
+  min-height: 1.88688em;
+  line-height: 1.3;
+  width: auto;
+  margin-left: -0.3575em;
+  padding-left: 2.04688em;
+  text-indent: 0; }
+
+.st-shape-icon.nav-list .st-icon,
+.st-shape-icon.nav-list [class^="st-icon-"],
+.st-shape-rounded5.nav-list .st-icon,
+.st-shape-rounded5.nav-list [class^="st-icon-"],
+.st-shape-r5.nav-list .st-icon,
+.st-shape-r5.nav-list [class^="st-icon-"] {
+  padding-left: 1.96688em; }
+
+.nav-list-tighter {
+  margin-bottom: -.1em; }
+
+.nav-list a {
+  color: #666; }
+  .nav-list a:hover, .nav-list a:focus {
+    color: #333; }
+  .nav-list a:active {
+    color: #000; }
+
+/* Icons use position: absolute to stack.
+   Pseudo-elements display icons so they don't 
+   render in unstyled html. Extra <span> needed 
+   in markup to stack more than two elements.
+
+   <b> and <i> reserved for button styling --  
+   bevels, and inline-border. 
+
+   Remember, these are child elements so they 
+   will inherit, and cascade em units from 
+   span, b, and i.
+*/
+.st-icon:before,
+.st-icon:after,
+.st-icon span:before,
+.st-icon span:after,
+.st-icon b:before,
+.st-icon b:after,
+.st-icon i:before,
+.st-icon i:after,
+[class^="st-icon-"]:before,
+[class^="st-icon-"]:after,
+[class^="st-icon-"] span:before,
+[class^="st-icon-"] span:after,
+[class^="st-icon-"] b:before,
+[class^="st-icon-"] b:after,
+[class^="st-icon-"] i:before,
+[class^="st-icon-"] i:after {
+  /* transition */
+  -webkit-transition: color 0.2s ease-out, background 0.2s ease-out;
+  -moz-transition: color 0.2s ease-out, background 0.2s ease-out;
+  -o-transition: color 0.2s ease-out, background 0.2s ease-out;
+  -ms-transition: color 0.2s ease-out, background 0.2s ease-out;
+  transition: color 0.2s ease-out, background 0.2s ease-out;
+  display: block;
+  position: absolute;
+  white-space: normal;
+  top: 0.3275em;
+  left: 0.3575em;
+  text-indent: 0;
+  font-size: 1em;
+  font-family: "Stackicons-Social";
+  font-weight: 400 !important;
+  font-style: normal !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  /* screenreaders */
+  speak: none; }
+
+.nav-left, .nav-center {
+  margin-left: -0.3575em; }
+
+.nav-right {
+  margin-right: -0.3575em; }
+
+.text-left, .nav-left {
+  text-align: left; }
+
+.text-right, .nav-right {
+  text-align: right; }
+
+.text-center, .nav-center {
+  text-align: center; }
+
+.text-justify, .nav-justify {
+  text-align: justify; }
+
+.st-icon:before,
+[class^="st-icon-"]:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.raise-on-hover .st-icon:focus,
+.raise-on-hover .st-icon:hover,
+.raise-on-hover.st-icon:focus,
+.raise-on-hover.st-icon:hover,
+[class^="st-icon-"].raise-on-hover:focus,
+[class^="st-icon-"].raise-on-hover:hover,
+[class^="st-icon-"].raise-on-hover:focus,
+[class^="st-icon-"].raise-on-hover:hover {
+  top: -1px; }
+
+.raise-on-hover .st-icon:active,
+.raise-on-hover.st-icon:active,
+[class^="st-icon-"].raise-on-hover:active,
+[class^="st-icon-"].raise-on-hover:active {
+  top: 0px; }
+
+.raise-on-hover .st-icon:active:before,
+.raise-on-hover.st-icon:active:before,
+.raise-on-hover [class^="st-icon-"]:active:before,
+[class^="st-icon-"].raise-on-hover:active:before {
+  text-shadow: none; }
+
+.st-icon-email2:before {
+  content: "\e04a"; }
+
+.st-icon-email2:hover:before,
+.st-icon-email2:focus:before {
+  color: #aeb1b4; }
+
+.st-icon-facebook-alt:before {
+  content: "\e02a"; }
+
+.st-icon-facebook-alt:hover:before,
+.st-icon-facebook-alt:focus:before {
+  color: #3b5998; }
+
+.st-icon-flickr:before {
+  content: "\e151"; }
+
+.st-icon-flickr:hover:before,
+.st-icon-flickr:focus:before {
+  color: #ff0285; }
+
+.st-icon-googleplus:before {
+  content: "\e03a"; }
+
+.st-icon-googleplus:hover:before,
+.st-icon-googleplus:focus:before {
+  color: #f2301c; }
+
+.st-icon-instagram:before {
+  content: "\e221"; }
+
+.st-icon-instagram:hover:before,
+.st-icon-instagram:focus:before {
+  color: #3f729b; }
+
+.st-icon-kickstarter:before {
+  content: "\e24a"; }
+
+.st-icon-kickstarter:hover:before,
+.st-icon-kickstarter:focus:before {
+  color: #76cc1e; }
+
+.st-icon-pinterest:before {
+  content: "\e291"; }
+
+.st-icon-pinterest:hover:before,
+.st-icon-pinterest:focus:before {
+  color: #cc2027; }
+
+.st-icon-reddit:before {
+  content: "\e311"; }
+
+.st-icon-reddit:hover:before,
+.st-icon-reddit:focus:before {
+  color: #96c3f0; }
+
+.st-icon-soundcloud:before {
+  content: "\e331"; }
+
+.st-icon-soundcloud:hover:before,
+.st-icon-soundcloud:focus:before {
+  color: #ff3d00; }
+
+.st-icon-stumbleupon:before {
+  content: "\e351"; }
+
+.st-icon-stumbleupon:hover:before,
+.st-icon-stumbleupon:focus:before {
+  color: #ea4b24; }
+
+.st-icon-tumblr:before {
+  content: "\e35a"; }
+
+.st-icon-tumblr:hover:before,
+.st-icon-tumblr:focus:before {
+  color: #394b62; }
+
+.st-icon-twitter:before {
+  content: "\e031"; }
+
+.st-icon-twitter:hover:before,
+.st-icon-twitter:focus:before {
+  color: #00bcf6; }
+
+.st-icon-vine:before {
+  content: "\e36a"; }
+
+.st-icon-vine:hover:before,
+.st-icon-vine:focus:before {
+  color: #00bf8f; }
+
+.st-icon-youtube:before {
+  content: "\e411"; }
+
+.st-icon-youtube:hover:before,
+.st-icon-youtube:focus:before {
+  color: #d22222; }
+
+.st-icon-youtube-alt:before {
+  content: "\e421"; }
+
+.st-icon-youtube-alt:hover:before,
+.st-icon-youtube-alt:focus:before {
+  color: #af2b26; }
+
+.st-icon-youtube-alt-sm:before {
+  content: "\e421"; }
+
+.st-icon-youtube-alt-sm:hover:before,
+.st-icon-youtube-alt-sm:focus:before {
+  color: #af2b26; }
+
+.st-icon-search:before {
+  content: "\e061"; }
+
+.st-icon-search:hover:before,
+.st-icon-search:focus:before {
+  color: #555555; }
+
+/* 
+  - .st-shape-icon:        no button, icon only
+  also:
+    .st-shape-rounded5 (yes, it's not really rounded)
+    .st-shape-r5
+*/
+.st-shape-icon .st-icon-email2:before,
+.st-shape-icon.st-icon-email2:before,
+.st-shape-rounded5 .st-icon-email2:before,
+.st-shape-rounded5.st-icon-email2:before,
+.st-shape-r5 .st-icon-email2:before,
+.st-shape-r5.st-icon-email2:before {
+  content: "\e04f"; }
+
+.st-shape-icon .st-icon-email2:hover:before,
+.st-shape-icon.st-icon-email2:hover:before,
+.st-shape-rounded5 .st-icon-email2:hover:before,
+.st-shape-rounded5.st-icon-email2:hover:before,
+.st-shape-r5 .st-icon-email2:hover:before,
+.st-shape-r5.st-icon-email2:hover:before,
+.st-shape-icon .st-icon-email2:focus:before,
+.st-shape-icon.st-icon-email2:focus:before,
+.st-shape-rounded5 .st-icon-email2:focus:before,
+.st-shape-rounded5.st-icon-email2:focus:before,
+.st-shape-r5 .st-icon-email2:focus:before,
+.st-shape-r5.st-icon-email2:focus:before {
+  content: "\e04f"; }
+
+.st-shape-icon .st-icon-facebook-alt:before,
+.st-shape-icon.st-icon-facebook-alt:before,
+.st-shape-rounded5 .st-icon-facebook-alt:before,
+.st-shape-rounded5.st-icon-facebook-alt:before,
+.st-shape-r5 .st-icon-facebook-alt:before,
+.st-shape-r5.st-icon-facebook-alt:before {
+  content: "\e02f"; }
+
+.st-shape-icon .st-icon-facebook-alt:hover:before,
+.st-shape-icon.st-icon-facebook-alt:hover:before,
+.st-shape-rounded5 .st-icon-facebook-alt:hover:before,
+.st-shape-rounded5.st-icon-facebook-alt:hover:before,
+.st-shape-r5 .st-icon-facebook-alt:hover:before,
+.st-shape-r5.st-icon-facebook-alt:hover:before,
+.st-shape-icon .st-icon-facebook-alt:focus:before,
+.st-shape-icon.st-icon-facebook-alt:focus:before,
+.st-shape-rounded5 .st-icon-facebook-alt:focus:before,
+.st-shape-rounded5.st-icon-facebook-alt:focus:before,
+.st-shape-r5 .st-icon-facebook-alt:focus:before,
+.st-shape-r5.st-icon-facebook-alt:focus:before {
+  content: "\e02f"; }
+
+.st-shape-icon .st-icon-flickr:before,
+.st-shape-icon.st-icon-flickr:before,
+.st-shape-rounded5 .st-icon-flickr:before,
+.st-shape-rounded5.st-icon-flickr:before,
+.st-shape-r5 .st-icon-flickr:before,
+.st-shape-r5.st-icon-flickr:before {
+  content: "\e156"; }
+
+.st-shape-icon .st-icon-flickr:hover:before,
+.st-shape-icon.st-icon-flickr:hover:before,
+.st-shape-rounded5 .st-icon-flickr:hover:before,
+.st-shape-rounded5.st-icon-flickr:hover:before,
+.st-shape-r5 .st-icon-flickr:hover:before,
+.st-shape-r5.st-icon-flickr:hover:before,
+.st-shape-icon .st-icon-flickr:focus:before,
+.st-shape-icon.st-icon-flickr:focus:before,
+.st-shape-rounded5 .st-icon-flickr:focus:before,
+.st-shape-rounded5.st-icon-flickr:focus:before,
+.st-shape-r5 .st-icon-flickr:focus:before,
+.st-shape-r5.st-icon-flickr:focus:before {
+  content: "\e156"; }
+
+.st-shape-icon .st-icon-googleplus:before,
+.st-shape-icon.st-icon-googleplus:before,
+.st-shape-rounded5 .st-icon-googleplus:before,
+.st-shape-rounded5.st-icon-googleplus:before,
+.st-shape-r5 .st-icon-googleplus:before,
+.st-shape-r5.st-icon-googleplus:before {
+  content: "\e03f"; }
+
+.st-shape-icon .st-icon-googleplus:hover:before,
+.st-shape-icon.st-icon-googleplus:hover:before,
+.st-shape-rounded5 .st-icon-googleplus:hover:before,
+.st-shape-rounded5.st-icon-googleplus:hover:before,
+.st-shape-r5 .st-icon-googleplus:hover:before,
+.st-shape-r5.st-icon-googleplus:hover:before,
+.st-shape-icon .st-icon-googleplus:focus:before,
+.st-shape-icon.st-icon-googleplus:focus:before,
+.st-shape-rounded5 .st-icon-googleplus:focus:before,
+.st-shape-rounded5.st-icon-googleplus:focus:before,
+.st-shape-r5 .st-icon-googleplus:focus:before,
+.st-shape-r5.st-icon-googleplus:focus:before {
+  content: "\e03f"; }
+
+.st-shape-icon .st-icon-instagram:before,
+.st-shape-icon.st-icon-instagram:before,
+.st-shape-rounded5 .st-icon-instagram:before,
+.st-shape-rounded5.st-icon-instagram:before,
+.st-shape-r5 .st-icon-instagram:before,
+.st-shape-r5.st-icon-instagram:before {
+  content: "\e226"; }
+
+.st-shape-icon .st-icon-instagram:hover:before,
+.st-shape-icon.st-icon-instagram:hover:before,
+.st-shape-rounded5 .st-icon-instagram:hover:before,
+.st-shape-rounded5.st-icon-instagram:hover:before,
+.st-shape-r5 .st-icon-instagram:hover:before,
+.st-shape-r5.st-icon-instagram:hover:before,
+.st-shape-icon .st-icon-instagram:focus:before,
+.st-shape-icon.st-icon-instagram:focus:before,
+.st-shape-rounded5 .st-icon-instagram:focus:before,
+.st-shape-rounded5.st-icon-instagram:focus:before,
+.st-shape-r5 .st-icon-instagram:focus:before,
+.st-shape-r5.st-icon-instagram:focus:before {
+  content: "\e226";
+  color: #8a5747; }
+
+.st-shape-icon .st-icon-kickstarter:before,
+.st-shape-icon.st-icon-kickstarter:before,
+.st-shape-rounded5 .st-icon-kickstarter:before,
+.st-shape-rounded5.st-icon-kickstarter:before,
+.st-shape-r5 .st-icon-kickstarter:before,
+.st-shape-r5.st-icon-kickstarter:before {
+  content: "\e24f"; }
+
+.st-shape-icon .st-icon-kickstarter:hover:before,
+.st-shape-icon.st-icon-kickstarter:hover:before,
+.st-shape-rounded5 .st-icon-kickstarter:hover:before,
+.st-shape-rounded5.st-icon-kickstarter:hover:before,
+.st-shape-r5 .st-icon-kickstarter:hover:before,
+.st-shape-r5.st-icon-kickstarter:hover:before,
+.st-shape-icon .st-icon-kickstarter:focus:before,
+.st-shape-icon.st-icon-kickstarter:focus:before,
+.st-shape-rounded5 .st-icon-kickstarter:focus:before,
+.st-shape-rounded5.st-icon-kickstarter:focus:before,
+.st-shape-r5 .st-icon-kickstarter:focus:before,
+.st-shape-r5.st-icon-kickstarter:focus:before {
+  content: "\e24f"; }
+
+.st-shape-icon .st-icon-pinterest:before,
+.st-shape-icon.st-icon-pinterest:before,
+.st-shape-rounded5 .st-icon-pinterest:before,
+.st-shape-rounded5.st-icon-pinterest:before,
+.st-shape-r5 .st-icon-pinterest:before,
+.st-shape-r5.st-icon-pinterest:before {
+  content: "\e29f"; }
+
+.st-shape-icon .st-icon-pinterest:hover:before,
+.st-shape-icon.st-icon-pinterest:hover:before,
+.st-shape-rounded5 .st-icon-pinterest:hover:before,
+.st-shape-rounded5.st-icon-pinterest:hover:before,
+.st-shape-r5 .st-icon-pinterest:hover:before,
+.st-shape-r5.st-icon-pinterest:hover:before,
+.st-shape-icon .st-icon-pinterest:focus:before,
+.st-shape-icon.st-icon-pinterest:focus:before,
+.st-shape-rounded5 .st-icon-pinterest:focus:before,
+.st-shape-rounded5.st-icon-pinterest:focus:before,
+.st-shape-r5 .st-icon-pinterest:focus:before,
+.st-shape-r5.st-icon-pinterest:focus:before {
+  content: "\e29f"; }
+
+.st-shape-icon .st-icon-reddit:before,
+.st-shape-icon.st-icon-reddit:before,
+.st-shape-rounded5 .st-icon-reddit:before,
+.st-shape-rounded5.st-icon-reddit:before,
+.st-shape-r5 .st-icon-reddit:before,
+.st-shape-r5.st-icon-reddit:before {
+  content: "\e316"; }
+
+.st-shape-icon .st-icon-reddit:hover:before,
+.st-shape-icon.st-icon-reddit:hover:before,
+.st-shape-rounded5 .st-icon-reddit:hover:before,
+.st-shape-rounded5.st-icon-reddit:hover:before,
+.st-shape-r5 .st-icon-reddit:hover:before,
+.st-shape-r5.st-icon-reddit:hover:before,
+.st-shape-icon .st-icon-reddit:focus:before,
+.st-shape-icon.st-icon-reddit:focus:before,
+.st-shape-rounded5 .st-icon-reddit:focus:before,
+.st-shape-rounded5.st-icon-reddit:focus:before,
+.st-shape-r5 .st-icon-reddit:focus:before,
+.st-shape-r5.st-icon-reddit:focus:before {
+  content: "\e316";
+  color: black; }
+
+.st-shape-icon .st-icon-soundcloud:before,
+.st-shape-icon.st-icon-soundcloud:before,
+.st-shape-rounded5 .st-icon-soundcloud:before,
+.st-shape-rounded5.st-icon-soundcloud:before,
+.st-shape-r5 .st-icon-soundcloud:before,
+.st-shape-r5.st-icon-soundcloud:before {
+  content: "\e336"; }
+
+.st-shape-icon .st-icon-soundcloud:hover:before,
+.st-shape-icon.st-icon-soundcloud:hover:before,
+.st-shape-rounded5 .st-icon-soundcloud:hover:before,
+.st-shape-rounded5.st-icon-soundcloud:hover:before,
+.st-shape-r5 .st-icon-soundcloud:hover:before,
+.st-shape-r5.st-icon-soundcloud:hover:before,
+.st-shape-icon .st-icon-soundcloud:focus:before,
+.st-shape-icon.st-icon-soundcloud:focus:before,
+.st-shape-rounded5 .st-icon-soundcloud:focus:before,
+.st-shape-rounded5.st-icon-soundcloud:focus:before,
+.st-shape-r5 .st-icon-soundcloud:focus:before,
+.st-shape-r5.st-icon-soundcloud:focus:before {
+  content: "\e336";
+  color: #ff5500; }
+
+.st-shape-icon .st-icon-stumbleupon:before,
+.st-shape-icon.st-icon-stumbleupon:before,
+.st-shape-rounded5 .st-icon-stumbleupon:before,
+.st-shape-rounded5.st-icon-stumbleupon:before,
+.st-shape-r5 .st-icon-stumbleupon:before,
+.st-shape-r5.st-icon-stumbleupon:before {
+  content: "\e356"; }
+
+.st-shape-icon .st-icon-stumbleupon:hover:before,
+.st-shape-icon.st-icon-stumbleupon:hover:before,
+.st-shape-rounded5 .st-icon-stumbleupon:hover:before,
+.st-shape-rounded5.st-icon-stumbleupon:hover:before,
+.st-shape-r5 .st-icon-stumbleupon:hover:before,
+.st-shape-r5.st-icon-stumbleupon:hover:before,
+.st-shape-icon .st-icon-stumbleupon:focus:before,
+.st-shape-icon.st-icon-stumbleupon:focus:before,
+.st-shape-rounded5 .st-icon-stumbleupon:focus:before,
+.st-shape-rounded5.st-icon-stumbleupon:focus:before,
+.st-shape-r5 .st-icon-stumbleupon:focus:before,
+.st-shape-r5.st-icon-stumbleupon:focus:before {
+  content: "\e356"; }
+
+.st-shape-icon .st-icon-tumblr:before,
+.st-shape-icon.st-icon-tumblr:before,
+.st-shape-rounded5 .st-icon-tumblr:before,
+.st-shape-rounded5.st-icon-tumblr:before,
+.st-shape-r5 .st-icon-tumblr:before,
+.st-shape-r5.st-icon-tumblr:before {
+  content: "\e35f"; }
+
+.st-shape-icon .st-icon-tumblr:hover:before,
+.st-shape-icon.st-icon-tumblr:hover:before,
+.st-shape-rounded5 .st-icon-tumblr:hover:before,
+.st-shape-rounded5.st-icon-tumblr:hover:before,
+.st-shape-r5 .st-icon-tumblr:hover:before,
+.st-shape-r5.st-icon-tumblr:hover:before,
+.st-shape-icon .st-icon-tumblr:focus:before,
+.st-shape-icon.st-icon-tumblr:focus:before,
+.st-shape-rounded5 .st-icon-tumblr:focus:before,
+.st-shape-rounded5.st-icon-tumblr:focus:before,
+.st-shape-r5 .st-icon-tumblr:focus:before,
+.st-shape-r5.st-icon-tumblr:focus:before {
+  content: "\e35f"; }
+
+.st-shape-icon .st-icon-twitter:before,
+.st-shape-icon.st-icon-twitter:before,
+.st-shape-rounded5 .st-icon-twitter:before,
+.st-shape-rounded5.st-icon-twitter:before,
+.st-shape-r5 .st-icon-twitter:before,
+.st-shape-r5.st-icon-twitter:before {
+  content: "\e036"; }
+
+.st-shape-icon .st-icon-twitter:hover:before,
+.st-shape-icon.st-icon-twitter:hover:before,
+.st-shape-rounded5 .st-icon-twitter:hover:before,
+.st-shape-rounded5.st-icon-twitter:hover:before,
+.st-shape-r5 .st-icon-twitter:hover:before,
+.st-shape-r5.st-icon-twitter:hover:before,
+.st-shape-icon .st-icon-twitter:focus:before,
+.st-shape-icon.st-icon-twitter:focus:before,
+.st-shape-rounded5 .st-icon-twitter:focus:before,
+.st-shape-rounded5.st-icon-twitter:focus:before,
+.st-shape-r5 .st-icon-twitter:focus:before,
+.st-shape-r5.st-icon-twitter:focus:before {
+  content: "\e036"; }
+
+.st-shape-icon .st-icon-vine:before,
+.st-shape-icon.st-icon-vine:before,
+.st-shape-rounded5 .st-icon-vine:before,
+.st-shape-rounded5.st-icon-vine:before,
+.st-shape-r5 .st-icon-vine:before,
+.st-shape-r5.st-icon-vine:before {
+  content: "\e36f"; }
+
+.st-shape-icon .st-icon-vine:hover:before,
+.st-shape-icon.st-icon-vine:hover:before,
+.st-shape-rounded5 .st-icon-vine:hover:before,
+.st-shape-rounded5.st-icon-vine:hover:before,
+.st-shape-r5 .st-icon-vine:hover:before,
+.st-shape-r5.st-icon-vine:hover:before,
+.st-shape-icon .st-icon-vine:focus:before,
+.st-shape-icon.st-icon-vine:focus:before,
+.st-shape-rounded5 .st-icon-vine:focus:before,
+.st-shape-rounded5.st-icon-vine:focus:before,
+.st-shape-r5 .st-icon-vine:focus:before,
+.st-shape-r5.st-icon-vine:focus:before {
+  content: "\e36f";
+  color: #00b388; }
+
+.st-shape-icon .st-icon-youtube:before,
+.st-shape-icon.st-icon-youtube:before,
+.st-shape-rounded5 .st-icon-youtube:before,
+.st-shape-rounded5.st-icon-youtube:before,
+.st-shape-r5 .st-icon-youtube:before,
+.st-shape-r5.st-icon-youtube:before {
+  content: "\e416"; }
+
+.st-shape-icon .st-icon-youtube:hover:before,
+.st-shape-icon.st-icon-youtube:hover:before,
+.st-shape-rounded5 .st-icon-youtube:hover:before,
+.st-shape-rounded5.st-icon-youtube:hover:before,
+.st-shape-r5 .st-icon-youtube:hover:before,
+.st-shape-r5.st-icon-youtube:hover:before,
+.st-shape-icon .st-icon-youtube:focus:before,
+.st-shape-icon.st-icon-youtube:focus:before,
+.st-shape-rounded5 .st-icon-youtube:focus:before,
+.st-shape-rounded5.st-icon-youtube:focus:before,
+.st-shape-r5 .st-icon-youtube:focus:before,
+.st-shape-r5.st-icon-youtube:focus:before {
+  content: "\e416"; }
+
+.st-shape-icon .st-icon-youtube-alt:before,
+.st-shape-icon.st-icon-youtube-alt:before,
+.st-shape-rounded5 .st-icon-youtube-alt:before,
+.st-shape-rounded5.st-icon-youtube-alt:before,
+.st-shape-r5 .st-icon-youtube-alt:before,
+.st-shape-r5.st-icon-youtube-alt:before {
+  content: "\e426"; }
+
+.st-shape-icon .st-icon-youtube-alt:hover:before,
+.st-shape-icon.st-icon-youtube-alt:hover:before,
+.st-shape-rounded5 .st-icon-youtube-alt:hover:before,
+.st-shape-rounded5.st-icon-youtube-alt:hover:before,
+.st-shape-r5 .st-icon-youtube-alt:hover:before,
+.st-shape-r5.st-icon-youtube-alt:hover:before,
+.st-shape-icon .st-icon-youtube-alt:focus:before,
+.st-shape-icon.st-icon-youtube-alt:focus:before,
+.st-shape-rounded5 .st-icon-youtube-alt:focus:before,
+.st-shape-rounded5.st-icon-youtube-alt:focus:before,
+.st-shape-r5 .st-icon-youtube-alt:focus:before,
+.st-shape-r5.st-icon-youtube-alt:focus:before {
+  content: "\e426"; }
+
+.st-shape-icon .st-icon-youtube-alt-sm:before,
+.st-shape-icon.st-icon-youtube-alt-sm:before,
+.st-shape-rounded5 .st-icon-youtube-alt-sm:before,
+.st-shape-rounded5.st-icon-youtube-alt-sm:before,
+.st-shape-r5 .st-icon-youtube-alt-sm:before,
+.st-shape-r5.st-icon-youtube-alt-sm:before {
+  content: "\e426"; }
+
+.st-shape-icon .st-icon-youtube-alt-sm:hover:before,
+.st-shape-icon.st-icon-youtube-alt-sm:hover:before,
+.st-shape-rounded5 .st-icon-youtube-alt-sm:hover:before,
+.st-shape-rounded5.st-icon-youtube-alt-sm:hover:before,
+.st-shape-r5 .st-icon-youtube-alt-sm:hover:before,
+.st-shape-r5.st-icon-youtube-alt-sm:hover:before,
+.st-shape-icon .st-icon-youtube-alt-sm:focus:before,
+.st-shape-icon.st-icon-youtube-alt-sm:focus:before,
+.st-shape-rounded5 .st-icon-youtube-alt-sm:focus:before,
+.st-shape-rounded5.st-icon-youtube-alt-sm:focus:before,
+.st-shape-r5 .st-icon-youtube-alt-sm:focus:before,
+.st-shape-r5.st-icon-youtube-alt-sm:focus:before {
+  content: "\e426"; }
+
+.st-shape-icon .st-icon-search:before,
+.st-shape-icon.st-icon-search:before,
+.st-shape-rounded5 .st-icon-search:before,
+.st-shape-rounded5.st-icon-search:before,
+.st-shape-r5 .st-icon-search:before,
+.st-shape-r5.st-icon-search:before {
+  content: "\e066"; }
+
+.st-shape-icon .st-icon-search:hover:before,
+.st-shape-icon.st-icon-search:hover:before,
+.st-shape-rounded5 .st-icon-search:hover:before,
+.st-shape-rounded5.st-icon-search:hover:before,
+.st-shape-r5 .st-icon-search:hover:before,
+.st-shape-r5.st-icon-search:hover:before,
+.st-shape-icon .st-icon-search:focus:before,
+.st-shape-icon.st-icon-search:focus:before,
+.st-shape-rounded5 .st-icon-search:focus:before,
+.st-shape-rounded5.st-icon-search:focus:before,
+.st-shape-r5 .st-icon-search:focus:before,
+.st-shape-r5.st-icon-search:focus:before {
+  content: "\e066";
+  color: #222222; }
+
+/* override classes (parent or icon)
+  - .st-single-color:        single-color, single-color-hover on hover
+  - .st-single-color-brand:  single-color, brand-color on hover
+  - .st-brand-color:         brand-color, brand-color-hover on hover
+  - .st-brand-color-variant: brand-color-variant, brand-color on hover
+  - .st-embossed-only:       darkened background-color, brand-color on hover
+*/
+.st-brand-color .st-icon-email2:before,
+.st-brand-variant .st-icon-email2:hover:before,
+.st-brand-variant .st-icon-email2:focus:before,
+.st-embossed-only .st-icon-email2:hover:before,
+.st-embossed-only .st-icon-email2:focus:before,
+.st-single-color-brand .st-icon-email2:hover:before,
+.st-single-color-brand .st-icon-email2:focus:before,
+.st-brand-color.st-icon-email2:before,
+.st-brand-variant.st-icon-email2:hover:before,
+.st-brand-variant.st-icon-email2:focus:before,
+.st-embossed-only.st-icon-email2:hover:before,
+.st-embossed-only.st-icon-email2:focus:before,
+.st-single-color-brand.st-icon-email2:hover:before,
+.st-single-color-brand.st-icon-email2:focus:before {
+  color: #aeb1b4; }
+
+.st-brand-variant .st-icon-email2:before,
+.st-brand-variant.st-icon-email2:before {
+  color: #dfe0e1;
+  color: #dfe0e1; }
+
+.st-brand-variant.st-shape-icon .st-icon-email2:before,
+.st-brand-variant .st-shape-icon.st-icon-email2:before,
+.st-brand-variant.st-shape-icon.st-icon-email2:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-email2:before,
+.st-brand-variant .st-shape-rounded5.st-icon-email2:before,
+.st-brand-variant.st-shape-rounded5.st-icon-email2:before,
+.st-brand-variant.st-shape-r5 .st-icon-email2:before,
+.st-brand-variant .st-shape-r5.st-icon-email2:before,
+.st-brand-variant.st-shape-r5.st-icon-email2:before {
+  color: #dfe0e1;
+  color: #dfe0e1; }
+
+.st-brand-variant.st-shape-icon .st-icon-email2:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-email2:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-email2:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-email2:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-email2:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-email2:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-email2:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-email2:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-email2:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-email2:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-email2:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-email2:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-email2:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-email2:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-email2:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-email2:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-email2:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-email2:focus:before {
+  color: #aeb1b4; }
+
+.st-single-color .st-icon-email2:before,
+.st-single-color-brand .st-icon-email2:before,
+.st-single-color.st-icon-email2:before,
+.st-single-color-brand.st-icon-email2:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-email2:hover:before,
+.st-single-color .st-icon-email2:focus:before,
+.st-single-color.st-icon-email2:hover:before,
+.st-single-color.st-icon-email2:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-email2:before,
+.st-embossed-only.st-icon-email2:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-email2:hover:before,
+.st-embossed-only .st-icon-email2:active:before,
+.st-embossed-only .st-icon-email2:focus:before,
+.st-embossed-only.st-icon-email2:hover:before,
+.st-embossed-only.st-icon-email2:active:before,
+.st-embossed-only.st-icon-email2:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-email2:active:before,
+.st-embossed-only.st-icon-email2:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-facebook-alt:before,
+.st-brand-variant .st-icon-facebook-alt:hover:before,
+.st-brand-variant .st-icon-facebook-alt:focus:before,
+.st-embossed-only .st-icon-facebook-alt:hover:before,
+.st-embossed-only .st-icon-facebook-alt:focus:before,
+.st-single-color-brand .st-icon-facebook-alt:hover:before,
+.st-single-color-brand .st-icon-facebook-alt:focus:before,
+.st-brand-color.st-icon-facebook-alt:before,
+.st-brand-variant.st-icon-facebook-alt:hover:before,
+.st-brand-variant.st-icon-facebook-alt:focus:before,
+.st-embossed-only.st-icon-facebook-alt:hover:before,
+.st-embossed-only.st-icon-facebook-alt:focus:before,
+.st-single-color-brand.st-icon-facebook-alt:hover:before,
+.st-single-color-brand.st-icon-facebook-alt:focus:before {
+  color: #3b5998; }
+
+.st-brand-color .st-icon-facebook-alt:hover:before,
+.st-brand-color .st-icon-facebook-alt:focus:before,
+.st-brand-color.st-icon-facebook-alt:hover:before,
+.st-brand-color.st-icon-facebook-alt:focus:before {
+  color: #91a8d7;
+  color: #91a8d7; }
+
+.st-brand-variant .st-icon-facebook-alt:before,
+.st-brand-variant.st-icon-facebook-alt:before {
+  color: #b1bdd6;
+  color: #b1bdd6; }
+
+.st-brand-variant.st-shape-icon .st-icon-facebook-alt:before,
+.st-brand-variant .st-shape-icon.st-icon-facebook-alt:before,
+.st-brand-variant.st-shape-icon.st-icon-facebook-alt:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-facebook-alt:before,
+.st-brand-variant .st-shape-rounded5.st-icon-facebook-alt:before,
+.st-brand-variant.st-shape-rounded5.st-icon-facebook-alt:before,
+.st-brand-variant.st-shape-r5 .st-icon-facebook-alt:before,
+.st-brand-variant .st-shape-r5.st-icon-facebook-alt:before,
+.st-brand-variant.st-shape-r5.st-icon-facebook-alt:before {
+  color: #b1bdd6;
+  color: #b1bdd6; }
+
+.st-brand-variant.st-shape-icon .st-icon-facebook-alt:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-facebook-alt:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-facebook-alt:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-facebook-alt:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-facebook-alt:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-facebook-alt:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-facebook-alt:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-facebook-alt:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-facebook-alt:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-facebook-alt:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-facebook-alt:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-facebook-alt:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-facebook-alt:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-facebook-alt:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-facebook-alt:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-facebook-alt:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-facebook-alt:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-facebook-alt:focus:before {
+  color: #3b5998; }
+
+.st-single-color .st-icon-facebook-alt:before,
+.st-single-color-brand .st-icon-facebook-alt:before,
+.st-single-color.st-icon-facebook-alt:before,
+.st-single-color-brand.st-icon-facebook-alt:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-facebook-alt:hover:before,
+.st-single-color .st-icon-facebook-alt:focus:before,
+.st-single-color.st-icon-facebook-alt:hover:before,
+.st-single-color.st-icon-facebook-alt:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-facebook-alt:before,
+.st-embossed-only.st-icon-facebook-alt:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-facebook-alt:hover:before,
+.st-embossed-only .st-icon-facebook-alt:active:before,
+.st-embossed-only .st-icon-facebook-alt:focus:before,
+.st-embossed-only.st-icon-facebook-alt:hover:before,
+.st-embossed-only.st-icon-facebook-alt:active:before,
+.st-embossed-only.st-icon-facebook-alt:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-facebook-alt:active:before,
+.st-embossed-only.st-icon-facebook-alt:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-flickr:before,
+.st-brand-variant .st-icon-flickr:hover:before,
+.st-brand-variant .st-icon-flickr:focus:before,
+.st-embossed-only .st-icon-flickr:hover:before,
+.st-embossed-only .st-icon-flickr:focus:before,
+.st-single-color-brand .st-icon-flickr:hover:before,
+.st-single-color-brand .st-icon-flickr:focus:before,
+.st-brand-color.st-icon-flickr:before,
+.st-brand-variant.st-icon-flickr:hover:before,
+.st-brand-variant.st-icon-flickr:focus:before,
+.st-embossed-only.st-icon-flickr:hover:before,
+.st-embossed-only.st-icon-flickr:focus:before,
+.st-single-color-brand.st-icon-flickr:hover:before,
+.st-single-color-brand.st-icon-flickr:focus:before {
+  color: #ff0285; }
+
+.st-brand-color .st-icon-flickr:hover:before,
+.st-brand-color .st-icon-flickr:focus:before,
+.st-brand-color.st-icon-flickr:hover:before,
+.st-brand-color.st-icon-flickr:focus:before {
+  color: #ff80c2;
+  color: #ff80c2; }
+
+.st-brand-variant .st-icon-flickr:before,
+.st-brand-variant.st-icon-flickr:before {
+  color: #f0a9ce;
+  color: #f0a9ce; }
+
+.st-brand-variant.st-shape-icon .st-icon-flickr:before,
+.st-brand-variant .st-shape-icon.st-icon-flickr:before,
+.st-brand-variant.st-shape-icon.st-icon-flickr:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-flickr:before,
+.st-brand-variant .st-shape-rounded5.st-icon-flickr:before,
+.st-brand-variant.st-shape-rounded5.st-icon-flickr:before,
+.st-brand-variant.st-shape-r5 .st-icon-flickr:before,
+.st-brand-variant .st-shape-r5.st-icon-flickr:before,
+.st-brand-variant.st-shape-r5.st-icon-flickr:before {
+  color: #f0a9ce;
+  color: #f0a9ce; }
+
+.st-brand-variant.st-shape-icon .st-icon-flickr:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-flickr:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-flickr:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-flickr:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-flickr:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-flickr:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-flickr:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-flickr:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-flickr:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-flickr:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-flickr:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-flickr:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-flickr:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-flickr:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-flickr:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-flickr:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-flickr:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-flickr:focus:before {
+  color: #ff0285; }
+
+.st-single-color .st-icon-flickr:before,
+.st-single-color-brand .st-icon-flickr:before,
+.st-single-color.st-icon-flickr:before,
+.st-single-color-brand.st-icon-flickr:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-flickr:hover:before,
+.st-single-color .st-icon-flickr:focus:before,
+.st-single-color.st-icon-flickr:hover:before,
+.st-single-color.st-icon-flickr:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-flickr:before,
+.st-embossed-only.st-icon-flickr:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-flickr:hover:before,
+.st-embossed-only .st-icon-flickr:active:before,
+.st-embossed-only .st-icon-flickr:focus:before,
+.st-embossed-only.st-icon-flickr:hover:before,
+.st-embossed-only.st-icon-flickr:active:before,
+.st-embossed-only.st-icon-flickr:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-flickr:active:before,
+.st-embossed-only.st-icon-flickr:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-googleplus:before,
+.st-brand-variant .st-icon-googleplus:hover:before,
+.st-brand-variant .st-icon-googleplus:focus:before,
+.st-embossed-only .st-icon-googleplus:hover:before,
+.st-embossed-only .st-icon-googleplus:focus:before,
+.st-single-color-brand .st-icon-googleplus:hover:before,
+.st-single-color-brand .st-icon-googleplus:focus:before,
+.st-brand-color.st-icon-googleplus:before,
+.st-brand-variant.st-icon-googleplus:hover:before,
+.st-brand-variant.st-icon-googleplus:focus:before,
+.st-embossed-only.st-icon-googleplus:hover:before,
+.st-embossed-only.st-icon-googleplus:focus:before,
+.st-single-color-brand.st-icon-googleplus:hover:before,
+.st-single-color-brand.st-icon-googleplus:focus:before {
+  color: #f2301c; }
+
+.st-brand-color .st-icon-googleplus:hover:before,
+.st-brand-color .st-icon-googleplus:focus:before,
+.st-brand-color.st-icon-googleplus:hover:before,
+.st-brand-color.st-icon-googleplus:focus:before {
+  color: #f9978d;
+  color: #f9978d; }
+
+.st-brand-variant .st-icon-googleplus:before,
+.st-brand-variant.st-icon-googleplus:before {
+  color: #edb7b1;
+  color: #edb7b1; }
+
+.st-brand-variant.st-shape-icon .st-icon-googleplus:before,
+.st-brand-variant .st-shape-icon.st-icon-googleplus:before,
+.st-brand-variant.st-shape-icon.st-icon-googleplus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-googleplus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-googleplus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-googleplus:before,
+.st-brand-variant.st-shape-r5 .st-icon-googleplus:before,
+.st-brand-variant .st-shape-r5.st-icon-googleplus:before,
+.st-brand-variant.st-shape-r5.st-icon-googleplus:before {
+  color: #edb7b1;
+  color: #edb7b1; }
+
+.st-brand-variant.st-shape-icon .st-icon-googleplus:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-googleplus:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-googleplus:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-googleplus:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-googleplus:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-googleplus:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-googleplus:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-googleplus:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-googleplus:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-googleplus:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-googleplus:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-googleplus:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-googleplus:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-googleplus:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-googleplus:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-googleplus:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-googleplus:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-googleplus:focus:before {
+  color: #f2301c; }
+
+.st-single-color .st-icon-googleplus:before,
+.st-single-color-brand .st-icon-googleplus:before,
+.st-single-color.st-icon-googleplus:before,
+.st-single-color-brand.st-icon-googleplus:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-googleplus:hover:before,
+.st-single-color .st-icon-googleplus:focus:before,
+.st-single-color.st-icon-googleplus:hover:before,
+.st-single-color.st-icon-googleplus:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-googleplus:before,
+.st-embossed-only.st-icon-googleplus:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-googleplus:hover:before,
+.st-embossed-only .st-icon-googleplus:active:before,
+.st-embossed-only .st-icon-googleplus:focus:before,
+.st-embossed-only.st-icon-googleplus:hover:before,
+.st-embossed-only.st-icon-googleplus:active:before,
+.st-embossed-only.st-icon-googleplus:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-googleplus:active:before,
+.st-embossed-only.st-icon-googleplus:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-instagram:before,
+.st-brand-variant .st-icon-instagram:hover:before,
+.st-brand-variant .st-icon-instagram:focus:before,
+.st-embossed-only .st-icon-instagram:hover:before,
+.st-embossed-only .st-icon-instagram:focus:before,
+.st-single-color-brand .st-icon-instagram:hover:before,
+.st-single-color-brand .st-icon-instagram:focus:before,
+.st-brand-color.st-icon-instagram:before,
+.st-brand-variant.st-icon-instagram:hover:before,
+.st-brand-variant.st-icon-instagram:focus:before,
+.st-embossed-only.st-icon-instagram:hover:before,
+.st-embossed-only.st-icon-instagram:focus:before,
+.st-single-color-brand.st-icon-instagram:hover:before,
+.st-single-color-brand.st-icon-instagram:focus:before {
+  color: #3f729b; }
+
+.st-shape-icon.st-brand-color .st-icon-instagram:before,
+.st-shape-icon.st-brand-variant .st-icon-instagram:hover:before,
+.st-shape-icon.st-brand-variant .st-icon-instagram:focus:before,
+.st-shape-icon.st-embossed-only .st-icon-instagram:hover:before,
+.st-shape-icon.st-embossed-only .st-icon-instagram:focus:before,
+.st-shape-icon.st-single-color-brand .st-icon-instagram:hover:before,
+.st-shape-icon.st-single-color-brand .st-icon-instagram:focus:before,
+.st-shape-rounded5.st-brand-color .st-icon-instagram:before,
+.st-shape-rounded5.st-brand-variant .st-icon-instagram:hover:before,
+.st-shape-rounded5.st-brand-variant .st-icon-instagram:focus:before,
+.st-shape-rounded5.st-embossed-only .st-icon-instagram:hover:before,
+.st-shape-rounded5.st-embossed-only .st-icon-instagram:focus:before,
+.st-shape-rounded5.st-single-color-brand .st-icon-instagram:hover:before,
+.st-shape-rounded5.st-single-color-brand .st-icon-instagram:focus:before,
+.st-shape-r5.st-brand-color .st-icon-instagram:before,
+.st-shape-r5.st-brand-variant .st-icon-instagram:hover:before,
+.st-shape-r5.st-brand-variant .st-icon-instagram:focus:before,
+.st-shape-r5.st-embossed-only .st-icon-instagram:hover:before,
+.st-shape-r5.st-embossed-only .st-icon-instagram:focus:before,
+.st-shape-r5.st-single-color-brand .st-icon-instagram:hover:before,
+.st-shape-r5.st-single-color-brand .st-icon-instagram:focus:before,
+.st-brand-color .st-shape-icon.st-icon-instagram:before,
+.st-brand-variant .st-shape-icon.st-icon-instagram:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-instagram:focus:before,
+.st-embossed-only .st-shape-icon.st-icon-instagram:hover:before,
+.st-embossed-only .st-shape-icon.st-icon-instagram:focus:before,
+.st-single-color-brand .st-shape-icon.st-icon-instagram:hover:before,
+.st-single-color-brand .st-shape-icon.st-icon-instagram:focus:before,
+.st-brand-color.st-shape-icon.st-icon-instagram:before,
+.st-brand-variant.st-shape-icon.st-icon-instagram:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-instagram:focus:before,
+.st-embossed-only.st-shape-icon.st-icon-instagram:hover:before,
+.st-embossed-only.st-shape-icon.st-icon-instagram:focus:before,
+.st-single-color-brand.st-shape-icon.st-icon-instagram:hover:before,
+.st-single-color-brand.st-shape-icon.st-icon-instagram:focus:before,
+.st-brand-color .st-shape-rounded5.st-icon-instagram:before,
+.st-brand-variant .st-shape-rounded5.st-icon-instagram:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-instagram:focus:before,
+.st-embossed-only .st-shape-rounded5.st-icon-instagram:hover:before,
+.st-embossed-only .st-shape-rounded5.st-icon-instagram:focus:before,
+.st-single-color-brand .st-shape-rounded5.st-icon-instagram:hover:before,
+.st-single-color-brand .st-shape-rounded5.st-icon-instagram:focus:before,
+.st-brand-color.st-shape-rounded5.st-icon-instagram:before,
+.st-brand-variant.st-shape-rounded5.st-icon-instagram:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-instagram:focus:before,
+.st-embossed-only.st-shape-rounded5.st-icon-instagram:hover:before,
+.st-embossed-only.st-shape-rounded5.st-icon-instagram:focus:before,
+.st-single-color-brand.st-shape-rounded5.st-icon-instagram:hover:before,
+.st-single-color-brand.st-shape-rounded5.st-icon-instagram:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-instagram:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-instagram:focus:before,
+.st-embossed-only .st-shape-r5.st-icon-instagram:hover:before,
+.st-embossed-only .st-shape-r5.st-icon-instagram:focus:before,
+.st-single-color-brand .st-shape-r5.st-icon-instagram:hover:before,
+.st-single-color-brand .st-shape-r5.st-icon-instagram:focus:before,
+.st-brand-color.st-shape-r5.st-icon-instagram:before,
+.st-brand-variant.st-shape-r5.st-icon-instagram:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-instagram:focus:before,
+.st-embossed-only.st-shape-r5.st-icon-instagram:hover:before,
+.st-embossed-only.st-shape-r5.st-icon-instagram:focus:before,
+.st-single-color-brand.st-shape-r5.st-icon-instagram:hover:before,
+.st-single-color-brand.st-shape-r5.st-icon-instagram:focus:before {
+  color: #8a5747; }
+
+.st-brand-color .st-icon-instagram:hover:before,
+.st-brand-color .st-icon-instagram:focus:before,
+.st-brand-color.st-icon-instagram:hover:before,
+.st-brand-color.st-icon-instagram:focus:before {
+  color: #95bad7;
+  color: #95bad7; }
+
+.st-brand-color.st-shape-icon .st-icon-instagram:hover:before,
+.st-brand-color.st-shape-icon .st-icon-instagram:focus:before,
+.st-brand-color.st-shape-rounded5 .st-icon-instagram:hover:before,
+.st-brand-color.st-shape-rounded5 .st-icon-instagram:focus:before,
+.st-brand-color.st-shape-r5 .st-icon-instagram:hover:before,
+.st-brand-color.st-shape-r5 .st-icon-instagram:focus:before,
+.st-brand-color .st-shape-icon.st-icon-instagram:hover:before,
+.st-brand-color .st-shape-icon.st-icon-instagram:focus:before,
+.st-brand-color.st-shape-icon.st-icon-instagram:hover:before,
+.st-brand-color.st-shape-icon.st-icon-instagram:focus:before,
+.st-brand-color .st-shape-rounded5.st-icon-instagram:hover:before,
+.st-brand-color .st-shape-rounded5.st-icon-instagram:focus:before,
+.st-brand-color.st-shape-rounded5.st-icon-instagram:hover:before,
+.st-brand-color.st-shape-rounded5.st-icon-instagram:focus:before,
+.st-brand-color .st-shape-r5.st-icon-instagram:hover:before,
+.st-brand-color .st-shape-r5.st-icon-instagram:focus:before,
+.st-brand-color.st-shape-r5.st-icon-instagram:hover:before,
+.st-brand-color.st-shape-r5.st-icon-instagram:focus:before {
+  color: #cea699;
+  color: #cea699; }
+
+.st-brand-variant .st-icon-instagram:before,
+.st-brand-variant.st-icon-instagram:before {
+  color: #b3c6d6;
+  color: #b3c6d6; }
+
+.st-brand-variant.st-shape-icon .st-icon-instagram:before,
+.st-brand-variant .st-shape-icon.st-icon-instagram:before,
+.st-brand-variant.st-shape-icon.st-icon-instagram:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-instagram:before,
+.st-brand-variant .st-shape-rounded5.st-icon-instagram:before,
+.st-brand-variant.st-shape-rounded5.st-icon-instagram:before,
+.st-brand-variant.st-shape-r5 .st-icon-instagram:before,
+.st-brand-variant .st-shape-r5.st-icon-instagram:before,
+.st-brand-variant.st-shape-r5.st-icon-instagram:before {
+  color: #d0bcb5;
+  color: #d0bcb5; }
+
+.st-brand-variant.st-shape-icon .st-icon-instagram:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-instagram:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-instagram:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-instagram:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-instagram:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-instagram:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-instagram:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-instagram:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-instagram:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-instagram:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-instagram:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-instagram:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-instagram:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-instagram:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-instagram:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-instagram:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-instagram:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-instagram:focus:before {
+  color: #8a5747; }
+
+.st-single-color .st-icon-instagram:before,
+.st-single-color-brand .st-icon-instagram:before,
+.st-single-color.st-icon-instagram:before,
+.st-single-color-brand.st-icon-instagram:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-instagram:hover:before,
+.st-single-color .st-icon-instagram:focus:before,
+.st-single-color.st-icon-instagram:hover:before,
+.st-single-color.st-icon-instagram:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-instagram:before,
+.st-embossed-only.st-icon-instagram:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-instagram:hover:before,
+.st-embossed-only .st-icon-instagram:active:before,
+.st-embossed-only .st-icon-instagram:focus:before,
+.st-embossed-only.st-icon-instagram:hover:before,
+.st-embossed-only.st-icon-instagram:active:before,
+.st-embossed-only.st-icon-instagram:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-instagram:active:before,
+.st-embossed-only.st-icon-instagram:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-kickstarter:before,
+.st-brand-variant .st-icon-kickstarter:hover:before,
+.st-brand-variant .st-icon-kickstarter:focus:before,
+.st-embossed-only .st-icon-kickstarter:hover:before,
+.st-embossed-only .st-icon-kickstarter:focus:before,
+.st-single-color-brand .st-icon-kickstarter:hover:before,
+.st-single-color-brand .st-icon-kickstarter:focus:before,
+.st-brand-color.st-icon-kickstarter:before,
+.st-brand-variant.st-icon-kickstarter:hover:before,
+.st-brand-variant.st-icon-kickstarter:focus:before,
+.st-embossed-only.st-icon-kickstarter:hover:before,
+.st-embossed-only.st-icon-kickstarter:focus:before,
+.st-single-color-brand.st-icon-kickstarter:hover:before,
+.st-single-color-brand.st-icon-kickstarter:focus:before {
+  color: #76cc1e; }
+
+.st-brand-color .st-icon-kickstarter:hover:before,
+.st-brand-color .st-icon-kickstarter:focus:before,
+.st-brand-color.st-icon-kickstarter:hover:before,
+.st-brand-color.st-icon-kickstarter:focus:before {
+  color: #bbee86;
+  color: #bbee86; }
+
+.st-brand-variant .st-icon-kickstarter:before,
+.st-brand-variant.st-icon-kickstarter:before {
+  color: #c8e5ab;
+  color: #c8e5ab; }
+
+.st-brand-variant.st-shape-icon .st-icon-kickstarter:before,
+.st-brand-variant .st-shape-icon.st-icon-kickstarter:before,
+.st-brand-variant.st-shape-icon.st-icon-kickstarter:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-kickstarter:before,
+.st-brand-variant .st-shape-rounded5.st-icon-kickstarter:before,
+.st-brand-variant.st-shape-rounded5.st-icon-kickstarter:before,
+.st-brand-variant.st-shape-r5 .st-icon-kickstarter:before,
+.st-brand-variant .st-shape-r5.st-icon-kickstarter:before,
+.st-brand-variant.st-shape-r5.st-icon-kickstarter:before {
+  color: #c8e5ab;
+  color: #c8e5ab; }
+
+.st-brand-variant.st-shape-icon .st-icon-kickstarter:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-kickstarter:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-kickstarter:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-kickstarter:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-kickstarter:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-kickstarter:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-kickstarter:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-kickstarter:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-kickstarter:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-kickstarter:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-kickstarter:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-kickstarter:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-kickstarter:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-kickstarter:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-kickstarter:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-kickstarter:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-kickstarter:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-kickstarter:focus:before {
+  color: #76cc1e; }
+
+.st-single-color .st-icon-kickstarter:before,
+.st-single-color-brand .st-icon-kickstarter:before,
+.st-single-color.st-icon-kickstarter:before,
+.st-single-color-brand.st-icon-kickstarter:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-kickstarter:hover:before,
+.st-single-color .st-icon-kickstarter:focus:before,
+.st-single-color.st-icon-kickstarter:hover:before,
+.st-single-color.st-icon-kickstarter:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-kickstarter:before,
+.st-embossed-only.st-icon-kickstarter:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-kickstarter:hover:before,
+.st-embossed-only .st-icon-kickstarter:active:before,
+.st-embossed-only .st-icon-kickstarter:focus:before,
+.st-embossed-only.st-icon-kickstarter:hover:before,
+.st-embossed-only.st-icon-kickstarter:active:before,
+.st-embossed-only.st-icon-kickstarter:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-kickstarter:active:before,
+.st-embossed-only.st-icon-kickstarter:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-pinterest:before,
+.st-brand-variant .st-icon-pinterest:hover:before,
+.st-brand-variant .st-icon-pinterest:focus:before,
+.st-embossed-only .st-icon-pinterest:hover:before,
+.st-embossed-only .st-icon-pinterest:focus:before,
+.st-single-color-brand .st-icon-pinterest:hover:before,
+.st-single-color-brand .st-icon-pinterest:focus:before,
+.st-brand-color.st-icon-pinterest:before,
+.st-brand-variant.st-icon-pinterest:hover:before,
+.st-brand-variant.st-icon-pinterest:focus:before,
+.st-embossed-only.st-icon-pinterest:hover:before,
+.st-embossed-only.st-icon-pinterest:focus:before,
+.st-single-color-brand.st-icon-pinterest:hover:before,
+.st-single-color-brand.st-icon-pinterest:focus:before {
+  color: #cc2027; }
+
+.st-brand-color .st-icon-pinterest:hover:before,
+.st-brand-color .st-icon-pinterest:focus:before,
+.st-brand-color.st-icon-pinterest:hover:before,
+.st-brand-color.st-icon-pinterest:focus:before {
+  color: #ed888c;
+  color: #ed888c; }
+
+.st-brand-variant .st-icon-pinterest:before,
+.st-brand-variant.st-icon-pinterest:before {
+  color: #e4acaf;
+  color: #e4acaf; }
+
+.st-brand-variant.st-shape-icon .st-icon-pinterest:before,
+.st-brand-variant .st-shape-icon.st-icon-pinterest:before,
+.st-brand-variant.st-shape-icon.st-icon-pinterest:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-pinterest:before,
+.st-brand-variant .st-shape-rounded5.st-icon-pinterest:before,
+.st-brand-variant.st-shape-rounded5.st-icon-pinterest:before,
+.st-brand-variant.st-shape-r5 .st-icon-pinterest:before,
+.st-brand-variant .st-shape-r5.st-icon-pinterest:before,
+.st-brand-variant.st-shape-r5.st-icon-pinterest:before {
+  color: #e4acaf;
+  color: #e4acaf; }
+
+.st-brand-variant.st-shape-icon .st-icon-pinterest:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-pinterest:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-pinterest:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-pinterest:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-pinterest:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-pinterest:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-pinterest:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-pinterest:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-pinterest:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-pinterest:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-pinterest:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-pinterest:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-pinterest:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-pinterest:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-pinterest:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-pinterest:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-pinterest:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-pinterest:focus:before {
+  color: #cc2027; }
+
+.st-single-color .st-icon-pinterest:before,
+.st-single-color-brand .st-icon-pinterest:before,
+.st-single-color.st-icon-pinterest:before,
+.st-single-color-brand.st-icon-pinterest:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-pinterest:hover:before,
+.st-single-color .st-icon-pinterest:focus:before,
+.st-single-color.st-icon-pinterest:hover:before,
+.st-single-color.st-icon-pinterest:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-pinterest:before,
+.st-embossed-only.st-icon-pinterest:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-pinterest:hover:before,
+.st-embossed-only .st-icon-pinterest:active:before,
+.st-embossed-only .st-icon-pinterest:focus:before,
+.st-embossed-only.st-icon-pinterest:hover:before,
+.st-embossed-only.st-icon-pinterest:active:before,
+.st-embossed-only.st-icon-pinterest:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-pinterest:active:before,
+.st-embossed-only.st-icon-pinterest:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-reddit:before,
+.st-brand-variant .st-icon-reddit:hover:before,
+.st-brand-variant .st-icon-reddit:focus:before,
+.st-embossed-only .st-icon-reddit:hover:before,
+.st-embossed-only .st-icon-reddit:focus:before,
+.st-single-color-brand .st-icon-reddit:hover:before,
+.st-single-color-brand .st-icon-reddit:focus:before,
+.st-brand-color.st-icon-reddit:before,
+.st-brand-variant.st-icon-reddit:hover:before,
+.st-brand-variant.st-icon-reddit:focus:before,
+.st-embossed-only.st-icon-reddit:hover:before,
+.st-embossed-only.st-icon-reddit:focus:before,
+.st-single-color-brand.st-icon-reddit:hover:before,
+.st-single-color-brand.st-icon-reddit:focus:before {
+  color: #96c3f0; }
+
+.st-shape-icon.st-brand-color .st-icon-reddit:before,
+.st-shape-icon.st-brand-variant .st-icon-reddit:hover:before,
+.st-shape-icon.st-brand-variant .st-icon-reddit:focus:before,
+.st-shape-icon.st-embossed-only .st-icon-reddit:hover:before,
+.st-shape-icon.st-embossed-only .st-icon-reddit:focus:before,
+.st-shape-icon.st-single-color-brand .st-icon-reddit:hover:before,
+.st-shape-icon.st-single-color-brand .st-icon-reddit:focus:before,
+.st-shape-rounded5.st-brand-color .st-icon-reddit:before,
+.st-shape-rounded5.st-brand-variant .st-icon-reddit:hover:before,
+.st-shape-rounded5.st-brand-variant .st-icon-reddit:focus:before,
+.st-shape-rounded5.st-embossed-only .st-icon-reddit:hover:before,
+.st-shape-rounded5.st-embossed-only .st-icon-reddit:focus:before,
+.st-shape-rounded5.st-single-color-brand .st-icon-reddit:hover:before,
+.st-shape-rounded5.st-single-color-brand .st-icon-reddit:focus:before,
+.st-shape-r5.st-brand-color .st-icon-reddit:before,
+.st-shape-r5.st-brand-variant .st-icon-reddit:hover:before,
+.st-shape-r5.st-brand-variant .st-icon-reddit:focus:before,
+.st-shape-r5.st-embossed-only .st-icon-reddit:hover:before,
+.st-shape-r5.st-embossed-only .st-icon-reddit:focus:before,
+.st-shape-r5.st-single-color-brand .st-icon-reddit:hover:before,
+.st-shape-r5.st-single-color-brand .st-icon-reddit:focus:before,
+.st-brand-color .st-shape-icon.st-icon-reddit:before,
+.st-brand-variant .st-shape-icon.st-icon-reddit:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-reddit:focus:before,
+.st-embossed-only .st-shape-icon.st-icon-reddit:hover:before,
+.st-embossed-only .st-shape-icon.st-icon-reddit:focus:before,
+.st-single-color-brand .st-shape-icon.st-icon-reddit:hover:before,
+.st-single-color-brand .st-shape-icon.st-icon-reddit:focus:before,
+.st-brand-color.st-shape-icon.st-icon-reddit:before,
+.st-brand-variant.st-shape-icon.st-icon-reddit:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-reddit:focus:before,
+.st-embossed-only.st-shape-icon.st-icon-reddit:hover:before,
+.st-embossed-only.st-shape-icon.st-icon-reddit:focus:before,
+.st-single-color-brand.st-shape-icon.st-icon-reddit:hover:before,
+.st-single-color-brand.st-shape-icon.st-icon-reddit:focus:before,
+.st-brand-color .st-shape-rounded5.st-icon-reddit:before,
+.st-brand-variant .st-shape-rounded5.st-icon-reddit:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-reddit:focus:before,
+.st-embossed-only .st-shape-rounded5.st-icon-reddit:hover:before,
+.st-embossed-only .st-shape-rounded5.st-icon-reddit:focus:before,
+.st-single-color-brand .st-shape-rounded5.st-icon-reddit:hover:before,
+.st-single-color-brand .st-shape-rounded5.st-icon-reddit:focus:before,
+.st-brand-color.st-shape-rounded5.st-icon-reddit:before,
+.st-brand-variant.st-shape-rounded5.st-icon-reddit:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-reddit:focus:before,
+.st-embossed-only.st-shape-rounded5.st-icon-reddit:hover:before,
+.st-embossed-only.st-shape-rounded5.st-icon-reddit:focus:before,
+.st-single-color-brand.st-shape-rounded5.st-icon-reddit:hover:before,
+.st-single-color-brand.st-shape-rounded5.st-icon-reddit:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-reddit:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-reddit:focus:before,
+.st-embossed-only .st-shape-r5.st-icon-reddit:hover:before,
+.st-embossed-only .st-shape-r5.st-icon-reddit:focus:before,
+.st-single-color-brand .st-shape-r5.st-icon-reddit:hover:before,
+.st-single-color-brand .st-shape-r5.st-icon-reddit:focus:before,
+.st-brand-color.st-shape-r5.st-icon-reddit:before,
+.st-brand-variant.st-shape-r5.st-icon-reddit:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-reddit:focus:before,
+.st-embossed-only.st-shape-r5.st-icon-reddit:hover:before,
+.st-embossed-only.st-shape-r5.st-icon-reddit:focus:before,
+.st-single-color-brand.st-shape-r5.st-icon-reddit:hover:before,
+.st-single-color-brand.st-shape-r5.st-icon-reddit:focus:before {
+  color: black; }
+
+.st-brand-color .st-icon-reddit:hover:before,
+.st-brand-color .st-icon-reddit:focus:before,
+.st-brand-color.st-icon-reddit:hover:before,
+.st-brand-color.st-icon-reddit:focus:before {
+  color: #cae1f8;
+  color: #cae1f8; }
+
+.st-brand-color.st-shape-icon .st-icon-reddit:hover:before,
+.st-brand-color.st-shape-icon .st-icon-reddit:focus:before,
+.st-brand-color.st-shape-rounded5 .st-icon-reddit:hover:before,
+.st-brand-color.st-shape-rounded5 .st-icon-reddit:focus:before,
+.st-brand-color.st-shape-r5 .st-icon-reddit:hover:before,
+.st-brand-color.st-shape-r5 .st-icon-reddit:focus:before,
+.st-brand-color .st-shape-icon.st-icon-reddit:hover:before,
+.st-brand-color .st-shape-icon.st-icon-reddit:focus:before,
+.st-brand-color.st-shape-icon.st-icon-reddit:hover:before,
+.st-brand-color.st-shape-icon.st-icon-reddit:focus:before,
+.st-brand-color .st-shape-rounded5.st-icon-reddit:hover:before,
+.st-brand-color .st-shape-rounded5.st-icon-reddit:focus:before,
+.st-brand-color.st-shape-rounded5.st-icon-reddit:hover:before,
+.st-brand-color.st-shape-rounded5.st-icon-reddit:focus:before,
+.st-brand-color .st-shape-r5.st-icon-reddit:hover:before,
+.st-brand-color .st-shape-r5.st-icon-reddit:focus:before,
+.st-brand-color.st-shape-r5.st-icon-reddit:hover:before,
+.st-brand-color.st-shape-r5.st-icon-reddit:focus:before {
+  color: #8c8c8c;
+  color: #8c8c8c; }
+
+.st-brand-variant .st-icon-reddit:before,
+.st-brand-variant.st-icon-reddit:before {
+  color: #dae7f4;
+  color: #dae7f4; }
+
+.st-brand-variant.st-shape-icon .st-icon-reddit:before,
+.st-brand-variant .st-shape-icon.st-icon-reddit:before,
+.st-brand-variant.st-shape-icon.st-icon-reddit:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-reddit:before,
+.st-brand-variant .st-shape-rounded5.st-icon-reddit:before,
+.st-brand-variant.st-shape-rounded5.st-icon-reddit:before,
+.st-brand-variant.st-shape-r5 .st-icon-reddit:before,
+.st-brand-variant .st-shape-r5.st-icon-reddit:before,
+.st-brand-variant.st-shape-r5.st-icon-reddit:before {
+  color: #a8a8a8;
+  color: #a8a8a8; }
+
+.st-brand-variant.st-shape-icon .st-icon-reddit:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-reddit:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-reddit:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-reddit:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-reddit:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-reddit:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-reddit:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-reddit:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-reddit:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-reddit:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-reddit:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-reddit:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-reddit:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-reddit:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-reddit:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-reddit:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-reddit:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-reddit:focus:before {
+  color: black; }
+
+.st-single-color .st-icon-reddit:before,
+.st-single-color-brand .st-icon-reddit:before,
+.st-single-color.st-icon-reddit:before,
+.st-single-color-brand.st-icon-reddit:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-reddit:hover:before,
+.st-single-color .st-icon-reddit:focus:before,
+.st-single-color.st-icon-reddit:hover:before,
+.st-single-color.st-icon-reddit:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-reddit:before,
+.st-embossed-only.st-icon-reddit:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-reddit:hover:before,
+.st-embossed-only .st-icon-reddit:active:before,
+.st-embossed-only .st-icon-reddit:focus:before,
+.st-embossed-only.st-icon-reddit:hover:before,
+.st-embossed-only.st-icon-reddit:active:before,
+.st-embossed-only.st-icon-reddit:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-reddit:active:before,
+.st-embossed-only.st-icon-reddit:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-soundcloud:before,
+.st-brand-variant .st-icon-soundcloud:hover:before,
+.st-brand-variant .st-icon-soundcloud:focus:before,
+.st-embossed-only .st-icon-soundcloud:hover:before,
+.st-embossed-only .st-icon-soundcloud:focus:before,
+.st-single-color-brand .st-icon-soundcloud:hover:before,
+.st-single-color-brand .st-icon-soundcloud:focus:before,
+.st-brand-color.st-icon-soundcloud:before,
+.st-brand-variant.st-icon-soundcloud:hover:before,
+.st-brand-variant.st-icon-soundcloud:focus:before,
+.st-embossed-only.st-icon-soundcloud:hover:before,
+.st-embossed-only.st-icon-soundcloud:focus:before,
+.st-single-color-brand.st-icon-soundcloud:hover:before,
+.st-single-color-brand.st-icon-soundcloud:focus:before {
+  color: #ff3d00; }
+
+.st-shape-icon.st-brand-color .st-icon-soundcloud:before,
+.st-shape-icon.st-brand-variant .st-icon-soundcloud:hover:before,
+.st-shape-icon.st-brand-variant .st-icon-soundcloud:focus:before,
+.st-shape-icon.st-embossed-only .st-icon-soundcloud:hover:before,
+.st-shape-icon.st-embossed-only .st-icon-soundcloud:focus:before,
+.st-shape-icon.st-single-color-brand .st-icon-soundcloud:hover:before,
+.st-shape-icon.st-single-color-brand .st-icon-soundcloud:focus:before,
+.st-shape-rounded5.st-brand-color .st-icon-soundcloud:before,
+.st-shape-rounded5.st-brand-variant .st-icon-soundcloud:hover:before,
+.st-shape-rounded5.st-brand-variant .st-icon-soundcloud:focus:before,
+.st-shape-rounded5.st-embossed-only .st-icon-soundcloud:hover:before,
+.st-shape-rounded5.st-embossed-only .st-icon-soundcloud:focus:before,
+.st-shape-rounded5.st-single-color-brand .st-icon-soundcloud:hover:before,
+.st-shape-rounded5.st-single-color-brand .st-icon-soundcloud:focus:before,
+.st-shape-r5.st-brand-color .st-icon-soundcloud:before,
+.st-shape-r5.st-brand-variant .st-icon-soundcloud:hover:before,
+.st-shape-r5.st-brand-variant .st-icon-soundcloud:focus:before,
+.st-shape-r5.st-embossed-only .st-icon-soundcloud:hover:before,
+.st-shape-r5.st-embossed-only .st-icon-soundcloud:focus:before,
+.st-shape-r5.st-single-color-brand .st-icon-soundcloud:hover:before,
+.st-shape-r5.st-single-color-brand .st-icon-soundcloud:focus:before,
+.st-brand-color .st-shape-icon.st-icon-soundcloud:before,
+.st-brand-variant .st-shape-icon.st-icon-soundcloud:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-soundcloud:focus:before,
+.st-embossed-only .st-shape-icon.st-icon-soundcloud:hover:before,
+.st-embossed-only .st-shape-icon.st-icon-soundcloud:focus:before,
+.st-single-color-brand .st-shape-icon.st-icon-soundcloud:hover:before,
+.st-single-color-brand .st-shape-icon.st-icon-soundcloud:focus:before,
+.st-brand-color.st-shape-icon.st-icon-soundcloud:before,
+.st-brand-variant.st-shape-icon.st-icon-soundcloud:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-soundcloud:focus:before,
+.st-embossed-only.st-shape-icon.st-icon-soundcloud:hover:before,
+.st-embossed-only.st-shape-icon.st-icon-soundcloud:focus:before,
+.st-single-color-brand.st-shape-icon.st-icon-soundcloud:hover:before,
+.st-single-color-brand.st-shape-icon.st-icon-soundcloud:focus:before,
+.st-brand-color .st-shape-rounded5.st-icon-soundcloud:before,
+.st-brand-variant .st-shape-rounded5.st-icon-soundcloud:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-soundcloud:focus:before,
+.st-embossed-only .st-shape-rounded5.st-icon-soundcloud:hover:before,
+.st-embossed-only .st-shape-rounded5.st-icon-soundcloud:focus:before,
+.st-single-color-brand .st-shape-rounded5.st-icon-soundcloud:hover:before,
+.st-single-color-brand .st-shape-rounded5.st-icon-soundcloud:focus:before,
+.st-brand-color.st-shape-rounded5.st-icon-soundcloud:before,
+.st-brand-variant.st-shape-rounded5.st-icon-soundcloud:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-soundcloud:focus:before,
+.st-embossed-only.st-shape-rounded5.st-icon-soundcloud:hover:before,
+.st-embossed-only.st-shape-rounded5.st-icon-soundcloud:focus:before,
+.st-single-color-brand.st-shape-rounded5.st-icon-soundcloud:hover:before,
+.st-single-color-brand.st-shape-rounded5.st-icon-soundcloud:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-soundcloud:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-soundcloud:focus:before,
+.st-embossed-only .st-shape-r5.st-icon-soundcloud:hover:before,
+.st-embossed-only .st-shape-r5.st-icon-soundcloud:focus:before,
+.st-single-color-brand .st-shape-r5.st-icon-soundcloud:hover:before,
+.st-single-color-brand .st-shape-r5.st-icon-soundcloud:focus:before,
+.st-brand-color.st-shape-r5.st-icon-soundcloud:before,
+.st-brand-variant.st-shape-r5.st-icon-soundcloud:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-soundcloud:focus:before,
+.st-embossed-only.st-shape-r5.st-icon-soundcloud:hover:before,
+.st-embossed-only.st-shape-r5.st-icon-soundcloud:focus:before,
+.st-single-color-brand.st-shape-r5.st-icon-soundcloud:hover:before,
+.st-single-color-brand.st-shape-r5.st-icon-soundcloud:focus:before {
+  color: #ff5500; }
+
+.st-brand-color .st-icon-soundcloud:hover:before,
+.st-brand-color .st-icon-soundcloud:focus:before,
+.st-brand-color.st-icon-soundcloud:hover:before,
+.st-brand-color.st-icon-soundcloud:focus:before {
+  color: #ff9e80;
+  color: #ff9e80; }
+
+.st-brand-color.st-shape-icon .st-icon-soundcloud:hover:before,
+.st-brand-color.st-shape-icon .st-icon-soundcloud:focus:before,
+.st-brand-color.st-shape-rounded5 .st-icon-soundcloud:hover:before,
+.st-brand-color.st-shape-rounded5 .st-icon-soundcloud:focus:before,
+.st-brand-color.st-shape-r5 .st-icon-soundcloud:hover:before,
+.st-brand-color.st-shape-r5 .st-icon-soundcloud:focus:before,
+.st-brand-color .st-shape-icon.st-icon-soundcloud:hover:before,
+.st-brand-color .st-shape-icon.st-icon-soundcloud:focus:before,
+.st-brand-color.st-shape-icon.st-icon-soundcloud:hover:before,
+.st-brand-color.st-shape-icon.st-icon-soundcloud:focus:before,
+.st-brand-color .st-shape-rounded5.st-icon-soundcloud:hover:before,
+.st-brand-color .st-shape-rounded5.st-icon-soundcloud:focus:before,
+.st-brand-color.st-shape-rounded5.st-icon-soundcloud:hover:before,
+.st-brand-color.st-shape-rounded5.st-icon-soundcloud:focus:before,
+.st-brand-color .st-shape-r5.st-icon-soundcloud:hover:before,
+.st-brand-color .st-shape-r5.st-icon-soundcloud:focus:before,
+.st-brand-color.st-shape-r5.st-icon-soundcloud:hover:before,
+.st-brand-color.st-shape-r5.st-icon-soundcloud:focus:before {
+  color: #ffaa80;
+  color: #ffaa80; }
+
+.st-brand-variant .st-icon-soundcloud:before,
+.st-brand-variant.st-icon-soundcloud:before {
+  color: #f0b9a8;
+  color: #f0b9a8; }
+
+.st-brand-variant.st-shape-icon .st-icon-soundcloud:before,
+.st-brand-variant .st-shape-icon.st-icon-soundcloud:before,
+.st-brand-variant.st-shape-icon.st-icon-soundcloud:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-soundcloud:before,
+.st-brand-variant .st-shape-rounded5.st-icon-soundcloud:before,
+.st-brand-variant.st-shape-rounded5.st-icon-soundcloud:before,
+.st-brand-variant.st-shape-r5 .st-icon-soundcloud:before,
+.st-brand-variant .st-shape-r5.st-icon-soundcloud:before,
+.st-brand-variant.st-shape-r5.st-icon-soundcloud:before {
+  color: #f0c0a8;
+  color: #f0c0a8; }
+
+.st-brand-variant.st-shape-icon .st-icon-soundcloud:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-soundcloud:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-soundcloud:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-soundcloud:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-soundcloud:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-soundcloud:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-soundcloud:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-soundcloud:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-soundcloud:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-soundcloud:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-soundcloud:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-soundcloud:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-soundcloud:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-soundcloud:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-soundcloud:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-soundcloud:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-soundcloud:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-soundcloud:focus:before {
+  color: #ff5500; }
+
+.st-single-color .st-icon-soundcloud:before,
+.st-single-color-brand .st-icon-soundcloud:before,
+.st-single-color.st-icon-soundcloud:before,
+.st-single-color-brand.st-icon-soundcloud:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-soundcloud:hover:before,
+.st-single-color .st-icon-soundcloud:focus:before,
+.st-single-color.st-icon-soundcloud:hover:before,
+.st-single-color.st-icon-soundcloud:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-soundcloud:before,
+.st-embossed-only.st-icon-soundcloud:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-soundcloud:hover:before,
+.st-embossed-only .st-icon-soundcloud:active:before,
+.st-embossed-only .st-icon-soundcloud:focus:before,
+.st-embossed-only.st-icon-soundcloud:hover:before,
+.st-embossed-only.st-icon-soundcloud:active:before,
+.st-embossed-only.st-icon-soundcloud:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-soundcloud:active:before,
+.st-embossed-only.st-icon-soundcloud:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-stumbleupon:before,
+.st-brand-variant .st-icon-stumbleupon:hover:before,
+.st-brand-variant .st-icon-stumbleupon:focus:before,
+.st-embossed-only .st-icon-stumbleupon:hover:before,
+.st-embossed-only .st-icon-stumbleupon:focus:before,
+.st-single-color-brand .st-icon-stumbleupon:hover:before,
+.st-single-color-brand .st-icon-stumbleupon:focus:before,
+.st-brand-color.st-icon-stumbleupon:before,
+.st-brand-variant.st-icon-stumbleupon:hover:before,
+.st-brand-variant.st-icon-stumbleupon:focus:before,
+.st-embossed-only.st-icon-stumbleupon:hover:before,
+.st-embossed-only.st-icon-stumbleupon:focus:before,
+.st-single-color-brand.st-icon-stumbleupon:hover:before,
+.st-single-color-brand.st-icon-stumbleupon:focus:before {
+  color: #ea4b24; }
+
+.st-brand-color .st-icon-stumbleupon:hover:before,
+.st-brand-color .st-icon-stumbleupon:focus:before,
+.st-brand-color.st-icon-stumbleupon:hover:before,
+.st-brand-color.st-icon-stumbleupon:focus:before {
+  color: #f5a591;
+  color: #f5a591; }
+
+.st-brand-variant .st-icon-stumbleupon:before,
+.st-brand-variant.st-icon-stumbleupon:before {
+  color: #ebbeb3;
+  color: #ebbeb3; }
+
+.st-brand-variant.st-shape-icon .st-icon-stumbleupon:before,
+.st-brand-variant .st-shape-icon.st-icon-stumbleupon:before,
+.st-brand-variant.st-shape-icon.st-icon-stumbleupon:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-stumbleupon:before,
+.st-brand-variant .st-shape-rounded5.st-icon-stumbleupon:before,
+.st-brand-variant.st-shape-rounded5.st-icon-stumbleupon:before,
+.st-brand-variant.st-shape-r5 .st-icon-stumbleupon:before,
+.st-brand-variant .st-shape-r5.st-icon-stumbleupon:before,
+.st-brand-variant.st-shape-r5.st-icon-stumbleupon:before {
+  color: #ebbeb3;
+  color: #ebbeb3; }
+
+.st-brand-variant.st-shape-icon .st-icon-stumbleupon:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-stumbleupon:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-stumbleupon:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-stumbleupon:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-stumbleupon:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-stumbleupon:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-stumbleupon:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-stumbleupon:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-stumbleupon:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-stumbleupon:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-stumbleupon:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-stumbleupon:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-stumbleupon:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-stumbleupon:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-stumbleupon:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-stumbleupon:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-stumbleupon:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-stumbleupon:focus:before {
+  color: #ea4b24; }
+
+.st-single-color .st-icon-stumbleupon:before,
+.st-single-color-brand .st-icon-stumbleupon:before,
+.st-single-color.st-icon-stumbleupon:before,
+.st-single-color-brand.st-icon-stumbleupon:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-stumbleupon:hover:before,
+.st-single-color .st-icon-stumbleupon:focus:before,
+.st-single-color.st-icon-stumbleupon:hover:before,
+.st-single-color.st-icon-stumbleupon:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-stumbleupon:before,
+.st-embossed-only.st-icon-stumbleupon:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-stumbleupon:hover:before,
+.st-embossed-only .st-icon-stumbleupon:active:before,
+.st-embossed-only .st-icon-stumbleupon:focus:before,
+.st-embossed-only.st-icon-stumbleupon:hover:before,
+.st-embossed-only.st-icon-stumbleupon:active:before,
+.st-embossed-only.st-icon-stumbleupon:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-stumbleupon:active:before,
+.st-embossed-only.st-icon-stumbleupon:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-tumblr:before,
+.st-brand-variant .st-icon-tumblr:hover:before,
+.st-brand-variant .st-icon-tumblr:focus:before,
+.st-embossed-only .st-icon-tumblr:hover:before,
+.st-embossed-only .st-icon-tumblr:focus:before,
+.st-single-color-brand .st-icon-tumblr:hover:before,
+.st-single-color-brand .st-icon-tumblr:focus:before,
+.st-brand-color.st-icon-tumblr:before,
+.st-brand-variant.st-icon-tumblr:hover:before,
+.st-brand-variant.st-icon-tumblr:focus:before,
+.st-embossed-only.st-icon-tumblr:hover:before,
+.st-embossed-only.st-icon-tumblr:focus:before,
+.st-single-color-brand.st-icon-tumblr:hover:before,
+.st-single-color-brand.st-icon-tumblr:focus:before {
+  color: #394b62; }
+
+.st-brand-color .st-icon-tumblr:hover:before,
+.st-brand-color .st-icon-tumblr:focus:before,
+.st-brand-color.st-icon-tumblr:hover:before,
+.st-brand-color.st-icon-tumblr:focus:before {
+  color: #8ca3c1;
+  color: #8ca3c1; }
+
+.st-brand-variant .st-icon-tumblr:before,
+.st-brand-variant.st-icon-tumblr:before {
+  color: #abb6c5;
+  color: #abb6c5; }
+
+.st-brand-variant.st-shape-icon .st-icon-tumblr:before,
+.st-brand-variant .st-shape-icon.st-icon-tumblr:before,
+.st-brand-variant.st-shape-icon.st-icon-tumblr:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-tumblr:before,
+.st-brand-variant .st-shape-rounded5.st-icon-tumblr:before,
+.st-brand-variant.st-shape-rounded5.st-icon-tumblr:before,
+.st-brand-variant.st-shape-r5 .st-icon-tumblr:before,
+.st-brand-variant .st-shape-r5.st-icon-tumblr:before,
+.st-brand-variant.st-shape-r5.st-icon-tumblr:before {
+  color: #abb6c5;
+  color: #abb6c5; }
+
+.st-brand-variant.st-shape-icon .st-icon-tumblr:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-tumblr:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-tumblr:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-tumblr:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-tumblr:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-tumblr:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-tumblr:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-tumblr:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-tumblr:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-tumblr:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-tumblr:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-tumblr:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-tumblr:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-tumblr:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-tumblr:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-tumblr:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-tumblr:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-tumblr:focus:before {
+  color: #394b62; }
+
+.st-single-color .st-icon-tumblr:before,
+.st-single-color-brand .st-icon-tumblr:before,
+.st-single-color.st-icon-tumblr:before,
+.st-single-color-brand.st-icon-tumblr:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-tumblr:hover:before,
+.st-single-color .st-icon-tumblr:focus:before,
+.st-single-color.st-icon-tumblr:hover:before,
+.st-single-color.st-icon-tumblr:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-tumblr:before,
+.st-embossed-only.st-icon-tumblr:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-tumblr:hover:before,
+.st-embossed-only .st-icon-tumblr:active:before,
+.st-embossed-only .st-icon-tumblr:focus:before,
+.st-embossed-only.st-icon-tumblr:hover:before,
+.st-embossed-only.st-icon-tumblr:active:before,
+.st-embossed-only.st-icon-tumblr:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-tumblr:active:before,
+.st-embossed-only.st-icon-tumblr:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-twitter:before,
+.st-brand-variant .st-icon-twitter:hover:before,
+.st-brand-variant .st-icon-twitter:focus:before,
+.st-embossed-only .st-icon-twitter:hover:before,
+.st-embossed-only .st-icon-twitter:focus:before,
+.st-single-color-brand .st-icon-twitter:hover:before,
+.st-single-color-brand .st-icon-twitter:focus:before,
+.st-brand-color.st-icon-twitter:before,
+.st-brand-variant.st-icon-twitter:hover:before,
+.st-brand-variant.st-icon-twitter:focus:before,
+.st-embossed-only.st-icon-twitter:hover:before,
+.st-embossed-only.st-icon-twitter:focus:before,
+.st-single-color-brand.st-icon-twitter:hover:before,
+.st-single-color-brand.st-icon-twitter:focus:before {
+  color: #00bcf6; }
+
+.st-brand-color .st-icon-twitter:hover:before,
+.st-brand-color .st-icon-twitter:focus:before,
+.st-brand-color.st-icon-twitter:hover:before,
+.st-brand-color.st-icon-twitter:focus:before {
+  color: #7be0ff;
+  color: #7be0ff; }
+
+.st-brand-variant .st-icon-twitter:before,
+.st-brand-variant.st-icon-twitter:before {
+  color: #a5deef;
+  color: #a5deef; }
+
+.st-brand-variant.st-shape-icon .st-icon-twitter:before,
+.st-brand-variant .st-shape-icon.st-icon-twitter:before,
+.st-brand-variant.st-shape-icon.st-icon-twitter:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-twitter:before,
+.st-brand-variant .st-shape-rounded5.st-icon-twitter:before,
+.st-brand-variant.st-shape-rounded5.st-icon-twitter:before,
+.st-brand-variant.st-shape-r5 .st-icon-twitter:before,
+.st-brand-variant .st-shape-r5.st-icon-twitter:before,
+.st-brand-variant.st-shape-r5.st-icon-twitter:before {
+  color: #a5deef;
+  color: #a5deef; }
+
+.st-brand-variant.st-shape-icon .st-icon-twitter:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-twitter:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-twitter:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-twitter:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-twitter:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-twitter:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-twitter:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-twitter:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-twitter:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-twitter:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-twitter:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-twitter:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-twitter:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-twitter:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-twitter:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-twitter:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-twitter:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-twitter:focus:before {
+  color: #00bcf6; }
+
+.st-single-color .st-icon-twitter:before,
+.st-single-color-brand .st-icon-twitter:before,
+.st-single-color.st-icon-twitter:before,
+.st-single-color-brand.st-icon-twitter:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-twitter:hover:before,
+.st-single-color .st-icon-twitter:focus:before,
+.st-single-color.st-icon-twitter:hover:before,
+.st-single-color.st-icon-twitter:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-twitter:before,
+.st-embossed-only.st-icon-twitter:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-twitter:hover:before,
+.st-embossed-only .st-icon-twitter:active:before,
+.st-embossed-only .st-icon-twitter:focus:before,
+.st-embossed-only.st-icon-twitter:hover:before,
+.st-embossed-only.st-icon-twitter:active:before,
+.st-embossed-only.st-icon-twitter:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-twitter:active:before,
+.st-embossed-only.st-icon-twitter:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-vine:before,
+.st-brand-variant .st-icon-vine:hover:before,
+.st-brand-variant .st-icon-vine:focus:before,
+.st-embossed-only .st-icon-vine:hover:before,
+.st-embossed-only .st-icon-vine:focus:before,
+.st-single-color-brand .st-icon-vine:hover:before,
+.st-single-color-brand .st-icon-vine:focus:before,
+.st-brand-color.st-icon-vine:before,
+.st-brand-variant.st-icon-vine:hover:before,
+.st-brand-variant.st-icon-vine:focus:before,
+.st-embossed-only.st-icon-vine:hover:before,
+.st-embossed-only.st-icon-vine:focus:before,
+.st-single-color-brand.st-icon-vine:hover:before,
+.st-single-color-brand.st-icon-vine:focus:before {
+  color: #00bf8f; }
+
+.st-shape-icon.st-brand-color .st-icon-vine:before,
+.st-shape-icon.st-brand-variant .st-icon-vine:hover:before,
+.st-shape-icon.st-brand-variant .st-icon-vine:focus:before,
+.st-shape-icon.st-embossed-only .st-icon-vine:hover:before,
+.st-shape-icon.st-embossed-only .st-icon-vine:focus:before,
+.st-shape-icon.st-single-color-brand .st-icon-vine:hover:before,
+.st-shape-icon.st-single-color-brand .st-icon-vine:focus:before,
+.st-shape-rounded5.st-brand-color .st-icon-vine:before,
+.st-shape-rounded5.st-brand-variant .st-icon-vine:hover:before,
+.st-shape-rounded5.st-brand-variant .st-icon-vine:focus:before,
+.st-shape-rounded5.st-embossed-only .st-icon-vine:hover:before,
+.st-shape-rounded5.st-embossed-only .st-icon-vine:focus:before,
+.st-shape-rounded5.st-single-color-brand .st-icon-vine:hover:before,
+.st-shape-rounded5.st-single-color-brand .st-icon-vine:focus:before,
+.st-shape-r5.st-brand-color .st-icon-vine:before,
+.st-shape-r5.st-brand-variant .st-icon-vine:hover:before,
+.st-shape-r5.st-brand-variant .st-icon-vine:focus:before,
+.st-shape-r5.st-embossed-only .st-icon-vine:hover:before,
+.st-shape-r5.st-embossed-only .st-icon-vine:focus:before,
+.st-shape-r5.st-single-color-brand .st-icon-vine:hover:before,
+.st-shape-r5.st-single-color-brand .st-icon-vine:focus:before,
+.st-brand-color .st-shape-icon.st-icon-vine:before,
+.st-brand-variant .st-shape-icon.st-icon-vine:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-vine:focus:before,
+.st-embossed-only .st-shape-icon.st-icon-vine:hover:before,
+.st-embossed-only .st-shape-icon.st-icon-vine:focus:before,
+.st-single-color-brand .st-shape-icon.st-icon-vine:hover:before,
+.st-single-color-brand .st-shape-icon.st-icon-vine:focus:before,
+.st-brand-color.st-shape-icon.st-icon-vine:before,
+.st-brand-variant.st-shape-icon.st-icon-vine:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-vine:focus:before,
+.st-embossed-only.st-shape-icon.st-icon-vine:hover:before,
+.st-embossed-only.st-shape-icon.st-icon-vine:focus:before,
+.st-single-color-brand.st-shape-icon.st-icon-vine:hover:before,
+.st-single-color-brand.st-shape-icon.st-icon-vine:focus:before,
+.st-brand-color .st-shape-rounded5.st-icon-vine:before,
+.st-brand-variant .st-shape-rounded5.st-icon-vine:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-vine:focus:before,
+.st-embossed-only .st-shape-rounded5.st-icon-vine:hover:before,
+.st-embossed-only .st-shape-rounded5.st-icon-vine:focus:before,
+.st-single-color-brand .st-shape-rounded5.st-icon-vine:hover:before,
+.st-single-color-brand .st-shape-rounded5.st-icon-vine:focus:before,
+.st-brand-color.st-shape-rounded5.st-icon-vine:before,
+.st-brand-variant.st-shape-rounded5.st-icon-vine:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-vine:focus:before,
+.st-embossed-only.st-shape-rounded5.st-icon-vine:hover:before,
+.st-embossed-only.st-shape-rounded5.st-icon-vine:focus:before,
+.st-single-color-brand.st-shape-rounded5.st-icon-vine:hover:before,
+.st-single-color-brand.st-shape-rounded5.st-icon-vine:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-vine:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-vine:focus:before,
+.st-embossed-only .st-shape-r5.st-icon-vine:hover:before,
+.st-embossed-only .st-shape-r5.st-icon-vine:focus:before,
+.st-single-color-brand .st-shape-r5.st-icon-vine:hover:before,
+.st-single-color-brand .st-shape-r5.st-icon-vine:focus:before,
+.st-brand-color.st-shape-r5.st-icon-vine:before,
+.st-brand-variant.st-shape-r5.st-icon-vine:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-vine:focus:before,
+.st-embossed-only.st-shape-r5.st-icon-vine:hover:before,
+.st-embossed-only.st-shape-r5.st-icon-vine:focus:before,
+.st-single-color-brand.st-shape-r5.st-icon-vine:hover:before,
+.st-single-color-brand.st-shape-r5.st-icon-vine:focus:before {
+  color: #00b388; }
+
+.st-brand-color .st-icon-vine:hover:before,
+.st-brand-color .st-icon-vine:focus:before,
+.st-brand-color.st-icon-vine:hover:before,
+.st-brand-color.st-icon-vine:focus:before {
+  color: #5fffd7;
+  color: #5fffd7; }
+
+.st-brand-color.st-shape-icon .st-icon-vine:hover:before,
+.st-brand-color.st-shape-icon .st-icon-vine:focus:before,
+.st-brand-color.st-shape-rounded5 .st-icon-vine:hover:before,
+.st-brand-color.st-shape-rounded5 .st-icon-vine:focus:before,
+.st-brand-color.st-shape-r5 .st-icon-vine:hover:before,
+.st-brand-color.st-shape-r5 .st-icon-vine:focus:before,
+.st-brand-color .st-shape-icon.st-icon-vine:hover:before,
+.st-brand-color .st-shape-icon.st-icon-vine:focus:before,
+.st-brand-color.st-shape-icon.st-icon-vine:hover:before,
+.st-brand-color.st-shape-icon.st-icon-vine:focus:before,
+.st-brand-color .st-shape-rounded5.st-icon-vine:hover:before,
+.st-brand-color .st-shape-rounded5.st-icon-vine:focus:before,
+.st-brand-color.st-shape-rounded5.st-icon-vine:hover:before,
+.st-brand-color.st-shape-rounded5.st-icon-vine:focus:before,
+.st-brand-color .st-shape-r5.st-icon-vine:hover:before,
+.st-brand-color .st-shape-r5.st-icon-vine:focus:before,
+.st-brand-color.st-shape-r5.st-icon-vine:hover:before,
+.st-brand-color.st-shape-r5.st-icon-vine:focus:before {
+  color: #5affd7;
+  color: #5affd7; }
+
+.st-brand-variant .st-icon-vine:before,
+.st-brand-variant.st-icon-vine:before {
+  color: #93ecd5;
+  color: #93ecd5; }
+
+.st-brand-variant.st-shape-icon .st-icon-vine:before,
+.st-brand-variant .st-shape-icon.st-icon-vine:before,
+.st-brand-variant.st-shape-icon.st-icon-vine:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-vine:before,
+.st-brand-variant .st-shape-rounded5.st-icon-vine:before,
+.st-brand-variant.st-shape-rounded5.st-icon-vine:before,
+.st-brand-variant.st-shape-r5 .st-icon-vine:before,
+.st-brand-variant .st-shape-r5.st-icon-vine:before,
+.st-brand-variant.st-shape-r5.st-icon-vine:before {
+  color: #8eebd5;
+  color: #8eebd5; }
+
+.st-brand-variant.st-shape-icon .st-icon-vine:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-vine:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-vine:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-vine:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-vine:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-vine:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-vine:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-vine:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-vine:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-vine:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-vine:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-vine:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-vine:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-vine:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-vine:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-vine:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-vine:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-vine:focus:before {
+  color: #00b388; }
+
+.st-single-color .st-icon-vine:before,
+.st-single-color-brand .st-icon-vine:before,
+.st-single-color.st-icon-vine:before,
+.st-single-color-brand.st-icon-vine:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-vine:hover:before,
+.st-single-color .st-icon-vine:focus:before,
+.st-single-color.st-icon-vine:hover:before,
+.st-single-color.st-icon-vine:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-vine:before,
+.st-embossed-only.st-icon-vine:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-vine:hover:before,
+.st-embossed-only .st-icon-vine:active:before,
+.st-embossed-only .st-icon-vine:focus:before,
+.st-embossed-only.st-icon-vine:hover:before,
+.st-embossed-only.st-icon-vine:active:before,
+.st-embossed-only.st-icon-vine:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-vine:active:before,
+.st-embossed-only.st-icon-vine:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-youtube:before,
+.st-brand-variant .st-icon-youtube:hover:before,
+.st-brand-variant .st-icon-youtube:focus:before,
+.st-embossed-only .st-icon-youtube:hover:before,
+.st-embossed-only .st-icon-youtube:focus:before,
+.st-single-color-brand .st-icon-youtube:hover:before,
+.st-single-color-brand .st-icon-youtube:focus:before,
+.st-brand-color.st-icon-youtube:before,
+.st-brand-variant.st-icon-youtube:hover:before,
+.st-brand-variant.st-icon-youtube:focus:before,
+.st-embossed-only.st-icon-youtube:hover:before,
+.st-embossed-only.st-icon-youtube:focus:before,
+.st-single-color-brand.st-icon-youtube:hover:before,
+.st-single-color-brand.st-icon-youtube:focus:before {
+  color: #d22222; }
+
+.st-brand-color .st-icon-youtube:hover:before,
+.st-brand-color .st-icon-youtube:focus:before,
+.st-brand-color.st-icon-youtube:hover:before,
+.st-brand-color.st-icon-youtube:focus:before {
+  color: #ed8c8c;
+  color: #ed8c8c; }
+
+.st-brand-variant .st-icon-youtube:before,
+.st-brand-variant.st-icon-youtube:before {
+  color: #e5afaf;
+  color: #e5afaf; }
+
+.st-brand-variant.st-shape-icon .st-icon-youtube:before,
+.st-brand-variant .st-shape-icon.st-icon-youtube:before,
+.st-brand-variant.st-shape-icon.st-icon-youtube:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-youtube:before,
+.st-brand-variant .st-shape-rounded5.st-icon-youtube:before,
+.st-brand-variant.st-shape-rounded5.st-icon-youtube:before,
+.st-brand-variant.st-shape-r5 .st-icon-youtube:before,
+.st-brand-variant .st-shape-r5.st-icon-youtube:before,
+.st-brand-variant.st-shape-r5.st-icon-youtube:before {
+  color: #e5afaf;
+  color: #e5afaf; }
+
+.st-brand-variant.st-shape-icon .st-icon-youtube:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-youtube:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-youtube:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-youtube:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-youtube:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-youtube:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-youtube:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-youtube:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-youtube:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-youtube:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-youtube:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-youtube:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-youtube:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-youtube:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-youtube:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-youtube:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-youtube:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-youtube:focus:before {
+  color: #d22222; }
+
+.st-single-color .st-icon-youtube:before,
+.st-single-color-brand .st-icon-youtube:before,
+.st-single-color.st-icon-youtube:before,
+.st-single-color-brand.st-icon-youtube:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-youtube:hover:before,
+.st-single-color .st-icon-youtube:focus:before,
+.st-single-color.st-icon-youtube:hover:before,
+.st-single-color.st-icon-youtube:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-youtube:before,
+.st-embossed-only.st-icon-youtube:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-youtube:hover:before,
+.st-embossed-only .st-icon-youtube:active:before,
+.st-embossed-only .st-icon-youtube:focus:before,
+.st-embossed-only.st-icon-youtube:hover:before,
+.st-embossed-only.st-icon-youtube:active:before,
+.st-embossed-only.st-icon-youtube:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-youtube:active:before,
+.st-embossed-only.st-icon-youtube:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-youtube-alt:before,
+.st-brand-variant .st-icon-youtube-alt:hover:before,
+.st-brand-variant .st-icon-youtube-alt:focus:before,
+.st-embossed-only .st-icon-youtube-alt:hover:before,
+.st-embossed-only .st-icon-youtube-alt:focus:before,
+.st-single-color-brand .st-icon-youtube-alt:hover:before,
+.st-single-color-brand .st-icon-youtube-alt:focus:before,
+.st-brand-color.st-icon-youtube-alt:before,
+.st-brand-variant.st-icon-youtube-alt:hover:before,
+.st-brand-variant.st-icon-youtube-alt:focus:before,
+.st-embossed-only.st-icon-youtube-alt:hover:before,
+.st-embossed-only.st-icon-youtube-alt:focus:before,
+.st-single-color-brand.st-icon-youtube-alt:hover:before,
+.st-single-color-brand.st-icon-youtube-alt:focus:before {
+  color: #af2b26; }
+
+.st-brand-color .st-icon-youtube-alt:hover:before,
+.st-brand-color .st-icon-youtube-alt:focus:before,
+.st-brand-color.st-icon-youtube-alt:hover:before,
+.st-brand-color.st-icon-youtube-alt:focus:before {
+  color: #e68784;
+  color: #e68784; }
+
+.st-brand-variant .st-icon-youtube-alt:before,
+.st-brand-variant.st-icon-youtube-alt:before {
+  color: #deaba9;
+  color: #deaba9; }
+
+.st-brand-variant.st-shape-icon .st-icon-youtube-alt:before,
+.st-brand-variant .st-shape-icon.st-icon-youtube-alt:before,
+.st-brand-variant.st-shape-icon.st-icon-youtube-alt:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-youtube-alt:before,
+.st-brand-variant .st-shape-rounded5.st-icon-youtube-alt:before,
+.st-brand-variant.st-shape-rounded5.st-icon-youtube-alt:before,
+.st-brand-variant.st-shape-r5 .st-icon-youtube-alt:before,
+.st-brand-variant .st-shape-r5.st-icon-youtube-alt:before,
+.st-brand-variant.st-shape-r5.st-icon-youtube-alt:before {
+  color: #deaba9;
+  color: #deaba9; }
+
+.st-brand-variant.st-shape-icon .st-icon-youtube-alt:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-youtube-alt:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-youtube-alt:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-youtube-alt:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-youtube-alt:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-youtube-alt:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-youtube-alt:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-youtube-alt:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-youtube-alt:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-youtube-alt:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-youtube-alt:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-youtube-alt:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-youtube-alt:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-youtube-alt:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-youtube-alt:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-youtube-alt:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-youtube-alt:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-youtube-alt:focus:before {
+  color: #af2b26; }
+
+.st-single-color .st-icon-youtube-alt:before,
+.st-single-color-brand .st-icon-youtube-alt:before,
+.st-single-color.st-icon-youtube-alt:before,
+.st-single-color-brand.st-icon-youtube-alt:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-youtube-alt:hover:before,
+.st-single-color .st-icon-youtube-alt:focus:before,
+.st-single-color.st-icon-youtube-alt:hover:before,
+.st-single-color.st-icon-youtube-alt:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-youtube-alt:before,
+.st-embossed-only.st-icon-youtube-alt:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-youtube-alt:hover:before,
+.st-embossed-only .st-icon-youtube-alt:active:before,
+.st-embossed-only .st-icon-youtube-alt:focus:before,
+.st-embossed-only.st-icon-youtube-alt:hover:before,
+.st-embossed-only.st-icon-youtube-alt:active:before,
+.st-embossed-only.st-icon-youtube-alt:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-youtube-alt:active:before,
+.st-embossed-only.st-icon-youtube-alt:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-youtube-alt-sm:before,
+.st-brand-variant .st-icon-youtube-alt-sm:hover:before,
+.st-brand-variant .st-icon-youtube-alt-sm:focus:before,
+.st-embossed-only .st-icon-youtube-alt-sm:hover:before,
+.st-embossed-only .st-icon-youtube-alt-sm:focus:before,
+.st-single-color-brand .st-icon-youtube-alt-sm:hover:before,
+.st-single-color-brand .st-icon-youtube-alt-sm:focus:before,
+.st-brand-color.st-icon-youtube-alt-sm:before,
+.st-brand-variant.st-icon-youtube-alt-sm:hover:before,
+.st-brand-variant.st-icon-youtube-alt-sm:focus:before,
+.st-embossed-only.st-icon-youtube-alt-sm:hover:before,
+.st-embossed-only.st-icon-youtube-alt-sm:focus:before,
+.st-single-color-brand.st-icon-youtube-alt-sm:hover:before,
+.st-single-color-brand.st-icon-youtube-alt-sm:focus:before {
+  color: #af2b26; }
+
+.st-brand-color .st-icon-youtube-alt-sm:hover:before,
+.st-brand-color .st-icon-youtube-alt-sm:focus:before,
+.st-brand-color.st-icon-youtube-alt-sm:hover:before,
+.st-brand-color.st-icon-youtube-alt-sm:focus:before {
+  color: #e68784;
+  color: #e68784; }
+
+.st-brand-variant .st-icon-youtube-alt-sm:before,
+.st-brand-variant.st-icon-youtube-alt-sm:before {
+  color: #deaba9;
+  color: #deaba9; }
+
+.st-brand-variant.st-shape-icon .st-icon-youtube-alt-sm:before,
+.st-brand-variant .st-shape-icon.st-icon-youtube-alt-sm:before,
+.st-brand-variant.st-shape-icon.st-icon-youtube-alt-sm:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-youtube-alt-sm:before,
+.st-brand-variant .st-shape-rounded5.st-icon-youtube-alt-sm:before,
+.st-brand-variant.st-shape-rounded5.st-icon-youtube-alt-sm:before,
+.st-brand-variant.st-shape-r5 .st-icon-youtube-alt-sm:before,
+.st-brand-variant .st-shape-r5.st-icon-youtube-alt-sm:before,
+.st-brand-variant.st-shape-r5.st-icon-youtube-alt-sm:before {
+  color: #deaba9;
+  color: #deaba9; }
+
+.st-brand-variant.st-shape-icon .st-icon-youtube-alt-sm:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-youtube-alt-sm:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-youtube-alt-sm:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-youtube-alt-sm:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-youtube-alt-sm:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-youtube-alt-sm:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-youtube-alt-sm:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-youtube-alt-sm:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-youtube-alt-sm:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-youtube-alt-sm:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-youtube-alt-sm:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-youtube-alt-sm:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-youtube-alt-sm:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-youtube-alt-sm:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-youtube-alt-sm:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-youtube-alt-sm:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-youtube-alt-sm:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-youtube-alt-sm:focus:before {
+  color: #af2b26; }
+
+.st-single-color .st-icon-youtube-alt-sm:before,
+.st-single-color-brand .st-icon-youtube-alt-sm:before,
+.st-single-color.st-icon-youtube-alt-sm:before,
+.st-single-color-brand.st-icon-youtube-alt-sm:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-youtube-alt-sm:hover:before,
+.st-single-color .st-icon-youtube-alt-sm:focus:before,
+.st-single-color.st-icon-youtube-alt-sm:hover:before,
+.st-single-color.st-icon-youtube-alt-sm:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-youtube-alt-sm:before,
+.st-embossed-only.st-icon-youtube-alt-sm:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-youtube-alt-sm:hover:before,
+.st-embossed-only .st-icon-youtube-alt-sm:active:before,
+.st-embossed-only .st-icon-youtube-alt-sm:focus:before,
+.st-embossed-only.st-icon-youtube-alt-sm:hover:before,
+.st-embossed-only.st-icon-youtube-alt-sm:active:before,
+.st-embossed-only.st-icon-youtube-alt-sm:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-youtube-alt-sm:active:before,
+.st-embossed-only.st-icon-youtube-alt-sm:active:before {
+  text-shadow: none; }
+
+.st-brand-color .st-icon-search:before,
+.st-brand-variant .st-icon-search:hover:before,
+.st-brand-variant .st-icon-search:focus:before,
+.st-embossed-only .st-icon-search:hover:before,
+.st-embossed-only .st-icon-search:focus:before,
+.st-single-color-brand .st-icon-search:hover:before,
+.st-single-color-brand .st-icon-search:focus:before,
+.st-brand-color.st-icon-search:before,
+.st-brand-variant.st-icon-search:hover:before,
+.st-brand-variant.st-icon-search:focus:before,
+.st-embossed-only.st-icon-search:hover:before,
+.st-embossed-only.st-icon-search:focus:before,
+.st-single-color-brand.st-icon-search:hover:before,
+.st-single-color-brand.st-icon-search:focus:before {
+  color: #555555; }
+
+.st-shape-icon.st-brand-color .st-icon-search:before,
+.st-shape-icon.st-brand-variant .st-icon-search:hover:before,
+.st-shape-icon.st-brand-variant .st-icon-search:focus:before,
+.st-shape-icon.st-embossed-only .st-icon-search:hover:before,
+.st-shape-icon.st-embossed-only .st-icon-search:focus:before,
+.st-shape-icon.st-single-color-brand .st-icon-search:hover:before,
+.st-shape-icon.st-single-color-brand .st-icon-search:focus:before,
+.st-shape-rounded5.st-brand-color .st-icon-search:before,
+.st-shape-rounded5.st-brand-variant .st-icon-search:hover:before,
+.st-shape-rounded5.st-brand-variant .st-icon-search:focus:before,
+.st-shape-rounded5.st-embossed-only .st-icon-search:hover:before,
+.st-shape-rounded5.st-embossed-only .st-icon-search:focus:before,
+.st-shape-rounded5.st-single-color-brand .st-icon-search:hover:before,
+.st-shape-rounded5.st-single-color-brand .st-icon-search:focus:before,
+.st-shape-r5.st-brand-color .st-icon-search:before,
+.st-shape-r5.st-brand-variant .st-icon-search:hover:before,
+.st-shape-r5.st-brand-variant .st-icon-search:focus:before,
+.st-shape-r5.st-embossed-only .st-icon-search:hover:before,
+.st-shape-r5.st-embossed-only .st-icon-search:focus:before,
+.st-shape-r5.st-single-color-brand .st-icon-search:hover:before,
+.st-shape-r5.st-single-color-brand .st-icon-search:focus:before,
+.st-brand-color .st-shape-icon.st-icon-search:before,
+.st-brand-variant .st-shape-icon.st-icon-search:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-search:focus:before,
+.st-embossed-only .st-shape-icon.st-icon-search:hover:before,
+.st-embossed-only .st-shape-icon.st-icon-search:focus:before,
+.st-single-color-brand .st-shape-icon.st-icon-search:hover:before,
+.st-single-color-brand .st-shape-icon.st-icon-search:focus:before,
+.st-brand-color.st-shape-icon.st-icon-search:before,
+.st-brand-variant.st-shape-icon.st-icon-search:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-search:focus:before,
+.st-embossed-only.st-shape-icon.st-icon-search:hover:before,
+.st-embossed-only.st-shape-icon.st-icon-search:focus:before,
+.st-single-color-brand.st-shape-icon.st-icon-search:hover:before,
+.st-single-color-brand.st-shape-icon.st-icon-search:focus:before,
+.st-brand-color .st-shape-rounded5.st-icon-search:before,
+.st-brand-variant .st-shape-rounded5.st-icon-search:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-search:focus:before,
+.st-embossed-only .st-shape-rounded5.st-icon-search:hover:before,
+.st-embossed-only .st-shape-rounded5.st-icon-search:focus:before,
+.st-single-color-brand .st-shape-rounded5.st-icon-search:hover:before,
+.st-single-color-brand .st-shape-rounded5.st-icon-search:focus:before,
+.st-brand-color.st-shape-rounded5.st-icon-search:before,
+.st-brand-variant.st-shape-rounded5.st-icon-search:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-search:focus:before,
+.st-embossed-only.st-shape-rounded5.st-icon-search:hover:before,
+.st-embossed-only.st-shape-rounded5.st-icon-search:focus:before,
+.st-single-color-brand.st-shape-rounded5.st-icon-search:hover:before,
+.st-single-color-brand.st-shape-rounded5.st-icon-search:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-search:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-search:focus:before,
+.st-embossed-only .st-shape-r5.st-icon-search:hover:before,
+.st-embossed-only .st-shape-r5.st-icon-search:focus:before,
+.st-single-color-brand .st-shape-r5.st-icon-search:hover:before,
+.st-single-color-brand .st-shape-r5.st-icon-search:focus:before,
+.st-brand-color.st-shape-r5.st-icon-search:before,
+.st-brand-variant.st-shape-r5.st-icon-search:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-search:focus:before,
+.st-embossed-only.st-shape-r5.st-icon-search:hover:before,
+.st-embossed-only.st-shape-r5.st-icon-search:focus:before,
+.st-single-color-brand.st-shape-r5.st-icon-search:hover:before,
+.st-single-color-brand.st-shape-r5.st-icon-search:focus:before {
+  color: #222222; }
+
+.st-brand-color .st-icon-search:hover:before,
+.st-brand-color .st-icon-search:focus:before,
+.st-brand-color.st-icon-search:hover:before,
+.st-brand-color.st-icon-search:focus:before {
+  color: #aaaaaa;
+  color: #aaaaaa; }
+
+.st-brand-color.st-shape-icon .st-icon-search:hover:before,
+.st-brand-color.st-shape-icon .st-icon-search:focus:before,
+.st-brand-color.st-shape-rounded5 .st-icon-search:hover:before,
+.st-brand-color.st-shape-rounded5 .st-icon-search:focus:before,
+.st-brand-color.st-shape-r5 .st-icon-search:hover:before,
+.st-brand-color.st-shape-r5 .st-icon-search:focus:before,
+.st-brand-color .st-shape-icon.st-icon-search:hover:before,
+.st-brand-color .st-shape-icon.st-icon-search:focus:before,
+.st-brand-color.st-shape-icon.st-icon-search:hover:before,
+.st-brand-color.st-shape-icon.st-icon-search:focus:before,
+.st-brand-color .st-shape-rounded5.st-icon-search:hover:before,
+.st-brand-color .st-shape-rounded5.st-icon-search:focus:before,
+.st-brand-color.st-shape-rounded5.st-icon-search:hover:before,
+.st-brand-color.st-shape-rounded5.st-icon-search:focus:before,
+.st-brand-color .st-shape-r5.st-icon-search:hover:before,
+.st-brand-color .st-shape-r5.st-icon-search:focus:before,
+.st-brand-color.st-shape-r5.st-icon-search:hover:before,
+.st-brand-color.st-shape-r5.st-icon-search:focus:before {
+  color: #9c9c9c;
+  color: #9c9c9c; }
+
+.st-brand-variant .st-icon-search:before,
+.st-brand-variant.st-icon-search:before {
+  color: #bbbbbb;
+  color: #bbbbbb; }
+
+.st-brand-variant.st-shape-icon .st-icon-search:before,
+.st-brand-variant .st-shape-icon.st-icon-search:before,
+.st-brand-variant.st-shape-icon.st-icon-search:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-search:before,
+.st-brand-variant .st-shape-rounded5.st-icon-search:before,
+.st-brand-variant.st-shape-rounded5.st-icon-search:before,
+.st-brand-variant.st-shape-r5 .st-icon-search:before,
+.st-brand-variant .st-shape-r5.st-icon-search:before,
+.st-brand-variant.st-shape-r5.st-icon-search:before {
+  color: #b4b4b4;
+  color: #b4b4b4; }
+
+.st-brand-variant.st-shape-icon .st-icon-search:hover:before,
+.st-brand-variant.st-shape-icon .st-icon-search:focus:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-search:hover:before,
+.st-brand-variant.st-shape-rounded5 .st-icon-search:focus:before,
+.st-brand-variant.st-shape-r5 .st-icon-search:hover:before,
+.st-brand-variant.st-shape-r5 .st-icon-search:focus:before,
+.st-brand-variant .st-shape-icon.st-icon-search:hover:before,
+.st-brand-variant .st-shape-icon.st-icon-search:focus:before,
+.st-brand-variant.st-shape-icon.st-icon-search:hover:before,
+.st-brand-variant.st-shape-icon.st-icon-search:focus:before,
+.st-brand-variant .st-shape-rounded5.st-icon-search:hover:before,
+.st-brand-variant .st-shape-rounded5.st-icon-search:focus:before,
+.st-brand-variant.st-shape-rounded5.st-icon-search:hover:before,
+.st-brand-variant.st-shape-rounded5.st-icon-search:focus:before,
+.st-brand-variant .st-shape-r5.st-icon-search:hover:before,
+.st-brand-variant .st-shape-r5.st-icon-search:focus:before,
+.st-brand-variant.st-shape-r5.st-icon-search:hover:before,
+.st-brand-variant.st-shape-r5.st-icon-search:focus:before {
+  color: #222222; }
+
+.st-single-color .st-icon-search:before,
+.st-single-color-brand .st-icon-search:before,
+.st-single-color.st-icon-search:before,
+.st-single-color-brand.st-icon-search:before {
+  color: #eeeeee;
+  color: #eeeeee; }
+
+.st-single-color .st-icon-search:hover:before,
+.st-single-color .st-icon-search:focus:before,
+.st-single-color.st-icon-search:hover:before,
+.st-single-color.st-icon-search:focus:before {
+  color: #555555;
+  color: rgba(0, 0, 0, 0.661); }
+
+.st-embossed-only .st-icon-search:before,
+.st-embossed-only.st-icon-search:before {
+  color: #ececec; }
+
+.st-embossed-only .st-icon-search:hover:before,
+.st-embossed-only .st-icon-search:active:before,
+.st-embossed-only .st-icon-search:focus:before,
+.st-embossed-only.st-icon-search:hover:before,
+.st-embossed-only.st-icon-search:active:before,
+.st-embossed-only.st-icon-search:focus:before {
+  /*text-shadow: none;*/ }
+
+.st-embossed-only .st-icon-search:active:before,
+.st-embossed-only.st-icon-search:active:before {
+  text-shadow: none; }

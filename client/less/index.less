@@ -1,0 +1,103 @@
+/**
+* bootstrap3-less Advanced Implementation
+* ---------------------------------------
+*
+* this file:
+*   client/less/index.less
+*
+* other lessimport files are are in:
+*   client/less/config.import.less
+*   client/less/layout.import.less
+*   client/less/whatever.import.less
+*
+* you can use other .less files anywhere you like, but you will have to monitor
+* Meteor's "order of opperations" for them...
+*
+* You might be best sticking to extra .import.less files, imported here...
+*
+* Your call...
+*/
+
+@import "studio-stackicons.import.less";
+
+/*
+* Import Bootstrap Config Defaults
+* ---------------------------------------
+* (you need these first, to get the default setup for bootstrap)
+*/
+
+@import "/packages/bootstrap3-less/lib/less/variables.import.less";
+@import "/packages/bootstrap3-less/lib/less/mixins.import.less";
+
+/*
+* Application Overrides (config)
+* ---------------------------------------
+* (Here you can override any variables defined in the default set above)
+*/
+
+// @import "config.import.less";
+
+/*
+* Import Bootstrap
+* ---------------------------------------
+* (This is the full set of package files, include only what you need)
+*/
+
+// Reset
+@import "/packages/bootstrap3-less/lib/less/normalize.import.less";
+@import "/packages/bootstrap3-less/lib/less/print.import.less";
+
+// Core CSS
+@import "/packages/bootstrap3-less/lib/less/scaffolding.import.less";
+@import "/packages/bootstrap3-less/lib/less/type.import.less";
+@import "/packages/bootstrap3-less/lib/less/code.import.less";
+@import "/packages/bootstrap3-less/lib/less/grid.import.less";
+@import "/packages/bootstrap3-less/lib/less/tables.import.less";
+@import "/packages/bootstrap3-less/lib/less/forms.import.less";
+@import "/packages/bootstrap3-less/lib/less/buttons.import.less";
+
+// Components
+@import "/packages/bootstrap3-less/lib/less/component-animations.import.less";
+@import "/packages/bootstrap3-less/lib/less/glyphicons.import.less";
+@import "/packages/bootstrap3-less/lib/less/dropdowns.import.less";
+@import "/packages/bootstrap3-less/lib/less/button-groups.import.less";
+@import "/packages/bootstrap3-less/lib/less/input-groups.import.less";
+@import "/packages/bootstrap3-less/lib/less/navs.import.less";
+@import "/packages/bootstrap3-less/lib/less/navbar.import.less";
+@import "/packages/bootstrap3-less/lib/less/breadcrumbs.import.less";
+@import "/packages/bootstrap3-less/lib/less/pagination.import.less";
+@import "/packages/bootstrap3-less/lib/less/pager.import.less";
+@import "/packages/bootstrap3-less/lib/less/labels.import.less";
+@import "/packages/bootstrap3-less/lib/less/badges.import.less";
+@import "/packages/bootstrap3-less/lib/less/jumbotron.import.less";
+@import "/packages/bootstrap3-less/lib/less/thumbnails.import.less";
+@import "/packages/bootstrap3-less/lib/less/alerts.import.less";
+@import "/packages/bootstrap3-less/lib/less/progress-bars.import.less";
+@import "/packages/bootstrap3-less/lib/less/media.import.less";
+@import "/packages/bootstrap3-less/lib/less/list-group.import.less";
+@import "/packages/bootstrap3-less/lib/less/panels.import.less";
+@import "/packages/bootstrap3-less/lib/less/responsive-embed.import.less";
+@import "/packages/bootstrap3-less/lib/less/wells.import.less";
+@import "/packages/bootstrap3-less/lib/less/close.import.less";
+
+// Components w/ JavaScript
+@import "/packages/bootstrap3-less/lib/less/modals.import.less";
+@import "/packages/bootstrap3-less/lib/less/tooltip.import.less";
+@import "/packages/bootstrap3-less/lib/less/popovers.import.less";
+@import "/packages/bootstrap3-less/lib/less/carousel.import.less";
+
+// Utility classes
+@import "/packages/bootstrap3-less/lib/less/utilities.import.less";
+@import "/packages/bootstrap3-less/lib/less/responsive-utilities.import.less";
+
+/*
+* Application Overrides
+* ---------------------------------------
+* (Now, after everything from bootstrap, you can create your own LESS->CSS)
+* (It will overwrite any bootstrap stuff if it needs to, and all bootstrap mixins will be available)
+*/
+
+@import "color.import.less";
+@import "type.import.less";
+// @import "spinner.import.less";
+@import "app.import.less";

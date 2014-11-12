@@ -1,0 +1,25 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+standard-app-packages
+iron:router
+accounts-password
+accounts-ui
+mrt:publish-with-relations
+less
+random
+email
+meteor-braintree
+bootstrap3-less
+showdown
+d3
+spiderable
+toolbelt
+reactive-var
+alanning:roles
+aldeed:collection2
+aldeed:autoform
+ongoworks:security
+
