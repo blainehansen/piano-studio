@@ -2,13 +2,84 @@ SimpleSchema.messages({
 	"invalidRelation": "The [label] you tried to insert doesn't line up with a real object: [value]"
 });
 
-DateSchema = new SimpleSchema({
+Schema = {};
+Schema.User = new SimpleSchema({
+	firstname: {
+		type: String,
+		label: "First Name",
+		max: 15,
+		trim: true,
+		optional: true,
+		custom: function () {
+			var student = Students.findOne({user_id: this.fields('_id').value, reflectsUser: true});
+			if (student) Students.update(student, {$set: {firstname: this.value}});
+		}
+	},
+	lastname: {
+		type: String,
+		label: "Last Name",
+		max: 15,
+		trim: true,
+		optional: true,
+		custom: function () {
+			var student = Students.findOne({user_id: this.fields('_id').value, reflectsUser: true});
+			if (student) Students.update(student, {$set: {lastname: this.value}});
+		}
+	},
+	phones: {
+		type: [String],
+		label: "Your phone numbers",
+		optional: true
+	},
+	braintree_id: {
+		type: String,
+		optional: true,
+		blackbox: true
+	},
+    username: {
+        type: String,
+        regEx: /^[a-z0-9A-Z_]{3,15}$/
+    },
+    emails: {
+        type: [Object],
+        label: "Your email addresses",
+        optional: true
+    },
+    "emails.$.address": {
+        type: String,
+        regEx: SimpleSchema.RegEx.Email
+    },
+    "emails.$.verified": {
+        type: Boolean
+    },
+    createdAt: {
+        type: Date
+    },
+    profile: {
+        type: Object,
+        optional: true,
+        blackbox: true
+    },
+    services: {
+        type: Object,
+        optional: true,
+        blackbox: true
+    },
+    roles: {
+        type: Object,
+        optional: true,
+        blackbox: true
+    }
+});
+Meteor.users.attachSchema(Schema.User);
+
+Schema.Date = new SimpleSchema({
 	date: {
 		type: Date,
 		label: "Lesson Date"
 	}
 });
-PriceSchema = new SimpleSchema({
+Schema.Price = new SimpleSchema({
 	price: {
 		type: Number,
 		label: "Price",
@@ -16,7 +87,7 @@ PriceSchema = new SimpleSchema({
 		decimal: true
 	}
 });
-CommentSchema = new SimpleSchema({
+Schema.Comment = new SimpleSchema({
 	comments: {
 		type: String,
 		label: "Comments",
@@ -24,7 +95,14 @@ CommentSchema = new SimpleSchema({
 	}
 });
 
-StudentSchema = new SimpleSchema([{
+Schema.Student = new SimpleSchema([{
+	user_id: {
+		type: String,
+		label: "id of the User who manages this student",
+		custom: function () {
+			if (!Meteor.users.findOne(this.value)) return "invalidRelation";
+		}
+	},
 	firstname: {
 		type: String,
 		label: "First Name",
@@ -36,53 +114,61 @@ StudentSchema = new SimpleSchema([{
 		label: "Last Name",
 		max: 15,
 		trim: true
-	}
-	expense_ids: {
-		type: [String],
-		label: "Expense Id",
-		optional: true,
-		custom: function () {
-			if (!Expenses.findOne(this.value)) return "invalidRelation";
-		}
-	},
-	lesson_ids: {
-		type: [String],
-		label: "Lesson Id",
-		optional: true,
-		custom: function () {
-			if (!Lessons.findOne(this.value)) return "invalidRelation";
-		}
 	},
 	reflectsUser: {
 		type: Boolean,
 		optional: true,
 		allowedValues: [true]
 	}
-}, PriceSchema]);
-Students.attachSchema(StudentSchema);
+}, Schema.Price]);
+Students.attachSchema(Schema.Student);
 
 
-LessonSchema = new SimpleSchema([DateSchema, PriceSchema, CommentSchema]);
-Lessons.attachSchema(LessonSchema);
+Schema.Lesson = new SimpleSchema([{
+	student_id: {
+		type: String,
+		label: "id of the Student who took this lesson",
+		custom: function () {
+			if (!Students.findOne(this.value)) return "invalidRelation";
+		}
+	}
+}, Schema.Date, Schema.Price, Schema.Comment]);
+Lessons.attachSchema(Schema.Lesson);
 
-PaymentSchema = new SimpleSchema([{
+Schema.Payment = new SimpleSchema([{
+	user_id: {
+		type: String,
+		label: "id of the User who made this payment",
+		custom: function () {
+			if (!Meteor.users.findOne(this.value)) return "invalidRelation";
+		}
+	},
 	method: {
 		type: String,
 		label: "Payment Method",
 		trim: true
 	}
-}, DateSchema, PriceSchema, CommentSchema]);
-PaymentSchema.labels({
+}, Schema.Date, Schema.Price, Schema.Comment]);
+Schema.Payment.labels({
 	price: "Amount"
 })
-Payments.attachSchema(PaymentSchema);
+Payments.attachSchema(Schema.Payment);
 
-ExpenseSchema = new SimpleSchema([DateSchema, PriceSchema, CommentSchema]);
-Expenses.attachSchema(ExpenseSchema);
+Schema.Expense = new SimpleSchema([Schema.Date, Schema.Price, Schema.Comment]);
+Expenses.attachSchema(Schema.Expense);
 
-StudentExpenses.attachSchema(ExpenseSchema);
+Schema.StudentExpenses = new SimpleSchema([{
+	student_id: {
+		type: String,
+		label: "id of the Student who incurred this expense",
+		custom: function () {
+			if (!Students.findOne(this.value)) return "invalidRelation";
+		}
+	}
+}, Schema.Expense])
+StudentExpenses.attachSchema(Schema.Expense);
 
-VoucherSchema = new SimpleSchema({
+Schema.Voucher = new SimpleSchema({
 	claim_id: {
 		type: String,
 		label: "Voucher Claim Id",
@@ -92,12 +178,12 @@ VoucherSchema = new SimpleSchema({
 		}
 	}
 });
-Vouchers.attachSchema(VoucherSchema);
+Vouchers.attachSchema(Schema.Voucher);
 
-VoucherClaimSchema = new SimpleSchema([{
+Schema.VoucherClaim = new SimpleSchema([{
 	user_id: {
 		type: String,
-		label: 'User Who Made this Claim',
+		label: 'User who made this claim',
 		custom: function () {
 			if (!Meteor.users.findOne(this.value)) return "invalidRelation";
 		}
@@ -114,5 +200,5 @@ VoucherClaimSchema = new SimpleSchema([{
 		optional: true,
 		allowedValues: ['morning9-11', 'midday11-1', 'afternoon1-3', 'lateafternoon3-5', 'evening5-8']
 	}
-}, DateSchema, CommentSchema]);
-VoucherClaims.attachSchema(VoucherClaimSchema);
+}, Schema.Date, Schema.Comment]);
+VoucherClaims.attachSchema(Schema.VoucherClaim);

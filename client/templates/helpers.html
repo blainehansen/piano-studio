@@ -1,0 +1,21 @@
+<template name="editable">
+	{{#if editing}}
+		{{> UI.contentBlock}}
+	{{else}}
+		{{> UI.elseBlock}}
+	{{/if}}
+</template>
+
+<template name="clickToEdit">
+	{{#if editing}}
+		{{> UI.contentBlock}}
+	{{else}}
+		{{> UI.elseBlock}}
+	{{/if}}
+</template>
+
+<template name="scroller">
+	<div class="scroller {{classes}}">
+		{{> UI.contentBlock ..}}
+	</div>
+</template>

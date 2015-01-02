@@ -7,9 +7,11 @@
 	{{#each levels}}
 		{{#if equals level 0}}
 			<h3><a data-toggle="collapse" data-target="#level-{{level}}">Primer Level</a></h3>
+		{{else}} {{#if equals level 11}}
+			<h3><a data-toggle="collapse" data-target="#level-{{level}}">Beyond Categories</a></h3>
 		{{else}}
 			<h3><a data-toggle="collapse" data-target="#level-{{level}}">Level {{level}}</a></h3>
-		{{/if}}
+		{{/if}} {{/if}}
 
 		<div id="level-{{level}}" class="collapse">
 			{{#each composers}}
@@ -18,6 +20,7 @@
 					{{#each pieces}}
 						<li>
 							{{title}}: <a href="/scores/{{composer}}/{{score}}" target="_newtab">Score</a>
+							{{#if levelUpper}}. This is a collection. It has pieces ranging from {{level}} to {{levelUpper}}.{{/if}}
 							{{#if videoid}}, <a href="{{youtubeLink videoid}}" target="_newtab">Video</a>{{/if}}
 						</li>
 					{{/each}}
@@ -25,5 +28,4 @@
 			{{/each}}
 		</div>
 	{{/each}}
-
 </template>
