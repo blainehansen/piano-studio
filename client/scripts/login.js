@@ -1,64 +1,57 @@
 /// Login stuff.
-Template.login.rendered = function () {
-	resetSessionVars(['signinError', 'signupError', 'signinInputsValid', 'signupInputsValid']);
-};
-Template.login.events({
-	'submit form#signin': function (e, t) {
-		e.preventDefault();
+LoginSchema = new SimpleSchema({
+	email: {
+		type: String,
+		label: "Email or Username",
+		min: 3
+	},
+	password: {
+		type: String,
+		label: "Password",
+		min: 6
+	},
+	feedback: {
+		type: String,
+		optional: true
+	}
+});
 
-		var email = t.find('#signinEmail').value;
-		var password = t.find('#signinPassword').value;
+AutoForm.addHooks('signin', {
+	onSubmit: function (insertDoc) {
+		var hook = this;
+		var email = insertDoc.email;
+		var password = insertDoc.password;
 		Meteor.loginWithPassword({email: email}, password, function (error) {
 			if (error) {
 				if (error.reason == "User not found") {
 					Meteor.loginWithPassword({username: email}, password, function (error) {
-						if (error) Session.set('signinError', error.reason);
-						else {
-							resetSessionVars(['signinError', 'signupError', 'signinInputsValid', 'signupInputsValid']);
-							Router.go('userView');	
-						}
+						if (error) hook.done(error);
+						else hook.done();
 					});
 				}
-				else {
-					Session.set('signinError', error.reason);
-				}
+				else hook.done(error);
 			}
-			else {
-				resetSessionVars(['signinError', 'signupError', 'signinInputsValid', 'signupInputsValid']);
-				Router.go('userView');
-			}
+			else hook.done();
 		});
+		return false;
 	},
-	'submit form#signup': function (e, t) {
-		e.preventDefault();
+	onError: function (operation, error) {
+		if (error.reason)
+			LoginSchema.namedContext('signin').addInvalidKeys([{name: 'feedback', type: 'feedback', value: error.reason}]);
+		return true;
+	},
+	onSuccess: function () {
+		Router.go('user');
+	}
+});
 
-		Accounts.createUser({
-			email: t.find('#signupEmail').value,
-			password: t.find('#signupPassword').value},
-			function (error) {
-				if (error) {
-					console.log(error);
-					Session.set('signupError', error.reason);
-				}
-				else {
-					resetSessionVars(['signinError', 'signupError', 'signinInputsValid', 'signupInputsValid']);
-					Router.go('userView');
-				}
-			}
-		);
-	},
-	'keyup form#signin': function (e, t) {
-		var valid = (t.find('#signinEmail').value && t.find('#signinPassword').value);
-		Session.set('signinInputsValid', valid);
-	},
-	'keyup form#signup': function (e, t) {
-		var valid = (t.find('#signupEmail').value && t.find('#signupPassword').value);
-		Session.set('signupInputsValid', valid);
-	},
+Template.login.events({
 	'click #resetPassword': function (e, t) {
-		if (t.find('#signinEmail').value) {
+		var email = AutoForm.getFieldValue('signin', 'email');
+		console.log(email);
+		if (email) {
 			Router.go('reset');
-			Meteor.call('resetUserPassword', t.find('#signinEmail').value, function (error) {
+			Meteor.call('resetUserPassword', email, function (error) {
 				if (error) {
 					Session.set('resetPasswordError', error.reason);
 					Router.go('login');
@@ -70,23 +63,12 @@ Template.login.events({
 		}
 	}
 });
-Template.loginAction.helpers({
-	signinInputsValid: function () {
-		return Session.get('signinInputsValid') ? '' : 'disabled';
-	},
-	signupInputsValid: function () {
-		return Session.get('signupInputsValid') ? '' : 'disabled';
-	},
-	signinError: function () {
-		return Session.get('signinError');
-	}
-});
 
 Deps.autorun(function () {
-	if (!Meteor.user() && Router.current() && (Router.current().route.name == 'userView')) {
+	if (!Meteor.user() && Router.current() && (Router.current().route.name == 'user')) {
 		Router.go('login');
 	}
 	else if (Meteor.user() && Router.current() && (Router.current().route.name == 'login')) {
-		Router.go('userView');
+		Router.go('user');
 	}
 });

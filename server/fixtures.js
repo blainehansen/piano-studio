@@ -29,6 +29,7 @@ if (Vouchers.find().count() == 0) {
 if (Students.find().count() == 0) {
 	Students.insert({firstname: 'Lana', lastname: 'Kane', price: 22.5});
 }
+Students.update({firstname: 'Lana', lastname: 'Kane', price: 22.5}, {$set: {user_id: "YXeudfnHyKmsGXaEL"}});
 
 Meteor.startup(function() {
 	process.env.MAIL_URL = 'smtp://postmaster%40sandbox83338.mailgun.org:9zggvz4f10-9@smtp.mailgun.org:587';

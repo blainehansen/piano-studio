@@ -1,30 +1,30 @@
 // Global Helpers
-UI.registerHelper('session', function (input) {
+Template.registerHelper('session', function (input) {
 	return Session.get(input);
 });
 
-UI.registerHelper('dollars', function (number) {
+Template.registerHelper('dollars', function (number) {
 	return '$' + parseFloat(number).toFixed(2);
 });
 
-UI.registerHelper('equals', function(first, second) {
+Template.registerHelper('equals', function(first, second) {
 	return first == second;
 });
 
-UI.registerHelper('colonHighlight', function (input) {
+Template.registerHelper('colonHighlight', function (input) {
 	var arr = input.split(':');
 	return Spacebars.SafeString('<span class="important">' + arr[0] + ':</span> ' + arr[1]);
 });
 
-UI.registerHelper('important', function (input) {
+Template.registerHelper('important', function (input) {
 	return Spacebars.SafeString('<span class="important">' + input + '</span>');
 });
 
-UI.registerHelper('youtubeLink', function (input) {
+Template.registerHelper('youtubeLink', function (input) {
 	return Spacebars.SafeString('http://www.youtube.com/watch?v=' + input);
 });
 
-UI.registerHelper('youtubeEmbed', function (input, ratio, classes) {	
+Template.registerHelper('youtubeEmbed', function (input, ratio, classes) {	
 	ratio = ratio || '16by9';
 	classes = classes || '';
 	var give = '<div class="embed-responsive embed-responsive-' + ratio + ' ' + classes + '">'
@@ -33,13 +33,14 @@ UI.registerHelper('youtubeEmbed', function (input, ratio, classes) {
 	return Spacebars.SafeString(give);
 });
 
-UI.registerHelper('today', function () {
+Template.registerHelper('today', function () {
 	return moment().format('MM/DD/YYYY');
 });
 
-UI.registerHelper('outLink', function (href) {
-	return "<a href=" + href + "></a>"
+Template.registerHelper('showDate', function (date) {
+	return moment(date).format('MM/DD/YYYY');
 });
+
 
 Template.editable.created = function () {
 	this._editing = new ReactiveVar(false);
@@ -60,16 +61,43 @@ Template.clickToEdit.created = function () {
 	this._editing = new ReactiveVar(false);
 };
 Template.clickToEdit.events({
-	'click #clickArea': function (e, t) {
+	'click .open-area': function (e, t) {
 		t._editing.set(true);
 	},
-	'submit form': function (e, t) {
+	'click .close-area': function (e, t) {
 		t._editing.set(false);
+	},
+	'submit form': function (e, t) {
+		if (t.data.contextSchema || t.data.contextCollection) {
+			var schema = window[t.data.contextSchema] || window[t.data.contextCollection]._c2._simpleSchema;
+			var schemaContext = schema.namedContext(t.data.contextId);
+			if (schemaContext.isValid())
+				t._editing.set(false);
+		}
+		else t._editing.set(false);
 	}
 });
 Template.clickToEdit.helpers({
 	editing: function () {
 		return Template.instance()._editing.get();
+	}
+});
+
+
+Template.openClose.created = function () {
+	this._open = new ReactiveVar(false);
+};
+Template.openClose.events({
+	'click .open-area': function (e, t) {
+		t._open.set(true);
+	},
+	'click .close-area': function (e, t) {
+		t._open.set(false);
+	}
+});
+Template.openClose.helpers({
+	open: function () {
+		return Template.instance()._open.get();
 	}
 });
 

@@ -53,7 +53,7 @@ Security.defineMethod('docWithout', {
 
 Meteor.users.permit('remove').never().apply();
 Meteor.users.permit(['insert', 'update']).admin().apply();
-Meteor.users.permit('update').admin().exceptProps(['username', 'emails', 'createdAt', 'services']).apply();
+Meteor.users.permit('update').admin().exceptProps(['username', 'emails', 'createdAt', 'services', 'braintree_id']).apply();
 Meteor.users.permit('update').ownsDocument().onlyProps(['firstname', 'lastname']).apply();
 Meteor.users.permit('update').ownsDocument().onlyProps(['emails', 'phones']).modifyArray().apply();
 
@@ -63,8 +63,7 @@ Students.permit('update').ownsDocument().docHas('reflectsUser').onlyProps(['firs
 
 Lessons.permit(['insert', 'update', 'remove']).admin().apply();
 
-Payments.permit(['insert', 'update']).admin().apply();
-Payments.permit('remove').admin().docWithout('braintree_id').apply();
+Payments.permit(['insert', 'update', 'remove']).admin().docWithout('braintree_id').apply();
 
 StudentExpenses.permit(['insert', 'update', 'remove']).admin().apply();
 

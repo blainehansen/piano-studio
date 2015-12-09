@@ -2,6 +2,162 @@
 	{{> backgroundApp}}
 
 	{{#generalLayout}}
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<a class="userChangeTemplate" data-show-template="userInfoTemplate">
+					Your Customer Info
+				</a>
+				{{#if userStudent}}
+					<a class="userChangeTemplate" data-show-template="userSelfStudentTemplate" data-show-data="{{userStudent._id}}">
+						Your Student Info
+					</a>
+				{{/if}}
+				{{#each students}}
+					<a class="userChangeTemplate" data-show-template="userStudentTemplate" data-show-data="{{this._id}}">
+						{{firstname}} {{lastname}}
+					</a>
+				{{/each}}
+				<a class="userChangeTemplate" data-show-template="userPaymentTemplate">
+					Balance and Payment Info
+				</a>
+			</div>
+			<div class="panel-body">
+				{{> Template.dynamic template=showTemplate data=showTemplateData}}
+			</div>
+		</div>
+	{{/generalLayout}}
+</template>
+
+<template name="userInfoTemplate">
+	{{#clickToEdit contextId="userInfoFirstname" contextCollection="Meteor.Users"}}
+		{{> quickForm id="userInfoFirstname" collection="Meteor.Users" type="update" doc=this fields="firstname" template="bootstrap3-inline" buttonContent=false label-class="sr-only" afFieldInput-placeholder=firstname}}
+	{{else}}
+		<p class="open-area">{{firstname}}</p>
+	{{/clickToEdit}}
+
+	{{#clickToEdit contextId="userInfoLastname" contextCollection="Meteor.Users"}}
+		{{> quickForm id="userInfoLastname" collection="Meteor.Users" type="update" doc=this fields="lastname" template="bootstrap3-inline" buttonContent=false label-class="sr-only" afFieldInput-placeholder=lastname}}
+	{{else}}
+		<p class="open-area">{{lastname}}</p>
+	{{/clickToEdit}}
+
+	{{#clickToEdit contextId="passwordEdit" contextSchema="PasswordChangeSchema"}}
+		{{#autoForm id="passwordEdit" schema="PasswordChangeSchema"}}
+			<fieldset>
+				{{> afFormGroup name="oldPassword" type="password"}}
+
+				{{> afFormGroup name="newPassword" type="password"}}
+
+				{{> afFormGroup name="confirmPassword" type="password"}}
+
+				{{#if afFieldIsInvalid name='feedback'}}
+					<div class="has-error">
+						<span class="help-block">{{afFieldMessage name="feedback"}}</span>
+					</div>
+				{{/if}}
+
+				<button type="submit">Change It!</button>
+			</fieldset>
+		{{/autoForm}}
+		<button class="close-area">Nevermind</button>
+	{{else}}
+		<button class="open-area">Change Password</button>
+	{{/clickToEdit}}
+
+	{{#if session "removeEmailVerificationInvalid"}}
+		<div class="has-error">
+			<span class="help-block">You can't remove an email if it's your only verified one!</span>
+		</div>
+	{{/if}}
+	{{#if session "removeEmailQuantityInvalid"}}
+		<div class="has-error">
+			<span class="help-block">You need to have at least one email address in order to be able to log in!</span>
+		</div>
+	{{/if}}
+	{{#each emails}}
+		{{> userInfoEmailTemplate this}}
+	{{/each}}
+
+	<!-- {{> quickForm id="userInfoPhones" collection="Meteor.Users" type="update" doc=this fields="phones"}} -->
+
+	{{#each phones}}
+		{{#clickToEdit}}
+		{{/clickToEdit}}
+		{{> quickForm id="userInfoPhone" collection="Meteor.Users" type="update" doc=.. fields="lastname" template="bootstrap3-inline" buttonContent=false label-class="sr-only" afFieldInput-placeholder=lastname}}
+	{{/each}}
+</template>
+
+<template name="userInfoEmailTemplate">
+	{{#if verified}}
+		<p>{{address}}</p>
+		<button class="removeEmail">Remove</button>
+	{{else}}
+		{{#clickToEdit}}
+			{{> quickForm id="userInfoEmail" type="method"  fields="emails.$.address" template="bootstrap3-inline" buttonContent=false label-class="sr-only" afFieldInput-placeholder=address}}
+		{{else}}
+			<p class="open-area">{{address}}</p>
+			<span class="label label-warning">Unverified</span>
+			<button class="verifyEmail">Verify</button>
+			<button class="removeEmail">Remove</button>
+		{{/clickToEdit}}
+	{{/if}}
+</template>
+
+<template name="userSelfStudentTemplate">
+	{{dollars price}}
+
+	{{#each lessons}}
+		{{showDate date}}
+		{{dollars price}}
+	{{/each}}
+
+	{{#each expenses}}
+		{{showdate date}}
+		{{dollars amount}}
+		{{comments}}
+	{{/each}}
+</template>
+
+<template name="userStudentTemplate">
+	{{#clickToEdit contextId="userInfoFirstname" contextCollection="Students"}}
+		{{> quickForm id="userInfoFirstname" collection="Students" type="update" doc=this fields="firstname" template="bootstrap3-inline" buttonContent=false label-class="sr-only" afFieldInput-placeholder=firstname}}
+	{{else}}
+		<p class="open-area">{{firstname}}</p>
+	{{/clickToEdit}}
+
+	{{#clickToEdit contextId="userInfoLastname" contextCollection="Students"}}
+		{{> quickForm id="userInfoLastname" collection="Students" type="update" doc=this fields="lastname" template="bootstrap3-inline" buttonContent=false label-class="sr-only" afFieldInput-placeholder=lastname}}
+	{{else}}
+		<p class="open-area">{{lastname}}</p>
+	{{/clickToEdit}}
+
+	{{dollars price}}
+
+	{{#each lessons}}
+		{{showDate date}}
+		{{dollars price}}
+	{{/each}}
+
+	{{#each expenses}}
+		{{showdate date}}
+		{{dollars amount}}
+		{{comments}}
+	{{/each}}
+</template>
+
+<template name="userPaymentTemplate">
+	Balance
+
+	Payment Methods
+
+	Ongoing payments
+</template>
+
+
+<!-- <template name="userView">
+	{{> backgroundApp}}
+
+	{{#generalLayout}}
 
 	<div class="panel-heading">
 		{{#if namesEmpty}}
@@ -153,7 +309,7 @@
 					</div>
 				</div>
 			</div> -->
-		</div>
+		<!-- </div>
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -163,7 +319,7 @@
 				<!-- {{#if balance}}
 					<button data-toggle="modal" data-target="#paymentModal" class="btn btn-primary">Make a Payment</button>
 				{{/if}} -->
-			</div>
+			<!-- </div>
 			<ul class="list-group">
 				{{#each payments}}
 					<li class="list-group-item">{{> payment}}</li>
@@ -247,4 +403,4 @@
 
 <template name="studentExpense">
 	{{date}}: {{dollars price}} {{comments}}
-</template>
+</template> -->

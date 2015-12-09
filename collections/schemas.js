@@ -1,5 +1,8 @@
 SimpleSchema.messages({
-	"invalidRelation": "The [label] you tried to insert doesn't line up with a real object: [value]"
+	"invalidRelation": "The [label] you tried to insert doesn't line up with a real object: [value]",
+	"feedback": "[value]",
+	"passwordMismatch": "Your passwords don't match!",
+	"phoneProvider": "That type of phone number shouldn't have a provider"
 });
 
 Schema = {};
@@ -31,45 +34,88 @@ Schema.User = new SimpleSchema({
 		label: "Your phone numbers",
 		optional: true
 	},
+	// "phones.$.number": {
+	// 	type: String,
+	// 	label: "Number",
+	// 	regEx: /\d{3}[.-\/\\]\d{3}[.-\/\\]\d{4}/,
+	// 	autoValue: function () {
+	// 		return this.value.replace(/[.-\/\\]/, '-');
+	// 	}
+	// },
+	// "phones.$.type": {
+	// 	type: String,
+	// 	label: "Type",
+	// 	optional: true,
+	// 	allowedValues: ['cell', 'home', 'office']
+	// },
+	// "phones.$.provider": {
+	// 	type: String,
+	// 	label: "Cell Provider",
+	// 	optional: true,
+	// 	allowedValues: ['t-mobile', 'verizon'],
+	// 	custom: function () {
+	// 		var type = this.fields('phones.$.type');
+	// 		if (type.isSet && type.value != 'cell' && this.isSet) return "phoneProvider";
+	// 	}
+	// },
 	braintree_id: {
 		type: String,
 		optional: true,
+		blackbox: true,
+		autoform: {
+			omit: true
+		}
+	},
+	username: {
+		type: String,
+		optional: true,
+		regEx: /^[a-z0-9A-Z_]{3,15}$/
+	},
+	emails: {
+		type: [Object],
+		label: "Your email addresses",
+		optional: true
+	},
+	"emails.$": {
+		type: Object
+	},
+	"emails.$.address": {
+		type: String,
+		regEx: SimpleSchema.RegEx.Email
+	},
+	"emails.$.verified": {
+		type: Boolean,
+		autoform: {
+			omit: true
+		}
+	},
+	createdAt: {
+		type: Date,
+		autoform: {
+			omit: true
+		}
+	},
+	profile: {
+		type: Object,
+		optional: true,
 		blackbox: true
 	},
-    username: {
-        type: String,
-        regEx: /^[a-z0-9A-Z_]{3,15}$/
-    },
-    emails: {
-        type: [Object],
-        label: "Your email addresses",
-        optional: true
-    },
-    "emails.$.address": {
-        type: String,
-        regEx: SimpleSchema.RegEx.Email
-    },
-    "emails.$.verified": {
-        type: Boolean
-    },
-    createdAt: {
-        type: Date
-    },
-    profile: {
-        type: Object,
-        optional: true,
-        blackbox: true
-    },
-    services: {
-        type: Object,
-        optional: true,
-        blackbox: true
-    },
-    roles: {
-        type: Object,
-        optional: true,
-        blackbox: true
-    }
+	services: {
+		type: Object,
+		optional: true,
+		blackbox: true,
+		autoform: {
+			omit: true
+		}
+	},
+	roles: {
+		type: Object,
+		optional: true,
+		blackbox: true,
+		autoform: {
+			omit: true
+		}
+	}
 });
 Meteor.users.attachSchema(Schema.User);
 
@@ -83,6 +129,14 @@ Schema.Price = new SimpleSchema({
 	price: {
 		type: Number,
 		label: "Price",
+		min: 0,
+		decimal: true
+	}
+});
+Schema.Amount = new SimpleSchema({
+	amount: {
+		type: Number,
+		label: "Amount",
 		min: 0,
 		decimal: true
 	}
@@ -101,6 +155,9 @@ Schema.Student = new SimpleSchema([{
 		label: "id of the User who manages this student",
 		custom: function () {
 			if (!Meteor.users.findOne(this.value)) return "invalidRelation";
+		},
+		autoform: {
+			omit: true
 		}
 	},
 	firstname: {
@@ -118,7 +175,10 @@ Schema.Student = new SimpleSchema([{
 	reflectsUser: {
 		type: Boolean,
 		optional: true,
-		allowedValues: [true]
+		allowedValues: [true],
+		autoform: {
+			omit: true
+		}
 	}
 }, Schema.Price]);
 Students.attachSchema(Schema.Student);
@@ -130,6 +190,9 @@ Schema.Lesson = new SimpleSchema([{
 		label: "id of the Student who took this lesson",
 		custom: function () {
 			if (!Students.findOne(this.value)) return "invalidRelation";
+		},
+		autoform: {
+			omit: true
 		}
 	}
 }, Schema.Date, Schema.Price, Schema.Comment]);
@@ -141,6 +204,9 @@ Schema.Payment = new SimpleSchema([{
 		label: "id of the User who made this payment",
 		custom: function () {
 			if (!Meteor.users.findOne(this.value)) return "invalidRelation";
+		},
+		autoform: {
+			omit: true
 		}
 	},
 	method: {
@@ -148,13 +214,10 @@ Schema.Payment = new SimpleSchema([{
 		label: "Payment Method",
 		trim: true
 	}
-}, Schema.Date, Schema.Price, Schema.Comment]);
-Schema.Payment.labels({
-	price: "Amount"
-})
+}, Schema.Date, Schema.Amount, Schema.Comment]);
 Payments.attachSchema(Schema.Payment);
 
-Schema.Expense = new SimpleSchema([Schema.Date, Schema.Price, Schema.Comment]);
+Schema.Expense = new SimpleSchema([Schema.Date, Schema.Amount, Schema.Comment]);
 Expenses.attachSchema(Schema.Expense);
 
 Schema.StudentExpenses = new SimpleSchema([{
@@ -163,6 +226,9 @@ Schema.StudentExpenses = new SimpleSchema([{
 		label: "id of the Student who incurred this expense",
 		custom: function () {
 			if (!Students.findOne(this.value)) return "invalidRelation";
+		},
+		autoform: {
+			omit: true
 		}
 	}
 }, Schema.Expense])
@@ -175,6 +241,9 @@ Schema.Voucher = new SimpleSchema({
 		optional: true,
 		custom: function () {
 			if (!VoucherClaims.findOne(this.value)) return "invalidRelation";
+		},
+		autoform: {
+			omit: true
 		}
 	}
 });
@@ -186,6 +255,9 @@ Schema.VoucherClaim = new SimpleSchema([{
 		label: 'User who made this claim',
 		custom: function () {
 			if (!Meteor.users.findOne(this.value)) return "invalidRelation";
+		},
+		autoform: {
+			omit: true
 		}
 	},
 	method: {

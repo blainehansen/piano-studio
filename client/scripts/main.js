@@ -3,11 +3,6 @@ if (window.location.href.indexOf("blainehansenpianostudio") > -1) {
 }
 
 // Utility Functions
-var resetSessionVars = function (variables) {
-	variables.forEach(function (item){
-		Session.set(item, undefined);
-	});
-};
 var tagMaker = function (context, tag) {
 	return tag + context._id;
 };

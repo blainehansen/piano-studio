@@ -148,12 +148,12 @@
 					</div>
 				{{/each}}
 				<div class="story">
-					{{#clickToEdit}}
+					{{#clickToEdit contextId="insertTestThingForm" contextCollection="TestThings"}}
 						<p>
 							{{> quickForm id="insertTestThingForm" collection="TestThings" type="insert" template="bootstrap3-inline" buttonContent=false label-class="sr-only" afFieldInput-placeholder="schemaLabel"}}
 						</p>
 					{{else}}
-						<p id="clickArea">...</p>
+						<p class="open-area">...</p>
 					{{/clickToEdit}}
 				</div>
 

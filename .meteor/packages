@@ -7,7 +7,6 @@ standard-app-packages
 iron:router
 accounts-password
 accounts-ui
-mrt:publish-with-relations
 less
 random
 email
@@ -22,4 +21,5 @@ alanning:roles
 aldeed:collection2
 aldeed:autoform
 ongoworks:security
-
+reywood:publish-composite
+aldeed:template-extension

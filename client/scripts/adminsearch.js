@@ -1,7 +1,7 @@
 /// Admin Search
 Template.adminSearch.rendered = function () {
 	Session.set('adminSearchCategory', 'users');
-	resetSessionVars(['adminSearchQueryPopulated', 'adminSearchResult', 'adminSearchQuery']);
+	Belt.session.erase(['adminSearchQueryPopulated', 'adminSearchResult', 'adminSearchQuery']);
 };
 Template.adminSearch.events({
 	'keyup #adminSearchQuery': function (e, t) {
@@ -20,7 +20,7 @@ Template.adminSearch.events({
 	},
 	'click #adminSearchCancelQuery': function (e, t) {
 		t.find('#adminSearchQuery').value = '';
-		resetSessionVars(['adminSearchQueryPopulated', 'adminSearchResult', 'adminSearchQuery']);
+		Belt.session.erase(['adminSearchQueryPopulated', 'adminSearchResult', 'adminSearchQuery']);
 	}
 });
 Template.adminSearch.helpers({

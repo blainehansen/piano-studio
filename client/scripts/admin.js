@@ -8,7 +8,7 @@ Template.admin.created = function () {
 Template.admin.events({
 	'change #entryType': function (e, t) {
 		Session.set('entryType', t.find('#entryType').value);
-		resetSessionVars(['query', 'entryInputsInvalid', 'entryInputsNumberInvalid', 'priceSelectContext', 'queryPopulated']);
+		Belt.session.erase(['query', 'entryInputsInvalid', 'entryInputsNumberInvalid', 'priceSelectContext', 'queryPopulated']);
 	},
 	'keyup #entryZone #query': function (e, t) {
 		Session.set('query', t.find('#query').value);
@@ -49,7 +49,7 @@ Template.admin.events({
 					item.value = '';
 				}
 			});
-			resetSessionVars(['query', 'entryInputsInvalid', 'entryInputsNumberInvalid', 'priceSelectContext', 'queryPopulated']);
+			Belt.session.erase(['query', 'entryInputsInvalid', 'entryInputsNumberInvalid', 'priceSelectContext', 'queryPopulated']);
 			Entries.insert(obj);
 		}
 	},
@@ -69,7 +69,7 @@ Template.admin.events({
 	},
 	'click #cancelQuery': function (e, t) {
 		$('#query').val('');
-		resetSessionVars(['priceSelectContext', 'queryPopulated']);
+		Belt.session.erase(['priceSelectContext', 'queryPopulated']);
 	},
 	'click #saveEntries': function (e, t) {
 		Entries.find().forEach(function (doc) {
@@ -104,7 +104,7 @@ Template.admin.events({
 			}
 		});
 		Entries.remove({});
-		resetSessionVars(['query', 'entryInputsInvalid', 'entryInputsNumberInvalid', 'priceSelectContext', 'queryPopulated']);
+		Belt.session.erase(['query', 'entryInputsInvalid', 'entryInputsNumberInvalid', 'priceSelectContext', 'queryPopulated']);
 	}
 });
 Template.entryStudentInput.helpers({

@@ -1,22 +1,23 @@
+
 /// Payment stuff.
 Template.paymentModal.rendered = function() {
 	Session.set('paymentModalState', this.data.braintree_id ? 'cardlist' : 'nocards');
-	resetSessionVars(['paymentFormError', 'paymentFormAmountValidate', 'paymentFormNumberValidate', 'paymentFormCVVValidate', 'paymentFormExpValidate']);
+	Belt.session.erase(['paymentFormError', 'paymentFormAmountValidate', 'paymentFormNumberValidate', 'paymentFormCVVValidate', 'paymentFormExpValidate']);
 };
 Template.paymentModal.events({
 	'click #switchEnterCard': function (e, t) {
 		t.data.balance = t.find('form#paymentModalForm #amount').value;
 		Session.set('paymentModalState', 'newcard');
-		resetSessionVars(['paymentFormNumberValidate', 'paymentFormCVVValidate', 'paymentFormExpValidate']);
+		Belt.session.erase(['paymentFormNumberValidate', 'paymentFormCVVValidate', 'paymentFormExpValidate']);
 	},
 	'click #switchUseCard': function (e, t) {
 		t.data.balance = t.find('form#paymentModalForm #amount').value;
 		Session.set('paymentModalState', 'cardlist');
-		resetSessionVars(['paymentFormNumberValidate', 'paymentFormCVVValidate', 'paymentFormExpValidate']);
+		Belt.session.erase(['paymentFormNumberValidate', 'paymentFormCVVValidate', 'paymentFormExpValidate']);
 	},
 	'click #resetPayment': function (e, t) {
 		Session.set('paymentModalState', t.data.braintree_id ? 'cardlist' : 'nocards');
-		resetSessionVars(['paymentFormError','paymentFormAmountValidate', 'paymentFormNumberValidate', 'paymentFormCVVValidate', 'paymentFormExpValidate']);
+		Belt.session.erase(['paymentFormError','paymentFormAmountValidate', 'paymentFormNumberValidate', 'paymentFormCVVValidate', 'paymentFormExpValidate']);
 	},
 	'submit form#paymentModalForm': function (e, t) {
 		e.preventDefault();
