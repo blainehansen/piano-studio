@@ -1,8 +1,0 @@
-{
-  "packages": {
-    "iron-router": {
-    	"version": "0.8.2"
-    },
-    "bootstrap3-less": {}
-  }
-}
