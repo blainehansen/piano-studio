@@ -1,0 +1,41 @@
+<template name="editable">
+	{{#if editing}}
+		{{> UI.contentBlock}}
+	{{else}}
+		{{> UI.elseBlock}}
+	{{/if}}
+</template>
+
+<template name="clickToEdit">
+	{{#if editing}}
+		{{#if contextId}}
+			{{> UI.contentBlock ..}}
+		{{else}}
+			{{> UI.contentBlock}}
+		{{/if}}
+	{{else}}
+		{{#if contextId}}
+			{{> UI.elseBlock ..}}
+		{{else}}
+			{{> UI.elseBlock}}
+		{{/if}}
+	{{/if}}
+</template>
+
+<template name="openClose">
+	{{#if open}}
+		{{> UI.contentBlock}}
+	{{else}}
+		{{> UI.elseBlock}}
+	{{/if}}
+</template>
+
+<template name="scroller">
+	<div class="scroller {{classes}}">
+		{{> UI.contentBlock ..}}
+	</div>
+</template>
+
+<template name="outLink">
+	<a target="_newtab" {{this}}>{{> UI.contentBlock}}</a>
+</template>

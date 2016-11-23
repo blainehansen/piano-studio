@@ -32,19 +32,20 @@ html, body, .container-fluid {
 		overflow-y: auto !important;
 	}
 }
-@studio-real-header-height: 52px;
-@studio-real-footer-height: 52px;
-body {
-	background-image: url('/black-Linen.png');
-	padding-top: @studio-real-header-height;
-	padding-bottom: @studio-real-footer-height;
-}
+@studio-real-header-height: 53px;
+@studio-real-footer-height: 53px;
 
 /// Header, Footer, and Side Navigation
 @studio-header-height: 50px;
 @studio-footer-height: @studio-header-height - 10px;
 @studio-side-nav-height: @studio-header-height + 10px;
 @studio-projects-nav-height: @studio-side-nav-height + 10px;
+
+body {
+	background-image: url('/black-Linen.png');
+	padding-top: @studio-real-header-height;
+	padding-bottom: @studio-real-footer-height;
+}
 
 .generic-transition {
 	transition-property:all .5s ease-out 0s;
@@ -68,7 +69,8 @@ body {
 	top: 0;
 }
 .col {
-	.panel-body();
+	// .panel-body();
+	padding: 15px;
 	.text-center();
 	.generic-transition();
 	color: @studio-nav-text-color;
@@ -386,11 +388,11 @@ img {
 
 /// General Display
 button {
-	.btn();
-	.btn-default();
+	// .btn();
+	// .btn-default();
 }
 input[type=text], input[type=password], select {
-	.form-control();
+	// .form-control();
 }
 a:hover {
 	text-decoration: none;

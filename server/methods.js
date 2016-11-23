@@ -1,7 +1,3 @@
-var formatDate = function (dateString) {
-	return moment(dateString, ['M-D-YYYY', 'MM-DD-YYYY']).format('MM/DD/YYYY');
-};
-
 Meteor.methods({
 	email: function (options) {
 		if (Roles.userIsInRole(Meteor.userId(), 'admin'))
@@ -63,7 +59,7 @@ Meteor.methods({
 		if (Roles.userIsInRole(Meteor.userId(), 'admin'))
 			throw new Meteor.Error(401, "You aren't authorized to create Lessons.");
 		lessonObj = _.pick(lessonObj, 'date', 'price', 'comments');
-		lessonObj.date = formatDate(lessonObj.date);
+		lessonObj.date = moment(lessonObj.date, ['M-D-YYYY', 'MM-DD-YYYY']).format('MM/DD/YYYY');
 
 		if (lessonObj.price < 0)
 			throw new Meteor.Error(400, "Price is negative.");
@@ -77,7 +73,7 @@ Meteor.methods({
 		if (Roles.userIsInRole(Meteor.userId(), 'admin'))
 			throw new Meteor.Error(401, "You aren't authorized to create Payments.");
 		paymentObj = _.pick(paymentObj, 'date', 'amount', 'method', 'comments');
-		paymentObj.date = formatDate(paymentObj.date);
+		paymentObj.date = moment(paymentObj.date, ['M-D-YYYY', 'MM-DD-YYYY']).format('MM/DD/YYYY');
 
 		if (paymentObj.amount < 0)
 			throw new Meteor.Error(400, "Amount is negative.");
@@ -91,7 +87,7 @@ Meteor.methods({
 		if (Roles.userIsInRole(Meteor.userId(), 'admin'))
 			throw new Meteor.Error(401, "You aren't authorized to create Expenses.");
 		expenseObj = _.pick(expenseObj, 'date', 'price', 'comments');
-		expenseObj.date = formatDate(expenseObj.date);
+		expenseObj.date = moment(expenseObj.date, ['M-D-YYYY', 'MM-DD-YYYY']).format('MM/DD/YYYY');
 
 		if (expenseObj.price < 0)
 			throw new Meteor.Error(400, "Price is negative.");
@@ -105,7 +101,7 @@ Meteor.methods({
 		if (Roles.userIsInRole(Meteor.userId(), 'admin'))
 			throw new Meteor.Error(401, "Only admins can create expenses.");
 		expenseObj = _.pick(expenseObj, 'date', 'price', 'comments');
-		expenseObj.date = formatDate(expenseObj.date);
+		expenseObj.date = moment(expenseObj.date, ['M-D-YYYY', 'MM-DD-YYYY']).format('MM/DD/YYYY');
 
 		if (expenseObj.price < 0)
 			throw new Meteor.Error(400, "Price is negative.");

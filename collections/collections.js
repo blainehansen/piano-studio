@@ -12,10 +12,3 @@ Belt.addCollection('expenses', Expenses);
 
 StudentExpenses = new Meteor.Collection('studentexpenses');
 Belt.addCollection('studentexpenses', StudentExpenses);
-
-
-Vouchers = new Meteor.Collection('vouchers');
-Belt.addCollection('vouchers', Vouchers);
-
-VoucherClaims = new Meteor.Collection('voucherclaims');
-Belt.addCollection('voucherclaims', VoucherClaims);

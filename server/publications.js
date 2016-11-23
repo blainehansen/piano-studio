@@ -1,101 +1,96 @@
-// Publication for an individual user.
-Meteor.publish('currentUser', function () {
-	var studentMappings = [{
-		key: 'lesson_ids',
-		collection: Lessons,
-	},{
-		key: 'expense_ids',
-		collection: StudentExpenses,
-	}];
-
-	return Meteor.publishWithRelations({
-		handle: this,
-		collection: Meteor.users,
-		filter: this.userId,
-		options: { fields: 
-			{ firstname: true, lastname: true, student_ids: true, payment_ids: true, phones: true, braintree_id: true, roles: true }
+Meteor.publishComposite(null, {
+	find: function () {
+		return Meteor.users.find(
+			{_id: this.userId},
+			{limit: 1, fields: { firstname: true, lastname: true, phones: true, braintree_id: true, roles: true }});
+	},
+	children: [{
+		find: function (user) {
+			return Payments.find({user_id: user._id});
+		}
+	}, {
+		find: function (user) {
+			return Students.find({user_id: user._id});
 		},
-		mappings: [{
-			key: 'student_ids',
-			collection: Students,
-			mappings: studentMappings
-		},{
-			key: 'payment_ids',
-			collection: Payments,
+		children: [{
+			find: function (student, user) {
+				return Lessons.find({student_id: student._id});
+			}
+		}, {
+			find: function (student, user) {
+				return StudentExpenses.find({student_id: student._id});
+			}
 		}]
-	});
+	}]
 });
 
 Meteor.publish('adminAll', function () {
-	return [
-		Meteor.users.find({}, { fields: { firstname: true, lastname: true }}),
-		Students.find({}, { fields: { firstname: true, lastname: true, price: true }})
-	];
-});
-
-Meteor.publish('adminSpecific', function (id, category) {
-	var studentMappings = [{
-		key: 'lesson_ids',
-		collection: Lessons,
-	},{
-		key: 'expense_ids',
-		collection: StudentExpenses,
-	}];
-
-	var options = {
-		handle: this,
-		filter: id		
-	};
-
-	switch (category) {
-		case 'users':
-			options.collection = Meteor.users;
-			options.options = { fields: {firstname: true, lastname: true, student_ids: true, payment_ids: true, phones: true, emails: true }};
-			options.mappings = [{
-				key: 'student_ids',
-				collection: Students,
-				mappings: studentMappings
-			},{
-				key: 'payment_ids',
-				collection: Payments,
-			}];
-			break;
-		case 'students':
-			options.collection = Students;
-			options.options = { fields: {firstname: true, lastname: true, price: true, lesson_ids: true, expense_ids: true, reflectsUser: true }};
-			options.mappings = studentMappings;
-			break;
-		case 'expenses':
-			options.collection = Expenses;
-			options.options = { fields: {date: true, price: true, comments: true}};
-			break;
+	if (Roles.userIsInRole(this.userId, 'admin')) {
+		return [
+			Meteor.users.find({}, { fields: { firstname: true, lastname: true }}),
+			Students.find({}, { fields: { firstname: true, lastname: true, price: true }})
+		];
 	}
-
-	return Meteor.publishWithRelations(options);
+	else {
+		return [];
+	}
 });
 
-Meteor.publish('userVouchers', function () {
-	return Meteor.publishWithRelations({
-		handle: this,
-		collection: VoucherClaims,
-		filter: { user_id: this.userId },
-		fields: { _id: true, user_id: true, scheduled: true, date: true, method: true, time: true, comments: true },
-		mappings: [{
-			reverse: true,
-			key: 'claim_id',
-			collection: Vouchers,
-			fields: { _id: true, scheduledDate: true, scheduledTime: true, redeemed: true }
-		}]
-	});
-});
-Meteor.publish('adminVouchers', function () {
-	return Meteor.publishWithRelations({
-		handle: this,
-		collection: VoucherClaims,
-		mappings: [{
-			reverse: true,
-			key: 'claim_id',
-			collection: Vouchers
-		}]
-	});
+Meteor.publishComposite('adminSpecific', function (id, category) {
+	if (Roles.userIsInRole(this.userId, 'admin')) {
+		switch (category) {
+			case 'users':
+				return {
+					find: function () {
+						return Meteor.users.find(
+							{_id: id},
+							{limit: 1, fields: { firstname: true, lastname: true, phones: true, braintree_id: true, roles: true }});
+					},
+					children: [{
+						find: function (user) {
+							console.log(user)
+							return Payments.find({user_id: user._id});
+						}
+					}, {
+						find: function (user) {
+							console.log(user)
+							return Students.find({user_id: user._id});
+						},
+						children: [{
+							find: function (student, user) {
+								return Lessons.find({student_id: student._id});
+							}
+						}, {
+							find: function (student, user) {
+								return StudentExpenses.find({student_id: student._id});
+							}
+						}]
+					}]
+				}
+			case 'students':
+				return {
+					find: function () {
+						return Students.find({_id: id}, {limit: 1});
+					},
+					children: [{
+						find: function (student) {
+							return Lessons.find({student_id: student._id});
+						},
+					}, {
+						find: function (student) {
+							return StudentExpenses.find({student_id: student._id});
+						}
+					}]
+				};
+			case 'expenses':
+				return {
+					find: function () {
+						return Expenses.find({_id: id}, {limit: 1});
+					}
+				};
+		};
+	}
+	else {
+		return [];
+	}
 });

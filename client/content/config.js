@@ -1,10 +1,10 @@
 Stories = new Meteor.Collection(null);
 
 [
-{ category: 'announcements', news: true, date: '10/27/14', title: 'Repertoire Page', contentTemplate: 'new-repertoire-page' },
+{ category: 'announcements', news: true, date: '10/27/2014', title: 'Repertoire Page', contentTemplate: 'new-repertoire-page' },
 { category: 'announcements', news: true, featured: true, date: '10/07/2014',  picture: '/handsplaying.jpg', top: 'top',
 title: 'New Studio Website', contentTemplate: 'new-studio-website',
-banner: 'Website Launch', subtitle: 'A new design, customer pages, and more content.' },
+banner: 'Welcome', subtitle: 'This is the website for the Blaine Hansen Piano Studio.' },
 
 { featured: true, picture: 'piano.jpg', 
 banner: 'Creative Projects', subtitle: 'Visit the projects page to see new performances.' },

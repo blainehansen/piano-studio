@@ -1,0 +1,235 @@
+<template name="adminSearch">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<button class="adminSearchCategoryOption" data-option="users">Users</button>
+			<button class="adminSearchCategoryOption" data-option="students">Students</button>
+			<!-- <button class="adminSearchCategoryOption" data-option="expenses">Expenses</button> -->
+			Searching for {{session "adminSearchCategory"}}
+			<div class="input-group">
+				<span class="input-group-btn">
+					<button id="adminSearchCancelQuery" class="btn btn-default" type="button"
+					{{adminSearchQueryPopulatedDisabled}}>
+						<span class="glyphicon glyphicon-remove"></span>
+					</button>
+				</span>
+				<input id="adminSearchQuery" class="form-control" type="text" placeholder="type a query"
+					{{adminSearchQueryPopulatedReadonly}}/>
+			</div>
+
+			<div class="list-group" {{adminSearchQueryShow}}>
+				{{#each adminSearchQueryResults}}
+					<a href="#" class="adminSearchResult list-group-item" data-id="{{_id}}">{{firstname}} {{lastname}}</a>
+				{{else}}
+					<a href="#" class="list-group-item">There are no results for that search.</a>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+	
+	{{#if adminSearchUserShow}}
+
+		{{> adminEditUser adminSearchResult}}
+
+	{{else}} {{#if adminSearchStudentShow}}
+
+		{{> adminEditStudent adminSearchResult}}
+
+	{{else}} {{#if adminSearchExpenseShow}}
+
+		{{> adminEditExpense adminSearchResult}}
+
+	{{/if}} {{/if}} {{/if}}
+</template>
+
+<template name="adminEditUser">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			{{#if session editingTag}}
+				<input id="adminEditUserFirstname" class="adminEditUserInput" type="text" value="{{firstname}}"/>
+				<input id="adminEditUserLastname" class="adminEditUserInput" type="text" value="{{lastname}}"/>
+			{{else}}
+				{{firstname}} {{lastname}}
+				<button id="adminEditUser"><span class="glyphicon glyphicon-pencil"></span></button>
+			{{/if}}
+		</div>
+		<div class="panel-body">
+			<div class="panel panel-default">
+				<div class="panel-heading">Email Addresses</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						{{#each emails}}
+							<li class="list-group-item">
+								{{> adminEditEmail _use_id=../_id email=this emails=../emails}}
+							</li>
+						{{/each}}
+					</ul>
+				</div>
+				<div class="panel-footer">
+					<input id="adminEmailsInput" type="text" placeholder="add another email address"/>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Phone Numbers</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						{{#each phones}}
+							<li class="list-group-item">
+								{{> adminEditPhone _use_id=../_id phone=this phones=../phones}}
+							</li>
+						{{/each}}
+					</ul>
+				</div>
+				<div class="panel-footer">
+					<input id="adminPhonesInput" type="text" placeholder="add another phone number"/>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Students</div>
+				<div class="panel-body">
+					{{#each students}}
+						{{> adminEditStudent}}
+					{{/each}}
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Payments</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						{{#each payments}}
+							<li class="list-group-item">
+								{{> adminEditPayment _use_id=../_id payment=this}}
+							</li>
+						{{/each}}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="adminEditStudent">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			{{#if session editingTag}}
+				{{#unless reflectsUser}}
+					<input id="adminEditStudentFirstname" class="adminEditStudentInput" type="text" value="{{firstname}}"/>
+					<input id="adminEditStudentLastname" class="adminEditStudentInput" type="text" value="{{lastname}}"/>
+				{{/unless}}
+				<select id="adminEditStudentPrice" class="adminEditStudentInput">
+					{{> priceSelectView priceSelectContext}}
+				</select>
+			{{else}}
+				{{firstname}} {{lastname}} {{dollars price}} {{_id}}
+				<button id="adminEditStudent"><span class="glyphicon glyphicon-pencil"></span></button>
+			{{/if}}
+		</div>
+		<div class="panel-body">
+			<div class="panel panel-default">
+				<div class="panel-heading">Lessons</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						{{#each lessons}}
+							<li class="list-group-item">
+								{{> adminEditLesson _use_id=../_id lesson=this}}
+							</li>
+						{{/each}}
+					</ul>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Expenses</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						{{#each expenses}}
+							<li class="list-group-item">
+								{{> adminEditStudentExpense _use_id=../_id expense=this}}
+							</li>
+						{{/each}}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="adminEditEmail">
+	{{email.address}}
+	{{#unless email.verified}} 
+		<span class="label label-warning">Unverified</span>
+		<button class="adminRemove"><span class="glyphicon glyphicon-remove"></span></button>
+	{{/unless}}
+</template>
+
+<template name="adminEditPhone">
+	{{phone.number}}
+	<button class="adminRemove"><span class="glyphicon glyphicon-remove"></span></button>
+</template>
+
+<template name="adminEditPayment">
+	{{#if session editingTag}}
+		{{#with payment}}
+			{{> adminEditPaymentDatepicker}}
+			<input id="adminEditPaymentAmount" class="adminEditPaymentInput" type="text" value="{{amount}}"/>
+			<input id="adminEditPaymentMethod" class="adminEditPaymentInput" type="text" value="{{method}}"/>
+			<input id="adminEditPaymentComments" class="adminEditPaymentInput" type="text" value="{{comments}}"/>
+		{{/with}}
+	{{else}}
+		{{#with payment}}
+			{{date}}: {{dollars amount}} {{method}} {{comments}}
+			{{#unless braintree_transaction_id}}
+				<button id="adminEditPayment"><span class="glyphicon glyphicon-pencil"></span></button>
+				<button class="adminRemove"><span class="glyphicon glyphicon-remove"></span></button>
+			{{/unless}}
+		{{/with}}
+	{{/if}}
+</template>
+
+<template name="adminEditPaymentDatepicker">
+	<input id="adminEditPaymentDate" class="adminEditPaymentInput datepicker" type="text" value="{{date}}"/>
+</template>
+
+<template name="adminEditLesson">
+	{{#if session editingTag}}
+		{{#with lesson}}
+			{{> adminEditLessonDatepicker}}
+			<select id="adminEditLessonPrice" class="adminEditLessonInput">
+				{{> priceSelectView priceSelectContext}}
+			</select>
+			<input id="adminEditLessonComments" class="adminEditLessonInput" type="text" value="{{comments}}"/>
+		{{/with}}
+	{{else}}
+		{{#with lesson}}
+			{{date}}: {{dollars price}} {{comments}}
+			<button id="adminEditLesson"><span class="glyphicon glyphicon-pencil"></span></button>
+			<button class="adminRemove"><span class="glyphicon glyphicon-remove"></span></button>
+		{{/with}}
+	{{/if}}
+</template>
+
+<template name="adminEditLessonDatepicker">
+	<input id="adminEditLessonDate" class="adminEditLessonInput datepicker" type="text" value="{{date}}"/>
+</template>
+
+<template name="adminEditStudentExpense">
+	{{#if session editingTag}}
+		{{#with expense}}
+			{{> adminEditStudentExpenseDatepicker}}
+			<input id="adminEditStudentExpensePrice" class="adminEditStudentExpenseInput" type="text" value="{{price}}"/>
+			<input id="adminEditStudentExpenseComments" class="adminEditStudentExpenseInput" type="text" value="{{comments}}"/>
+		{{/with}}
+	{{else}}
+		{{#with expense}}
+			{{date}}: {{dollars price}} {{comments}}
+			<button id="adminEditStudentExpense"><span class="glyphicon glyphicon-pencil"></span></button>
+			<button class="adminRemove"><span class="glyphicon glyphicon-remove"></span></button>
+		{{/with}}
+	{{/if}}
+</template>
+
+<template name="adminEditStudentExpenseDatepicker">
+	<input id="adminEditStudentExpenseDate" class="adminEditStudentExpenseInput datepicker" type="text" value="{{date}}"/>
+</template>
