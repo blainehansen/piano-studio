@@ -1,0 +1,227 @@
+SimpleSchema.messages({
+	"invalidRelation": "The [label] you tried to insert doesn't line up with a real object: [value]",
+	"feedback": "[value]",
+	"passwordMismatch": "Your passwords don't match!",
+	"phoneProvider": "That type of phone number shouldn't have a provider"
+});
+
+Schema = {};
+Schema.User = new SimpleSchema({
+	firstname: {
+		type: String,
+		label: "First Name",
+		max: 15,
+		trim: true,
+		optional: true,
+		custom: function () {
+			var student = Students.findOne({user_id: this.field('_id').value, reflectsUser: true});
+			if (student) Students.update(student, {$set: {firstname: this.value}});
+		}
+	},
+	lastname: {
+		type: String,
+		label: "Last Name",
+		max: 15,
+		trim: true,
+		optional: true,
+		custom: function () {
+			var student = Students.findOne({user_id: this.field('_id').value, reflectsUser: true});
+			if (student) Students.update(student, {$set: {lastname: this.value}});
+		}
+	},
+	// phones: {
+	// 	type: [String],
+	// 	label: "Your phone numbers",
+	// 	optional: true
+	// },
+	// "phones.$.number": {
+	// 	type: String,
+	// 	label: "Number",
+	// 	regEx: /\d{3}[.-\/\\]\d{3}[.-\/\\]\d{4}/,
+	// 	autoValue: function () {
+	// 		return this.value.replace(/[.-\/\\]/, '-');
+	// 	}
+	// },
+	// "phones.$.type": {
+	// 	type: String,
+	// 	label: "Type",
+	// 	optional: true,
+	// 	allowedValues: ['cell', 'home', 'office']
+	// },
+	// "phones.$.provider": {
+	// 	type: String,
+	// 	label: "Cell Provider",
+	// 	optional: true,
+	// 	allowedValues: ['t-mobile', 'verizon'],
+	// 	custom: function () {
+	// 		var type = this.field('phones.$.type');
+	// 		if (type.isSet && type.value != 'cell' && this.isSet) return "phoneProvider";
+	// 	}
+	// },
+	username: {
+		type: String,
+		optional: true,
+		regEx: /^[a-z0-9A-Z_]{3,15}$/
+	},
+	emails: {
+		type: [Object],
+		label: "Your email addresses",
+		optional: true
+	},
+	"emails.$": {
+		type: Object
+	},
+	"emails.$.address": {
+		type: String,
+		regEx: SimpleSchema.RegEx.Email
+	},
+	"emails.$.verified": {
+		type: Boolean,
+		autoform: {
+			omit: true
+		}
+	},
+	createdAt: {
+		type: Date,
+		autoform: {
+			omit: true
+		}
+	},
+	profile: {
+		type: Object,
+		optional: true,
+		blackbox: true
+	},
+	services: {
+		type: Object,
+		optional: true,
+		blackbox: true,
+		autoform: {
+			omit: true
+		}
+	},
+	roles: {
+		type: Object,
+		optional: true,
+		blackbox: true,
+		autoform: {
+			omit: true
+		}
+	}
+});
+Meteor.users.attachSchema(Schema.User);
+
+Schema.Date = new SimpleSchema({
+	date: {
+		type: Date,
+		label: "Lesson Date"
+	}
+});
+Schema.Price = new SimpleSchema({
+	price: {
+		type: Number,
+		label: "Price",
+		min: 0,
+		decimal: true
+	}
+});
+Schema.Amount = new SimpleSchema({
+	amount: {
+		type: Number,
+		label: "Amount",
+		min: 0,
+		decimal: true
+	}
+});
+Schema.Comment = new SimpleSchema({
+	comments: {
+		type: String,
+		label: "Comments",
+		optional: true
+	}
+});
+
+Schema.Student = new SimpleSchema([{
+	user_id: {
+		type: String,
+		label: "id of the User who manages this student",
+		custom: function () {
+			if (!Meteor.users.findOne(this.value)) return "invalidRelation";
+		},
+		autoform: {
+			omit: true
+		}
+	},
+	firstname: {
+		type: String,
+		label: "First Name",
+		max: 15,
+		trim: true
+	},
+	lastname: {
+		type: String,
+		label: "Last Name",
+		max: 15,
+		trim: true
+	},
+	reflectsUser: {
+		type: Boolean,
+		optional: true,
+		allowedValues: [true],
+		autoform: {
+			omit: true
+		}
+	}
+}, Schema.Price]);
+Students.attachSchema(Schema.Student);
+
+
+Schema.Lesson = new SimpleSchema([{
+	student_id: {
+		type: String,
+		label: "id of the Student who took this lesson",
+		custom: function () {
+			if (!Students.findOne(this.value)) return "invalidRelation";
+		},
+		autoform: {
+			omit: true
+		}
+	}
+}, Schema.Date, Schema.Price, Schema.Comment]);
+Lessons.attachSchema(Schema.Lesson);
+
+Schema.Payment = new SimpleSchema([{
+	user_id: {
+		type: String,
+		label: "id of the User who made this payment",
+		custom: function () {
+			if (!Meteor.users.findOne(this.value)) return "invalidRelation";
+		},
+		autoform: {
+			omit: true
+		}
+	},
+	method: {
+		type: String,
+		label: "Payment Method",
+		trim: true
+	}
+}, Schema.Date, Schema.Amount, Schema.Comment]);
+Payments.attachSchema(Schema.Payment);
+
+Schema.Expense = new SimpleSchema([Schema.Date, Schema.Amount, Schema.Comment]);
+Expenses.attachSchema(Schema.Expense);
+
+Schema.StudentExpenses = new SimpleSchema([{
+	student_id: {
+		type: String,
+		label: "id of the Student who incurred this expense",
+		custom: function () {
+			if (!Students.findOne(this.value)) return "invalidRelation";
+		},
+		autoform: {
+			omit: true
+		}
+	}
+}, Schema.Expense])
+StudentExpenses.attachSchema(Schema.Expense);

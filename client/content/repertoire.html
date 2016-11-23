@@ -1,0 +1,31 @@
+<template name="repertoireHome">
+	
+	<p>Here's a list of songs I've either edited or found good editions for.</p>
+
+	<!-- You can choose to either categorize them by difficulty or by composer. -->
+
+	{{#each levels}}
+		{{#if equals level 0}}
+			<h3><a data-toggle="collapse" data-target="#level-{{level}}">Primer Level</a></h3>
+		{{else}} {{#if equals level 11}}
+			<h3><a data-toggle="collapse" data-target="#level-{{level}}">Beyond Categories</a></h3>
+		{{else}}
+			<h3><a data-toggle="collapse" data-target="#level-{{level}}">Level {{level}}</a></h3>
+		{{/if}} {{/if}}
+
+		<div id="level-{{level}}" class="collapse">
+			{{#each composers}}
+				<strong>{{name}}</strong>
+				<ul>
+					{{#each pieces}}
+						<li>
+							{{title}}: <a href="/scores/{{composer}}/{{score}}" target="_newtab">Score</a>
+							{{#if levelUpper}}. This is a collection. It has pieces ranging from {{level}} to {{levelUpper}}.{{/if}}
+							{{#if videoid}}, <a href="{{youtubeLink videoid}}" target="_newtab">Video</a>{{/if}}
+						</li>
+					{{/each}}
+				</ul>
+			{{/each}}
+		</div>
+	{{/each}}
+</template>

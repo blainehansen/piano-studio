@@ -1,0 +1,553 @@
+<template name="teachingHome">
+{{#markdown}}
+
+### {{important title}}
+
+Hello! This is the area of my site dedicated to my teaching. The bar to the right shows links to different pages where I discuss my pricing and policies, make resources available to students, and provide information about myself.
+
+Below I've included a few performance videos. If you're interested in hearing more of my playing, visit [my projects area](/projects).
+
+{{youtubeEmbed "et9Uyv_aXcg" null null}}
+{{youtubeEmbed "l9wyJuyWdNg" null null}}
+
+{{/markdown}}
+</template>
+
+
+
+
+<template name="vouchers">
+
+	<div class="panel panel-default computed">
+		<div class="panel-body">
+			{{#if currentUser}}
+
+				{{#if claim}}
+
+					{{#if claim.scheduled}}
+						{{claim.queue}}
+						{{#each claim.vouchers}}
+							{{_id}}
+							{{scheduledDate}}
+							{{scheduledTime}}
+						{{/each}}
+					{{else}}
+						Date Signed Up {{claim.date}}
+						{{claim.method}}
+						{{claim.time}}
+						{{#each claim.vouchers}}
+							{{_id}}
+						{{/each}}
+					{{/if}}
+						
+				{{else}}
+					<div class="form-group">
+						{{#if session "voucherNumberError"}}
+							{{session "voucherNumberError"}}
+						{{/if}}
+						<label for="voucherNumberInput" class="control-label">New Voucher Number</label>
+						<div>
+							<input id="voucherNumberInput" type="text" autocomplete="off"/>
+							<button class="btn btn-default" id="voucherNumberInputAdd">Add</button>
+						</div>
+					</div>
+
+					{{#if voucherEntries}}
+						<div class="form-group">
+							<div>
+								<label class="control-label">These are all the vouchers you'll be claiming.</label>
+								{{#each voucherEntries}}
+									<p class="form-control-static">{{_id}}</p>
+								{{/each}}
+							</div>
+						</div>
+					{{/if}}
+
+					<div class="form-group">
+						{{#if session "voucherContactMethodError"}}					
+							{{session "voucherContactMethodError"}}
+						{{/if}}
+						<label for="voucherContactMethod" class="control-label">Best Contact Method</label>
+						<div>
+							<input id="voucherContactMethod" type="text" value="">
+						</div>
+					</div>
+
+					<div class="form-group">
+						{{#if session "voucherContactTimeError"}}
+							{{session "voucherContactTimeError"}}
+						{{/if}}
+						<label for="voucherContactTime" class="control-label">Best Time of Day</label>
+						<div>
+							<select id="voucherContactTime">
+								<option value="whenever" selected> Doesn't really matter </option>
+								<option value="monday"> Monday 4:00 - 7:00 </option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="voucherComments" class="control-label">Anything Else I Should Know?</label>
+						<div>
+							<textarea id="voucherComments" class="form-control" rows="3"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div>
+							<button id="voucherFormSubmit" class="btn btn-default">Get these Vouchers on the List!</button>
+						</div>
+					</div>
+				{{/if}}
+
+			{{else}}
+				{{> loginAction}}
+			{{/if}}
+		</div>
+	</div>
+
+</template>
+
+
+
+
+
+<template name="pricing">
+{{#markdown}}
+
+### {{important title}}
+
+Depending on the seriousness of study, budget, and the age of the student, I offer three types of lessons (the names of which are based on music theory!).
+
+{{important "Minor Lesson:"}} 30 minutes. $15.  
+Ideal for casual or busy students or for younger children.
+
+{{important "Major Lesson:"}} 45 minutes. $22.50.  
+Most common and effective variety. A good length for optimal concentration and amount of material supplied.
+
+{{important "Augmented Lesson:"}} 60 minutes. $30.  
+For serious students.
+
+Piano lessons can make excellent gifts! Does someone you know want music in their life and hasn't been able to make the leap? 
+Buy them some lessons! The amount you spend can be used on any type of lessons and has no lower or upper limit, so it is flexible and can be used in any manner desired. Remember, when it comes to learning the piano, [age doesn't matter!](/teaching/benefits) Those you know who played as children but have forgotten, or those who never learned but have always wanted to, are always appreciative of a chance like this. Do something for them they'll always remember.
+
+Does your giftee not have a piano? There are many inexpensive digital pianos for sale at department stores or online (this <a href="https://www.google.com/search?q=cheap+digital+piano&oq=cheap+digital+piano" target="_newtab">google search</a> reveals many) and stores such as <a href="http://www.summerhayspianos.com/" target="_newtab">Summerhays Piano Source</a> have many inexpensive starter pianos for sale. Music is truly a gift that keeps on giving, in happiness, in intelligence, in creativity, in mental and emotional health, and I am just the teacher to make sure your gift is richly appreciated. Your investment will be well worth it.
+
+{{/markdown}}
+</template>
+
+
+
+
+
+<template name="policy">
+{{#markdown}}
+
+### {{important title}}
+
+A complete discussion of my studio can be found in this pdf document of my <a href="/PolicyandPhilosophy.pdf" target="_newtab">Studio Policy and Philosophy</a>, which I urge you to read entirely. However, the essentials are outlined below.
+
+Payments are handled on a monthly tuition basis. On the last lesson of each month, the next month is paid for in advance, regardless of the current balance. In the case of missed lessons, makeup lessons are given, which can be done either as an extra lesson on another day, or as an extension of the normal lesson time on a day that would allow it. This is done to stabilize the studio's incoming payments, to help maintain a simple payment routine, and keep the amount of lesson time enjoyed by students consistent.     
+In order to give other students a chance to use missed time slots for makeup lessons, notice of rescheduling is needed before noon the day of the lesson in order to receive a makeup. When I cancel an appointment I will give a makeup lesson, and if I am forced to do so with less than proper notice, I will give two makeup lessons.
+
+At higher levels, sheet music for almost the entire classical repertoire can be found for free at this <a href="http://imslp.org" target="_newtab">cataloging project website</a> since it is now public domain. However, at the beginning levels there is very little (interesting) music available. We will be using inexpensive repertoire books (between $4 and $7 every few months) for the beginning levels. I will purchase these as needed, and students or parents will reimburse me. If you want to play particular published pieces or to participate in official competitions you will need to purchase sheet music yourself.
+
+{{/markdown}}
+</template>
+
+
+
+
+<template name="benefits">
+{{#markdown}}
+
+### {{important title}}
+
+The ability to play the piano, and being trained in music in general, yield many positive results for both beginning and lifelong students. This [charming infographic](http://www.popsci.com/science/article/2013-02/your-brain-music-infographic) sums up a few effects, and this [ted-ed lesson](http://ed.ted.com/lessons/how-playing-an-instrument-benefits-your-brain-anita-collins) talks about some of the neuroscience behind them, but there are many more to be found.
+
+Studies [like these](http://scholar.google.com/scholar?hl=en&q=benefit+of+music+lesson&btnG=&as_sdt=1%2C45) or [these](http://scholar.google.com/scholar?q=differences+of+pianists&btnG=&hl=en&as_sdt=1%2C45) have shown such benefits as:
+
+* Increased sensitivity to emotion in sound (read [this fascinating article](http://abcnews.go.com/Technology/DyeHard/story?id=7050081&page=1#.UWxXIopDulo)!).
+* Creativity and interdisciplinary innovation (some more [interesting reading](http://www.npr.org/blogs/deceptivecadence/2013/04/09/176681242/can-yo-yo-ma-fix-the-arts))
+* Ability to learn new tasks, as well as IQ.
+* Auditory and visual reaction time.
+* Dexterity and motor skills.
+* Gray matter density.
+* Cerebellum and Corpus Callosum size.
+* Equality of brain hemisphere development.
+* Connection between auditory and motor regions.
+* And with the following especially true in children:
+	* Speech related pitch discrimination.
+	* Reading.
+	* Vocabulary.
+	* Verbal sequencing.
+	* Academic performance.
+	* Spatial/temporal intelligence.
+	* Self-esteem.
+	* Maturity of synaptic connections.
+
+Music brings joy to anyone who gives it a chance, and it's never too late to begin! Adult piano students report improved self-actualization, enjoyment, personal growth, and escape from routine after beginning lessons, as shown by [this study](http://jrm.sagepub.com/content/54/2/97.short).
+
+Cultivate something beautiful in yourself!
+
+{{/markdown}}
+</template>
+
+
+
+<template name="methods">
+{{#markdown}}
+
+### {{important title}}
+
+To keep costs down for my students and their parents, I personally make or prepare all lesson books and exercises. The only thing I ask to be purchased is small, inexpensive repertoire books, since repertoire at beginning levels is very difficult to find or produce in respectable volume. After a certain level of ability however, all repertoire is free, since it has now become public domain and can be accessed at the website of this [music cataloging project](http://imslp.org/).
+
+Since many students are interested in playing music outside of the Classical Repertoire, I will offer to write arrangements of a student's favorite songs at their skill level and help them through the process of learning them in exchange for hard work and consistency with my expectations. Classical Repertoire will best prepare students for their favorite styles, and as they work diligently with me and my teaching plan they will find other music to be a breeze.
+
+Also, to be sure no important concepts or skills are missing from a student's understanding, I provide reference sheets of musical concepts, and give regular "quizzes" or "drills" to make sure things are going well. Don't worry though! These are no pressure and good performance is rewarded!
+
+<!-- As a convenience, and to help students and their parents remember lessons, 
+I use an internet system to send email or text reminders as a lesson approaches. This is completely optional, but I think you'll find it very handy! -->
+
+{{/markdown}}
+</template>
+
+
+
+
+<template name="repertoire">
+{{#markdown}}
+
+### {{important title}}
+
+This is a list of pieces I regularly use for teaching, categorized by difficulty and composer. Each has a link to a pdf file of the score, and whenever possible, a recording of the piece.
+
+
+{{/markdown}}
+</template>
+
+
+
+
+
+<template name="masterworks">
+{{#markdown}}
+
+### {{important title}}
+
+The Classical Tradition is very long, and has given us over 400 years of incredible music. It is my profound pleasure when I'm given an opportunity to bring these works, as well as an understanding of these works, into the lives of my students. Even if I never get the chance to teach them to you directly, I think they're beautiful and will enrich your life even without more context.
+
+I've organized all of the works below by what I call "listener difficulty." All genres of music have ideas that define the genre (rock and roll has different harmonic and rhythmic ideas than classical music, which is different than hip-hop, etc.), and when someone begins listening to a genre, they have to start with the simplest expressions of these musical ideas, or they'll find the music confusing and difficult to enjoy but as they gain more familiarity with those musical ideas, they appreciate more complex forms of them. For a very interesting look into how people perceive and enjoy music, I recommend you read [This is Your Brain on Music](http://daniellevitin.com/publicpage/books/this-is-your-brain-on-music/). 
+
+This is just as true for classical music as for any other type. Classical music is a very old and advanced genre though, so much of the music is very complicated, and this makes most people's first exposures to it overwhelming. This is a tragedy we can avoid! To do so, I will continually curate this list, which can help listeners slowly step through the genre and appreciate the simpler (but still brilliant) pieces first. This gives everyone an opportunity to love the whole genre, and gain an appreciation for this vast portion of our human legacy. So without further ado:
+
+#### Very Simple
+* Beethoven - Moonlight
+* Beethoven - Tempest 3rd
+* Beethoven - Sonata Movements
+
+#### Simple
+* Debussy - Arabesques
+* Debussy - Reverie
+* Debussy - Clair de Lune
+* Debussy - Snow is Dancing
+* Debussy - Children's Corner Works
+
+#### Simple Intermediate
+* Beethoven - Dances
+* Beethoven - Concertos
+* Mozart - Sonatas
+* Mozart - Dances
+* Mozart - Fantasies
+* Mozart - Concertos
+* Scarlatti - Sonatas
+* Scriabin - One Handed Nocturne
+
+#### Intermediate
+* Haydn - Sonatas
+* Chopin - Etudes
+* Chopin - Sonatas
+* Chopin - Scherzos
+* Chopin - Concertos
+* Chopin - Dances
+* Chopin - Nocturnes
+* Chopin - Fantaisie Impromptu
+
+#### Complex Intermediate
+* Rachmaninoff - Suites
+* Rachmaninoff - Concertos
+* Busoni - Chaconne Arrangement
+* Tchaikovsky - Concerto
+* Scriabin - Concerto
+* Rachmaninoff - Trio
+* Debussy - Images
+* Debussy - Estampes
+* Debussy - L'Isle Joyeuse
+* Brahms - Variations
+* Brahms - Fantaisies
+* Brahms - Concertos
+* Schumann - Scenes from Childhood
+* Schumann - Concertos
+* Schumann - Sonatas
+* Schumann - Etudes
+* Schubert - Sonatas
+* Beethoven - Sonata
+* Beethoven - Concertos
+
+#### Complex
+* Bach - Inventions
+* Bach - Concertos
+* Kapustin - Sonatas
+* Kapustin - Etudes
+* Ravel - Miroirs
+* Ravel - Jeux D'eau
+* Ravel - Tambeau de Couperin
+
+#### Very Complex
+* Bach - Partitas
+* Bach - Preludes and Fugues
+* Rachmaninoff - Preludes Op. 23
+* Rachmaninoff - Sonatas
+* Rachmaninoff - Variations
+* Rachmaninoff - Etudes-Tableaux Op. 33
+* Symanowsky - Mazurkas
+* Symanowsky - Etudes
+* Liszt - Etudes
+* Liszt - Sonata
+* Liszt - Polonaises
+* Liszt - Hungarian Fantasies
+* Liszt - Years of Pilgrimage
+* Alkan - Solo Concerto
+* Alkan - Etudes
+
+#### Incredibly Complex
+* Rachmaninoff - Preludes Op. 32
+* Rachmaninoff - Etudes-Tableaux Op. 39
+* Medtner - Sonatas
+* Medtner - Arabesques
+* Prokofiev - Sonatas
+* Prokofiev - Suggestion Diabolique
+* Ravel - Ondine
+* Ravel - Le Gibet
+* Ravel - Scarbo
+* Poulenc - Organ Concerto
+* Poulenc - Concerto
+* Debussy - Preludes
+
+#### Dissonant
+* Scriabin - Sonatas
+* Scriabin - Etudes
+
+#### Atonal
+* Messiaen - Preludes
+* Messiaen - Contemplations on the Infant Jesus 
+
+#### Experimental
+* Stockhausen - Klavierstucken
+
+It's worth pointing out that I've only shown you piano works, or works that included the piano, and that this barely scratches the surface of Classical Music! There are thousands of amazing Orchestral, Chamber, Choral, and Solo works for all other instruments. Since this is a Piano Studio and I'm a Piano Teacher, I thought I'd focus on this one small area and leave the rest for you. It's a very rewarding world, and you'll find immense joy in exploring it.
+
+<!-- /Salieri
+/Handel
+/Diabelli
+/Satie
+/Couperin -->
+
+{{/markdown}}
+</template>
+
+
+
+
+
+<template name="exercises">
+{{#markdown}}
+
+### {{important title}}
+
+Below are exercises for my students, organized by topic. At the very bottom are exercises for the highest skill levels. If you do those well in a category, you've mastered that category!
+
+#### Beginner's Essentials
+
+Keys
+
+* [White Keys](http://www.musictheory.net/exercises/keyboard/y9dyyyyy)
+* [Normal Black Keys](http://www.musictheory.net/exercises/keyboard/9yhdyyyy)
+* [Weird Black Keys](http://www.musictheory.net/exercises/keyboard/9yh9byyy)
+* [All Normal Keys](http://www.musictheory.net/exercises/keyboard/999dyyyy)
+* [All Weird Keys](http://www.musictheory.net/exercises/keyboard/9999byyy)
+
+Notes
+
+* [Treble Lines](http://www.musictheory.net/exercises/note/bgoyryyyyby)
+* [Treble Spaces](http://www.musictheory.net/exercises/note/bgoyryyyyny)
+* [Treble](http://www.musictheory.net/exercises/note/bgoyryyyyyy)
+* [Bass Lines](http://www.musictheory.net/exercises/note/ne1yryyyyby)
+* [Bass Spaces](http://www.musictheory.net/exercises/note/ne1yryyyyny)
+* [Bass](http://www.musictheory.net/exercises/note/ne1yryyyyyy)
+* [Easy Note](http://www.musictheory.net/exercises/note/oynsyryyyyyy)
+* [Easy Keyboard Note](http://www.musictheory.net/exercises/keyboard-reverse/oynsyryyyy)
+* [Intermediate Note](http://www.musictheory.net/exercises/note/oy991yqyryyyyyy)
+* [Intermediate Keyboard Note](http://www.musictheory.net/exercises/keyboard-reverse/oy991yqyryyyy)
+* [Advanced Note](http://www.musictheory.net/exercises/note/oy99qy1yryyyyyy)
+* [Advanced Keyboard Note](http://www.musictheory.net/exercises/keyboard-reverse/oy99qy1yryyyy)
+
+Generic Intervals
+
+* [Incomplete Generic](http://www.musictheory.net/exercises/generic-interval/oyrwyryxyyy)
+* [Easy Generic](http://www.musictheory.net/exercises/generic-interval/oyrwyry9dyy)
+* [Intermediate Generic](http://www.musictheory.net/exercises/generic-interval/oyrwyry9dyy)
+* [Advanced Generic](http://www.musictheory.net/exercises/generic-interval/oyrwyry9dyy)
+* [Huge Generic](http://www.musictheory.net/exercises/generic-interval/oyrwyryyhyx)
+
+Specific Intervals
+
+* [Perfects, Majors, Minors](http://www.musictheory.net/exercises/interval/oyrwyryyh98ybyy)
+* [All](http://www.musictheory.net/exercises/interval/oyrwyry99999byy)
+* [By Keyboard, Majors, Perfects](http://www.musictheory.net/exercises/keyboard-interval/4kdny)
+* [By Keyboard, All](http://www.musictheory.net/exercises/keyboard-interval/99dny)
+
+Key Signatures
+
+* [White Scale Key Signatures](http://www.musictheory.net/exercises/keysig/oyhxyyyy)
+* [Black Scale Key Signatures](http://www.musictheory.net/exercises/keysig/oydo9yyy)
+* [All Key Signatures](http://www.musictheory.net/exercises/keysig/oy999yyy)
+* [All Minor Scale Key Signatures](http://www.musictheory.net/exercises/keysig/oy999byy)
+
+Triads
+
+* [White Key, Majors/Minors, No Inversions](http://www.musictheory.net/exercises/chord/drwyrydyybyy)
+* [White Key, Majors/Minors, Inversions](http://www.musictheory.net/exercises/chord/drwyrydybbyy)
+* [White Key, All, No Inversions](http://www.musictheory.net/exercises/chord/drwyryxyybyy)
+* [White Key, All, Inversions](http://www.musictheory.net/exercises/chord/drwyryxybbyy)
+* [Normal Keys, Majors/Minors, No Inversions](http://www.musictheory.net/exercises/chord/drwyrydyynyy)
+* [Normal Keys, Majors/Minors, Inversions](http://www.musictheory.net/exercises/chord/drwyrydybnyy)
+* [Normal Keys, All, No Inversions](http://www.musictheory.net/exercises/chord/drwyryxyynyy)
+* [Normal Keys, All, Inversions](http://www.musictheory.net/exercises/chord/drwyryxybnyy)
+* [All Keys, Majors/Minors, No Inversions](http://www.musictheory.net/exercises/chord/drwyrydyydyy)
+* [All Keys, Majors/Minors, Inversions](http://www.musictheory.net/exercises/chord/drwyrydybdyy)
+* [All Keys, All, No Inversions](http://www.musictheory.net/exercises/chord/drwyryxyydyy)
+* [All Keys, All, Inversions](http://www.musictheory.net/exercises/chord/drwyryxybdyy)
+* [By Keyboard, Majors/Minors, No Inversions](http://www.musictheory.net/exercises/keyboard-chord/dyyyyy)
+* [By Keyboard, Majors/Minors, Inversions](http://www.musictheory.net/exercises/keyboard-chord/dybyyy)
+* [By Keyboard, All, No Inversions](http://www.musictheory.net/exercises/keyboard-chord/xyyyyy)
+* [By Keyboard, All, Inversions](http://www.musictheory.net/exercises/keyboard-chord/xybyyy)
+
+Seven Chords
+
+* [White Key, Majors/Minors, No Inversions](http://www.musictheory.net/exercises/chord/drwyryouybyy)
+* [White Key, Majors/Minors, Inversions](http://www.musictheory.net/exercises/chord/drwyryoubbyy)
+* [White Key, All, No Inversions](http://www.musictheory.net/exercises/chord/drwyryo9ybyd)
+* [White Key, All, Inversions](http://www.musictheory.net/exercises/chord/drwyryo9bbyd)
+* [Normal Key, Majors/Minors, No Inversions](http://www.musictheory.net/exercises/chord/drwyryouynyy)
+* [Normal Key, Majors/Minors, Inversions](http://www.musictheory.net/exercises/chord/drwyryoubnyy)
+* [Normal Key, All, No Inversions](http://www.musictheory.net/exercises/chord/drwyryo9ynyd)
+* [Normal Key, All, Inversions](http://www.musictheory.net/exercises/chord/drwyryo9bnyd)
+* [All Keys, Majors/Minors, No Inversions](http://www.musictheory.net/exercises/chord/drwyryouydyy)
+* [All Keys, Majors/Minors, Inversions](http://www.musictheory.net/exercises/chord/drwyryoubdyy)
+* [All Keys, All, No Inversions](http://www.musictheory.net/exercises/chord/drwyryo9ydyd)
+* [All Keys, All, Inversions](http://www.musictheory.net/exercises/chord/drwyryo9bdyd)
+* [By Keyboard, Majors/Minors, No Inversions](http://www.musictheory.net/exercises/keyboard-chord/ouyyyy)
+* [By Keyboard, Majors/Minors, Inversions](http://www.musictheory.net/exercises/keyboard-chord/oubyyy)
+* [By Keyboard, All, No Inversions](http://www.musictheory.net/exercises/keyboard-chord/o9yydy)
+* [By Keyboard, All, Inversions](http://www.musictheory.net/exercises/keyboard-chord/o9bydy)
+
+
+#### Mastery Series
+
+* [Notes](http://www.musictheory.net/exercises/keyboard-reverse/d16yg999byy)
+* [Key Signatures](http://www.musictheory.net/exercises/keysig/d999byy)
+* [Intervals](http://www.musictheory.net/exercises/interval/dy699999999ry)
+* [Chords](http://www.musictheory.net/exercises/chord/dy69999xbry)
+* [Interval Ear Training](http://www.musictheory.net/exercises/ear-interval/6988rbyr1sy)
+* [Chord Ear Training](http://www.musictheory.net/exercises/ear-chord/99db8rbyr1sy)
+* [Scale Ear Training](http://www.musictheory.net/exercises/ear-scale/999drbyr1sy)
+
+{{/markdown}}
+</template>
+
+
+
+
+
+<template name="web-lessons">
+{{#markdown}}
+
+Have you ever heard of Video Chatting? Skype? Google Hangouts? Have you ever used them? Would you be surprised to hear you can take piano lessons with them? The first time I heard of someone giving lessons over video chat I was intrigued, and I thought it was a great idea, since it could give any student in the world access to lessons! Have you been disappointed or unsatisfied with teachers in your area? Do you live in a small or remote town, and don't have any good teachers nearby? Do you live in a very expensive place, and all the teachers in your area are unaffordable? Are you an extremely busy person who doesn't have a lot of spare time to drive to lessons? Is your schedule difficult for teachers to work with? Or do you just prefer the comfort of home? Web lessons are a clean solution to all of those problems.
+
+Confused about how web lessons would work? It's pretty simple. Just set your computer and camera up by your piano, I'll do the same, and we'll have a lesson! Your camera should clearly show your hands, and being able to see your face would be nice too. During the lesson you may have to move the camera to let me see other things we're working on, such as your music or your pedals.
+
+I've chosen to use [Google Hangout](url) for these lessons, since I find it's most reliable and easy to use. If you've never used it before, just [set up an account](url) and [add me to your circles](url). Once you've done that, setting up a video call is easy, and I can help you if you need.
+
+<!-- A lot of the music you'll play I'll provide through the [repertoire section](/repertoire) of my site, so when we're working with that music, it will be easy for us to stay on the same page. When you buy your own music, we'll figure out a way to get me a copy so I can offer the best possible input. -->
+
+Wondering about prices and paying? These web lessons are the same price as [my normal lessons](/teaching/pricing), and all payments will be handled through your [user account](/user). If you don't have an account, [sign up for one](/login)!
+
+{{/markdown}}
+</template>
+
+
+
+
+
+<template name="bio">
+{{#markdown}}
+
+### {{important title}}
+
+I was born February 19, 1990, to Brad and Karen Hansen, in St. Marks Hospital. I was their first child, and they soon moved out of their newlywed apartment into a real house in Salt Lake.
+
+I was a serious and inquisitive child, but I also loved to laugh and imagine. Over the years, as we remodeled our small house, my brothers and sisters were added to the family, and I began the adventure of learning responsibility and patience.
+
+![Picture](/pictures/family.jpg)
+
+I began playing the piano at age 9, and although at first I was extrememly upset and didn't want to learn, 
+I slowly began to take hold of it as an enjoyable and challenging pastime.
+
+As I improved, it became the foremost passion of my life, and I began to progress very quickly. By 12, I was playing a movement of Mendelssohn's First Piano Concerto, a virtuosic hallmark of the standard repertoire. Soon I was beginning to acquaint myself with the work of Sergei Rachmaninoff, and after learning Movements from Beethoven's and Grieg's First Piano Concertos, I tackled Rachmaninoff's Second in my Sophomore year of High School.
+
+After being accepted to the University of Utah's Piano Performance Program, I elected to study with Vedrana Subotic, a piano faculty member at the U, towards a piano competition and recording career.
+
+![Picture](/pictures/piano.jpg)
+
+I have also been an avid martial artist since my Senior Year in High School. Being a balanced and rounded person is important to me, and I have always sought to ensure that all of my pursuits, while taken seriously, complemented and strengthened rather than competed with one another.
+
+![Picture](/pictures/qi.jpg)
+
+Happiness is key to success! Many think that Classical Music training is austere or boring, but there's no need for that to be true. Classical training is certainly the most rigorous and the most detailed, but it will prepare you best for any other type of music. 
+
+I love to laugh, and will always bring a light spirit and a smiling face along with my intensity and attention to detail.
+
+![Picture](/pictures/pink.jpg)
+
+I hope you decide to pursue piano lessons with me. Building oneself artistically is essential to a healthy and fulfilled life, and piano playing is a skill that will put a smile on your face as long as you live.
+
+Begin the adventure with me!
+
+![Picture](/pictures/forest.jpg)
+
+{{/markdown}}
+</template>
+
+
+
+
+
+
+<template name="contact">
+{{#markdown}}
+
+### {{important title}}
+
+{{important "Cell Phone:"}} 801-512-4844
+
+{{important "Email:"}} blainehansenclassicalpiano@gmail.com
+
+If you ever have questions, feel free to ask me! If your question is urgent, send me a text message and I will call you as soon as I'm available to do so. Otherwise, send me an email, and I will carefully and thoughtfully answer.
+
+I am currently teaching at {{important "Summerhays Music"}}, at [5420 S. Green Street, Murray UT, 84123](http://maps.google.com/maps?sugexp=chrome,mod%3D16&um=1&ie=UTF-8&q=summerhays+music&fb=1&gl=us&hq=summerhays+music&hnear=0x875264f8c14e6e49:0x5fe27acb10715499,Sandy,+UT&cid=0,0,12405200178927969731&sa=X&ei=ZPZtUIXiJYGciQKimYHABw&ved=0CIIBEPwSMAA). My studio is downstairs, across from the Recital Hall.
+
+If you'd like to write a positive review about my teaching, please visit my [KSL Local](http://local.ksl.com/listings/piano-teacher-salt-lake-valley/143102) page. If your feedback isn't positive, please contact me to see if we can work it out. I hope to make all of my students' lives better!
+
+{{/markdown}}
+</template>

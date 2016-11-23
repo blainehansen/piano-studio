@@ -1,0 +1,136 @@
+<!-- TODO break up templates by their use. -->
+<!-- TODO make the conversion to autoforms!!! -->
+<!-- TODO make state templates. -->
+
+
+<template name="teachingSideNav">
+	{{#each pages}}
+		{{#if equals contentTemplate 'teachingHome'}}
+			<div class="row">
+				<a href="{{pathFor 'teaching'}}"><div class="col-xs-12 side-nav-col">{{title}}</div></a>
+			</div>
+		{{else}} {{#if equals contentTemplate 'repertoireHome'}}
+			<div class="row">
+				<a href="{{pathFor 'repertoire'}}"><div class="col-xs-12 side-nav-col">{{title}}</div></a>
+			</div>
+		{{else}}
+			<div class="row">
+				<a href="{{pathFor 'teachingPost'}}"><div class="col-xs-12 side-nav-col">{{title}}</div></a>
+			</div>
+		{{/if}} {{/if}}
+		<!-- <div class="row">
+			<a href="{{pathFor 'teachingPost'}}"><div class="col-xs-12 side-nav-col">{{title}}</div></a>
+		</div> -->
+	{{/each}}
+</template>
+
+<template name="teachingPost">
+	<div class="row body-film">
+		{{#scroller classes="col-sm-9 fill-height"}}
+			<div class="content-block">
+				{{> Template.dynamic template=contentTemplate}}
+			</div>
+		{{/scroller}}
+
+		{{#scroller classes="col-sm-3 block-film"}}
+			{{> teachingSideNav}}
+		{{/scroller}}
+	</div>
+</template>
+
+<template name="projects">
+	<div class="row body-film">
+		{{#scroller classes="col-sm-12 fill-height"}}
+			<div class="projects-content-block">
+				{{> projectsTiles}}
+			</div>
+		{{/scroller}}
+
+		<!-- {{#scroller classes="col-sm-3 block-film"}} -->
+			<!-- {{> projectsNav}} -->
+		<!-- {{/scroller}} -->
+	</div>
+</template>
+
+<template name="projectsTiles">
+	<div class="row">
+		{{#each tileColumns}}
+			<div class="col-sm-6">
+				{{#each this}}
+					<div class="projects-tile">
+						<a href="{{pathFor 'projectsPost'}}"><div class="tile-content {{type}}">
+							<h3>{{colonHighlight title}}</h3>
+							{{youtubeEmbed media '4by3' null}}
+						</div></a>
+					</div>
+				{{/each}}
+			</div>
+		{{/each}}
+	</div>
+</template>
+
+<template name="projectsPost">
+	<div class="row body-film">
+		{{#scroller classes="col-sm-9 fill-height"}}
+			<div class="content-block">
+				<!-- {{#with post}} -->
+					{{> Template.dynamic template=contentTemplate}}
+				<!-- {{/with}} -->
+			</div>
+		{{/scroller}}
+
+		{{#scroller classes="col-sm-3 block-film"}}
+			<!-- {{> projectsNav}} -->
+
+			{{#each projects}}
+				<div class="row">
+					<a href="{{pathFor 'projectsPost'}}"><div class="col-xs-12 projects-post-col">{{title}}</div></a>
+				</div>
+			{{/each}}
+		{{/scroller}}
+	</div>
+</template>
+
+<template name="projectsNav">
+	<div class="row">
+		<a href="/projects#kickstarters"><div class="col-xs-12 projects-nav-col">Kickstarters</div></a>
+	</div>
+	<div class="row">
+		<a href="/projects#compositions"><div class="col-xs-12 projects-nav-col">Compositions</div></a>
+	</div>
+	<div class="row">
+		<a href="/projects#interpretations"><div class="col-xs-12 projects-nav-col">Interpretations</div></a>
+	</div>
+	<div class="row">
+		<a href="/projects#performances"><div class="col-xs-12 projects-nav-col">Performances</div></a>
+	</div>
+</template>
+
+<template name="blogPost">
+	<div class="row body-film">
+		{{#scroller classes="col-sm-9 fill-height"}}
+			<div class="content-block">
+				{{> Template.dynamic template=contentTemplate}}
+			</div>
+		{{/scroller}}
+
+		{{#scroller classes="col-sm-3 block-film"}}
+			{{> blogTree}}
+		{{/scroller}}
+	</div>
+</template>
+
+<template name="blogTree">
+	{{#each blogs}}
+		{{#if equals contentTemplate 'blogHome'}}
+			<div class="row">
+				<a href="{{pathFor 'blog'}}"><div class="col-xs-12 projects-nav-col">{{title}}</div></a>
+			</div>
+		{{else}}
+			<div class="row">
+				<a href="{{pathFor 'blogPost'}}"><div class="col-xs-12 projects-nav-col">{{title}}</div></a>
+			</div>
+		{{/if}}
+	{{/each}}
+</template>
+

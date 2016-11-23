@@ -1,0 +1,41 @@
+@studio-blue-hue: 199;
+@studio-orange-hue: 36;
+
+@studio-test-orange-hue: 59;
+@studio-test-purple-hue: 339;
+
+@studio-bright-saturation: 60%;
+@studio-grey-saturation: 25%;
+@studio-dim-saturation: 5%;
+
+@studio-white-lightness: 90%;
+@studio-normal-lightness: 50%;
+@studio-grey-lightness: 25%;
+@studio-black-lightness: 2%;
+
+@studio-bar-color: hsl(@studio-blue-hue, @studio-bright-saturation, @studio-black-lightness);
+@studio-side-nav-color: fadeout(@studio-bar-color, 10%);
+
+@studio-content-text-color: hsl(@studio-orange-hue, @studio-dim-saturation, @studio-white-lightness);
+@studio-content-link-color: hsl(@studio-blue-hue, @studio-bright-saturation, @studio-normal-lightness);
+@studio-content-link-hover-color: @studio-content-text-color;
+@studio-content-important-color: hsl(@studio-orange-hue, @studio-bright-saturation, @studio-normal-lightness);
+
+@studio-nav-text-color: hsl(@studio-orange-hue, @studio-dim-saturation, @studio-white-lightness);
+@studio-nav-text-hover-color: @studio-content-link-color;
+
+@studio-computed-text-color: @studio-bar-color;
+
+@youtube-red: #cd201f;
+@studio-youtube-red: darken(@youtube-red, 35%);
+@kickstarter-green: #76CC1E;
+@studio-kickstarter-green: darken(@kickstarter-green, 35%);
+.kickstarter {
+	color: @kickstarter-green;
+	&:hover {
+		color: @studio-kickstarter-green;
+	}
+}
+@twitter-blue: #4099FF;
+@facebook-blue: #3B5998;
+@soundcloud-orange: #FF6600;

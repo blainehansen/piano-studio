@@ -1,0 +1,261 @@
+<template name="admin">
+	{{> backgroundApp}}
+
+	{{#generalLayout}}
+
+	<div class="panel panel-default">
+		<div class="panel-heading">Entries to be Added</div>
+		<div class="panel-body">
+			{{#each entries}}
+				<div>
+					{{type}}: {{> entry type=type data=this}} 
+				</div>
+			{{else}}
+				There are no entries queued to save.
+			{{/each}}
+			{{#if entries}}<button id="saveEntries">Save Entries</button>{{/if}}
+		</div>
+		<div class="panel-footer">
+			<select id="entryType">
+				<option value="user">User</option>
+				<option value="student">Student</option>
+				<option value="lesson">Lesson</option>
+				<option value="payment">Payment</option>
+				<option value="studentexpense">Student Expense</option>
+				<option value="expense">Expense</option>
+			</select>
+			<div id="entryZone">{{> entry type=currentType data=null}}</div>
+			{{#if session "entryInputsInvalid"}}Fill in all fields.{{/if}}
+			{{#if session "entryInputsNumberInvalid"}}Your number input is no good!{{/if}}
+		</div>
+	</div>
+
+	{{> adminSearch}}
+
+	{{/generalLayout}}
+</template>
+
+<template name="entryDatePicker">
+	<input class="entryInput datepicker" name="date" type="text" value="{{date}}">
+</template>
+
+<template name="priceSelectView">
+	{{#each this}}
+		<option value="{{price}}" {{selected}}>{{description}}</option>
+	{{/each}}
+</template>
+
+<template name="entryUserInput">
+	<div class="row">
+		<div class="col-sm-4">
+			<input class="entryInput" name="firstname" type="text" placeholder="First Name"/>
+		</div>
+		<div class="col-sm-4">
+			<input class="entryInput" name="lastname" type="text" placeholder="Last Name"/>
+		</div>
+		<div class="col-sm-4">
+			<input class="entryInput" name="email" type="text" placeholder="Email"/>
+		</div>
+	</div>
+</template>
+
+<template name="entryUser">
+	{{#with data}}
+		{{firstname}} {{lastname}} {{email}}
+		<button class="removeEntry"><span class="glyphicon glyphicon-remove"></span></button>
+	{{/with}}
+</template>
+
+<template name="entryStudentInput">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="input-group">
+				<input class="entryInput form-control" id="query" autocomplete="off" name="query" type="text" placeholder="find a user"
+					{{queryPopulatedReadonly}}/>
+				<span class="input-group-btn">
+					<button id="cancelQuery" class="btn btn-default" type="button"
+					{{queryPopulatedDisabled}}>
+						<span class="glyphicon glyphicon-remove"></span>
+					</button>
+				</span>
+			</div>
+			<div class="list-group" {{queryShow}}>
+				{{#each queryResults 'users'}}
+					<a href="#" class="result list-group-item" data-id="{{_id}}">{{firstname}} {{lastname}}</a>
+				{{else}}
+					<a href="#" class="list-group-item">There are no results for that search.</a>
+				{{/each}}
+			</div>
+			<input class="entryInput" name="attach_id" type="hidden"/>
+		</div>
+		<div class="col-sm-6">
+			<select id="afterQuery" class="entryInput" name="price">
+				{{> priceSelectView priceOptions}}
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<input class="entryInput" name="firstname" type="text" placeholder="First Name"/>
+		</div>
+		<div class="col-sm-6">
+			<input class="entryInput" name="lastname" type="text" placeholder="Last Name"/>
+		</div>
+	</div>
+</template>
+	
+<template name="entryStudent">
+	{{#with data}}
+		{{firstname}} {{lastname}}: {{query}} ${{price}}
+		<button class="removeEntry"><span class="glyphicon glyphicon-remove"></span></button>
+	{{/with}}
+</template>
+
+<template name="entryLessonInput">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="input-group">
+				<input class="entryInput form-control" id="query" autocomplete="off" name="query" type="text" placeholder="find a student"
+					{{queryPopulatedReadonly}}/>
+				<span class="input-group-btn">
+					<button id="cancelQuery" class="btn btn-default" type="button"
+					{{queryPopulatedDisabled}}>
+						<span class="glyphicon glyphicon-remove"></span>
+					</button>
+				</span>
+			</div>
+			<div class="list-group" {{queryShow}}>
+				{{#each queryResults 'students'}}
+					<a href="#" class="result list-group-item" data-id="{{_id}}" data-price="{{price}}">{{firstname}} {{lastname}}</a>
+				{{else}}
+					<a href="#" class="list-group-item">There are no results for that search.</a>
+				{{/each}}
+			</div>
+			<input class="entryInput" name="attach_id" type="hidden"/>
+		</div>
+		<div class="col-sm-6">
+			<input id="afterQuery" class="entryInput" name="comments" type="text" placeholder="comments"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">{{> entryDatePicker}}</div>
+		{{#if priceSelectContext}}
+			<div class="col-sm-6">
+				<select class="entryInput" name="price">
+					{{> priceSelectView priceSelectContext}}
+				</select>
+			</div>
+		{{/if}}
+	</div>
+</template>
+
+<template name="entryLesson">
+	{{#with data}}
+		{{date}}: {{query}} ${{price}} {{comments}}
+		<button class="removeEntry"><span class="glyphicon glyphicon-remove"></span></button>
+	{{/with}}
+</template>
+
+<template name="entryPaymentInput">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="input-group">
+				<input class="entryInput form-control" id="query" autocomplete="off" name="query" type="text" placeholder="find a user"
+					{{queryPopulatedReadonly}}/>
+				<span class="input-group-btn">
+					<button id="cancelQuery" class="btn btn-default" type="button"
+					{{queryPopulatedDisabled}}>
+						<span class="glyphicon glyphicon-remove"></span>
+					</button>
+				</span>
+			</div>
+			<div class="list-group" {{queryShow}}>
+				{{#each queryResults 'users'}}
+					<a href="#" class="result list-group-item" data-id="{{_id}}">{{firstname}} {{lastname}}</a>
+				{{else}}
+					<a href="#" class="list-group-item">There are no results for that search.</a>
+				{{/each}}
+			</div>
+			<input class="entryInput" name="attach_id" type="hidden"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<input id="afterQuery" class="entryInput" name="amount" type="text" placeholder="amount"/>
+		</div>
+		<div class="col-sm-3">
+			<input class="entryInput" name="method" type="text" placeholder="payment method"/>
+		</div>
+		<div class="col-sm-3">{{> entryDatePicker}}</div>
+		<div class="col-sm-3">
+			<input class="entryInput" name="comments" type="text" placeholder="comments"/>
+		</div>
+	</div>
+</template>
+
+<template name="entryPayment">
+	{{#with data}}
+		{{date}}: {{query}} ${{amount}} {{method}} {{comments}}
+		<button class="removeEntry"><span class="glyphicon glyphicon-remove"></span></button>
+	{{/with}}
+</template>
+
+<template name="entryStudentExpenseInput">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="input-group">
+				<input class="entryInput form-control" id="query" autocomplete="off" name="query" type="text" placeholder="find a student"
+					{{queryPopulatedReadonly}}/>
+				<span class="input-group-btn">
+					<button id="cancelQuery" class="btn btn-default" type="button"
+					{{queryPopulatedDisabled}}>
+						<span class="glyphicon glyphicon-remove"></span>
+					</button>
+				</span>
+			</div>
+			<div class="list-group" {{queryShow}}>
+				{{#each queryResults 'students'}}
+					<a href="#" class="result list-group-item" data-id="{{_id}}">{{firstname}} {{lastname}}</a>
+				{{else}}
+					<a href="#" class="list-group-item">There are no results for that search.</a>
+				{{/each}}
+			</div>
+			<input class="entryInput" name="attach_id" type="hidden"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4">
+			<input id="afterQuery" class="entryInput" name="price" type="text" placeholder="price"/>
+		</div>
+		<div class="col-sm-4">{{> entryDatePicker}}</div>
+		<div class="col-sm-4">
+			<input class="entryInput" name="comments" type="text" placeholder="comments"/>
+		</div>
+	</div>
+</template>
+
+<template name="entryStudentExpense">
+	{{#with data}}
+		{{date}}: {{query}} ${{price}} {{comments}}
+		<button class="removeEntry"><span class="glyphicon glyphicon-remove"></span></button>
+	{{/with}}
+</template>
+
+<template name="entryExpenseInput">
+	<div class="row">
+		<div class="col-sm-4">{{> entryDatePicker}}</div>
+		<div class="col-sm-4">
+			<input class="entryInput" name="price" type="text" placeholder="price"/>
+		</div>
+		<div class="col-sm-4">
+			<input class="entryInput" name="comments" type="text" placeholder="comments"/>
+		</div>
+	</div>
+</template>
+
+<template name="entryExpense">
+	{{#with data}}
+		{{date}}: ${{price}} {{comments}}
+		<button class="removeEntry"><span class="glyphicon glyphicon-remove"></span></button>
+	{{/with}}
+</template>
