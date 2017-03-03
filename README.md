@@ -10,6 +10,6 @@ and the scores, available here:
 
 https://github.com/blainehansen/piano-studio/tree/master/public/scores
 
-You can download this project by clicking "clone or download" and then "Download ZIP".
+You can download this project by clicking the green "clone or download" button above, followed by "Download ZIP".
 
 I hope you find this helpful!
