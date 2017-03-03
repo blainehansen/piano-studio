@@ -24,7 +24,6 @@ Meteor.methods({
 		userObj.password = Random.hexString(10);
 
 		var emailContent = {
-			to: 'blainehansenclassicalpiano@gmail.com', from: 'postmaster@sandbox83338.mailgun.org',
 			subject: "User Created: " + userObj.firstname + ' ' + userObj.lastname,
 		};
 		if (userObj.email) {

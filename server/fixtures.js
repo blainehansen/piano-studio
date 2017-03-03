@@ -1,25 +1,21 @@
-if (Meteor.users.find().count() < 2) {
-	var record_id = '';
-	record_id = Accounts.createUser({email: 'faichenshing@gmail.com', password: "password"});
-	Meteor.users.update(record_id, 
-		{$set: {firstname: 'Blaine' , lastname: 'Hansen' , admin: true}});
-	record_id = Accounts.createUser({email: 'dude@gmail.com', password: "password"});
-	Meteor.users.update(record_id, {$set: {firstname: 'Dude' , lastname: 'Archer'}});
-	record_id = Accounts.createUser({email: 'guy@gmail.com', password: "password"});
-	Meteor.users.update(record_id, {$set: {firstname: 'Guy' , lastname: 'Archer'}});
-	record_id = Accounts.createUser({email: 'man@gmail.com', password: "password"});
-	Meteor.users.update(record_id, {$set: {firstname: 'Man' , lastname: 'Archer'}});
-	record_id = Accounts.createUser({email: 'bro@gmail.com', password: "password"});
-	Meteor.users.update(record_id, {$set: {firstname: 'Bro' , lastname: 'Archer'}});
-}
+// if (Meteor.users.find().count() < 2) {
+// 	var record_id = '';
+// 	record_id = Accounts.createUser({email: 'dude@gmail.com', password: "password"});
+// 	Meteor.users.update(record_id, {$set: {firstname: 'Dude' , lastname: 'Archer'}});
+// 	record_id = Accounts.createUser({email: 'guy@gmail.com', password: "password"});
+// 	Meteor.users.update(record_id, {$set: {firstname: 'Guy' , lastname: 'Archer'}});
+// 	record_id = Accounts.createUser({email: 'man@gmail.com', password: "password"});
+// 	Meteor.users.update(record_id, {$set: {firstname: 'Man' , lastname: 'Archer'}});
+// 	record_id = Accounts.createUser({email: 'bro@gmail.com', password: "password"});
+// 	Meteor.users.update(record_id, {$set: {firstname: 'Bro' , lastname: 'Archer'}});
+// }
 
-var blaine = Meteor.users.findOne({firstname: "Blaine", lastname: "Hansen", admin: true});
-if (blaine) {
-	Roles.addUsersToRoles(blaine._id, 'admin', Roles.GLOBAL_GROUP);
-	Meteor.users.update(blaine._id, {$unset: {admin: ''}});
-}
+// var blaine = Meteor.users.findOne({firstname: "Blaine", lastname: "Hansen", admin: true});
+// if (blaine) {
+// 	Roles.addUsersToRoles(blaine._id, 'admin', Roles.GLOBAL_GROUP);
+// 	Meteor.users.update(blaine._id, {$unset: {admin: ''}});
+// }
 
-Accounts.emailTemplates.from = "Blaine Hansen <blainehansenclassicalpiano@gmail.com>";
 Accounts.emailTemplates.siteName = "Blaine Hansen Piano";
 Accounts.emailTemplates.resetPassword.subject = function (user) {
 	return "Blaine Hansen Piano: " + user.firstname + ' ' + user.lastname + " Password Reset";
